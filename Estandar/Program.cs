@@ -15,7 +15,17 @@ namespace Estandar
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            Login login = new Login();
+            Application.Run(login);
+            if (login.credencialesCorrectos)
+            {
+                Application.Run(new General());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
     }
 }

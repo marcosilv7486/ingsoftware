@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Estandar
 {
-    public partial class Form1 : Form
+    public partial class General : Form
     {
-        public Form1()
+        public General()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace Estandar
 {
-    partial class Form1
+    partial class General
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // General
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.ClientSize = new System.Drawing.Size(692, 408);
+            this.IsMdiContainer = true;
+            this.Name = "General";
+            this.Text = "General";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
     }
 }
-
