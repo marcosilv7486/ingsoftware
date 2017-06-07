@@ -2,3 +2,7 @@ Negocio/obj/*
 Estandar/obj/*
 Data/obj/*
 Dominio/obj/*
+Negocio/bin/*
+Estandar/bin/*
+Data/bin/*
+Dominio/bin/*
