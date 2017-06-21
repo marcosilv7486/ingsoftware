@@ -30,5 +30,16 @@ namespace Estandar
         {
             Close();
         }
+
+        private void GenerarSolicitud_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            BuscarAlumno buscarSolicitud = new BuscarAlumno();
+            buscarSolicitud.Show();
+        }
     }
 }

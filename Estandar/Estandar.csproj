@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BuscarAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarAlumno.Designer.cs">
+      <DependentUpon>BuscarAlumno.cs</DependentUpon>
+    </Compile>
     <Compile Include="General.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BuscarAlumno.resx">
+      <DependentUpon>BuscarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="General.resx">
       <DependentUpon>General.cs</DependentUpon>
     </EmbeddedResource>

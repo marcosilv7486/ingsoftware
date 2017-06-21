@@ -9,13 +9,12 @@ namespace Dominio
     /// Clase que representa los numero o codigos correlativos de los 
     /// documento en la aplicacion.
     /// </summary>
-    public class SerieDocumento
+    public class SerieDocumento :BasicDomain
     {
-        public int id { get; set; }
+     
         public String nombreDocumento { get; set; }
         public String serie { get; set; }
         public String numero { get; set; }
-        public DateTime fechaRegistro { get; set; }
-        public bool eliminado { get; set; }
+     
     }
 }
