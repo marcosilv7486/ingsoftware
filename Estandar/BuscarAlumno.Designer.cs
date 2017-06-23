@@ -43,11 +43,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader8,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -55,7 +57,9 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7});
+            this.listView1.FullRowSelect = true;
             this.listView1.Location = new System.Drawing.Point(6, 69);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(752, 200);
             this.listView1.TabIndex = 0;
@@ -65,36 +69,43 @@
             // 
             // columnHeader1
             // 
+            this.columnHeader1.DisplayIndex = 0;
             this.columnHeader1.Text = "Codigo";
             this.columnHeader1.Width = 75;
             // 
             // columnHeader2
             // 
+            this.columnHeader2.DisplayIndex = 1;
             this.columnHeader2.Text = "Nombre";
             this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
+            this.columnHeader3.DisplayIndex = 2;
             this.columnHeader3.Text = "Apellidos";
             this.columnHeader3.Width = 150;
             // 
             // columnHeader4
             // 
+            this.columnHeader4.DisplayIndex = 3;
             this.columnHeader4.Text = "Documento";
             this.columnHeader4.Width = 80;
             // 
             // columnHeader5
             // 
+            this.columnHeader5.DisplayIndex = 4;
             this.columnHeader5.Text = "Numero";
             this.columnHeader5.Width = 80;
             // 
             // columnHeader6
             // 
+            this.columnHeader6.DisplayIndex = 5;
             this.columnHeader6.Text = "Programa";
             this.columnHeader6.Width = 150;
             // 
             // columnHeader7
             // 
+            this.columnHeader7.DisplayIndex = 6;
             this.columnHeader7.Text = "Plan Curricular";
             this.columnHeader7.Width = 100;
             // 
@@ -155,6 +166,12 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Numero de documento";
             // 
+            // columnHeader8
+            // 
+            this.columnHeader8.DisplayIndex = 7;
+            this.columnHeader8.Text = "id";
+            this.columnHeader8.Width = 0;
+            // 
             // BuscarAlumno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -193,5 +210,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
     }
 }

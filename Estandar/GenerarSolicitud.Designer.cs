@@ -30,31 +30,31 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtProgramaPosGrado = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtGradoAcademico = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtNumeroDocumento = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtDocumento = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtApellidos = new System.Windows.Forms.TextBox();
+            this.txtNombres = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaSolicitud = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtNombreTesis = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -65,21 +65,21 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.txtProgramaPosGrado);
             this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.txtGradoAcademico);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(this.txtNumeroDocumento);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.txtDocumento);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtApellidos);
+            this.groupBox1.Controls.Add(this.txtNombres);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtCodigo);
             this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(634, 209);
@@ -93,18 +93,18 @@
             this.pictureBox1.Image = global::Estandar.Properties.Resources.id_card_3;
             this.pictureBox1.Location = new System.Drawing.Point(450, 20);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(150, 174);
+            this.pictureBox1.Size = new System.Drawing.Size(150, 157);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox7
+            // txtProgramaPosGrado
             // 
-            this.textBox7.Enabled = false;
-            this.textBox7.Location = new System.Drawing.Point(116, 179);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(257, 20);
-            this.textBox7.TabIndex = 13;
+            this.txtProgramaPosGrado.Enabled = false;
+            this.txtProgramaPosGrado.Location = new System.Drawing.Point(116, 179);
+            this.txtProgramaPosGrado.Name = "txtProgramaPosGrado";
+            this.txtProgramaPosGrado.Size = new System.Drawing.Size(484, 20);
+            this.txtProgramaPosGrado.TabIndex = 13;
             // 
             // label7
             // 
@@ -115,13 +115,13 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Programa Posgrado:";
             // 
-            // textBox6
+            // txtGradoAcademico
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(116, 150);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(257, 20);
-            this.textBox6.TabIndex = 11;
+            this.txtGradoAcademico.Enabled = false;
+            this.txtGradoAcademico.Location = new System.Drawing.Point(116, 150);
+            this.txtGradoAcademico.Name = "txtGradoAcademico";
+            this.txtGradoAcademico.Size = new System.Drawing.Size(257, 20);
+            this.txtGradoAcademico.TabIndex = 11;
             // 
             // label6
             // 
@@ -132,13 +132,13 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "Grado Academico:";
             // 
-            // textBox5
+            // txtNumeroDocumento
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(271, 120);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(102, 20);
-            this.textBox5.TabIndex = 9;
+            this.txtNumeroDocumento.Enabled = false;
+            this.txtNumeroDocumento.Location = new System.Drawing.Point(271, 120);
+            this.txtNumeroDocumento.Name = "txtNumeroDocumento";
+            this.txtNumeroDocumento.Size = new System.Drawing.Size(102, 20);
+            this.txtNumeroDocumento.TabIndex = 9;
             // 
             // label5
             // 
@@ -149,13 +149,13 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Nº Documento:";
             // 
-            // textBox4
+            // txtDocumento
             // 
-            this.textBox4.Enabled = false;
-            this.textBox4.Location = new System.Drawing.Point(77, 120);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(102, 20);
-            this.textBox4.TabIndex = 8;
+            this.txtDocumento.Enabled = false;
+            this.txtDocumento.Location = new System.Drawing.Point(77, 120);
+            this.txtDocumento.Name = "txtDocumento";
+            this.txtDocumento.Size = new System.Drawing.Size(102, 20);
+            this.txtDocumento.TabIndex = 8;
             // 
             // label4
             // 
@@ -166,21 +166,21 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Documento:";
             // 
-            // textBox3
+            // txtApellidos
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(75, 88);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(298, 20);
-            this.textBox3.TabIndex = 6;
+            this.txtApellidos.Enabled = false;
+            this.txtApellidos.Location = new System.Drawing.Point(75, 88);
+            this.txtApellidos.Name = "txtApellidos";
+            this.txtApellidos.Size = new System.Drawing.Size(298, 20);
+            this.txtApellidos.TabIndex = 6;
             // 
-            // textBox2
+            // txtNombres
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(75, 56);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(159, 20);
-            this.textBox2.TabIndex = 5;
+            this.txtNombres.Enabled = false;
+            this.txtNombres.Location = new System.Drawing.Point(75, 56);
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Size = new System.Drawing.Size(159, 20);
+            this.txtNombres.TabIndex = 5;
             // 
             // label3
             // 
@@ -219,12 +219,12 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Codigo:";
             // 
-            // textBox1
+            // txtCodigo
             // 
-            this.textBox1.Location = new System.Drawing.Point(75, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtCodigo.Location = new System.Drawing.Point(75, 23);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(159, 20);
+            this.txtCodigo.TabIndex = 0;
             // 
             // label8
             // 
@@ -254,12 +254,12 @@
             this.label9.Text = "Fecha Solicitud:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // dateTimePicker1
+            // dtFechaSolicitud
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(384, 17);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dtFechaSolicitud.Location = new System.Drawing.Point(384, 17);
+            this.dtFechaSolicitud.Name = "dtFechaSolicitud";
+            this.dtFechaSolicitud.Size = new System.Drawing.Size(200, 20);
+            this.dtFechaSolicitud.TabIndex = 8;
             // 
             // label10
             // 
@@ -270,13 +270,13 @@
             this.label10.TabIndex = 9;
             this.label10.Text = "Nombre de la tesis";
             // 
-            // textBox9
+            // txtNombreTesis
             // 
-            this.textBox9.Location = new System.Drawing.Point(118, 272);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(267, 37);
-            this.textBox9.TabIndex = 10;
+            this.txtNombreTesis.Location = new System.Drawing.Point(118, 272);
+            this.txtNombreTesis.Multiline = true;
+            this.txtNombreTesis.Name = "txtNombreTesis";
+            this.txtNombreTesis.Size = new System.Drawing.Size(267, 37);
+            this.txtNombreTesis.TabIndex = 10;
             // 
             // label11
             // 
@@ -304,13 +304,13 @@
             this.label12.TabIndex = 13;
             this.label12.Text = "Observaciones:";
             // 
-            // textBox10
+            // txtObservaciones
             // 
-            this.textBox10.Location = new System.Drawing.Point(494, 275);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(152, 53);
-            this.textBox10.TabIndex = 14;
+            this.txtObservaciones.Location = new System.Drawing.Point(494, 275);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(152, 53);
+            this.txtObservaciones.TabIndex = 14;
             // 
             // button2
             // 
@@ -348,13 +348,13 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox10);
+            this.Controls.Add(this.txtObservaciones);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.txtNombreTesis);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dtFechaSolicitud);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label8);
@@ -377,28 +377,28 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtApellidos;
+        private System.Windows.Forms.TextBox txtNombres;
+        private System.Windows.Forms.TextBox txtNumeroDocumento;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtDocumento;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtProgramaPosGrado;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtGradoAcademico;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtFechaSolicitud;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtNombreTesis;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

@@ -41,9 +41,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AlumnoRepository.cs" />
+    <Compile Include="EstadoSolicitudRepository.cs" />
     <Compile Include="HelperDB.cs" />
     <Compile Include="IAlumnoRepository.cs" />
+    <Compile Include="IEstadoSolicitudRepository.cs" />
+    <Compile Include="ISerieDocumentoRepository.cs" />
+    <Compile Include="ISolicitudRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SerieDocumentoRepository.cs" />
+    <Compile Include="SolicitudRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Dominio\Dominio.csproj">

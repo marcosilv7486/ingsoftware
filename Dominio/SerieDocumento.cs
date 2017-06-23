@@ -12,7 +12,8 @@ namespace Dominio
     public class SerieDocumento :BasicDomain
     {
      
-        public String nombreDocumento { get; set; }
+        public String nombre { get; set; }
+        public String tipo { get; set; }
         public String serie { get; set; }
         public String numero { get; set; }
      

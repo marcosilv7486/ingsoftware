@@ -17,7 +17,7 @@ namespace Data
         /// <returns>SqlConnection</returns>
         public static SqlConnection GetSqlConnection()
         {
-            string connectionString = "Provider=SQLNCLI10;Server=.;Database=BD_TESIS;Uid=sa;Pwd=sql";
+            string connectionString = "Server=.;Database=BD_TESIS;Uid=sa;Pwd=sql";
             var connection = new SqlConnection(connectionString);
             connection.Open();
             return connection;
