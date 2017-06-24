@@ -93,7 +93,7 @@ namespace Negocio
                 serieDocumento.numero = strNumero;
                 serieDocumentoRepository.modificar(serieDocumento, cn, transaccion);
                 //Asociar el correlativo
-                solicitud.codigo = serieDocumento.serie + strNumero;
+                solicitud.codigo = serieDocumento.serie+"-" + strNumero;
                 //Obtener El estado GENERADO
                 SolicitudEstado estadoGenerado = estadoSolicitudRepository.obtenerPorId(1, cn,transaccion);
                 if(estadoGenerado==null)
