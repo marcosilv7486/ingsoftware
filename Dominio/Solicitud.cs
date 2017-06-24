@@ -28,10 +28,13 @@ namespace Dominio
         public String motivoDesaprobacion { get; set; }
         public DateTime fechaFinalizacion { get; set; }
 
+        public List<SolicitudTema> temas { get; set; }
+
         public Solicitud()
         {
             alumno =  new Alumno();
             estadoSolicitud = new SolicitudEstado();
+            temas = new List<SolicitudTema>();
         }
     }
 }

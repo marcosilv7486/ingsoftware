@@ -14,13 +14,16 @@ namespace Negocio
         private ISerieDocumentoRepository serieDocumentoRepository;
         private ISolicitudRepository solicitudRepository;
         private IEstadoSolicitudRepository estadoSolicitudRepository;
-
+        private ITesisTemaRepository tesisTemaRepository;
+        private ISolicitudTemaRepository solicitudTemaRepository;
         public GestionTesis()
         {
             alumnoRepository = new AlumnoRepository();
             serieDocumentoRepository = new SerieDocumentoRepository();
             solicitudRepository = new SolicitudRepository();
             estadoSolicitudRepository = new EstadoSolicitudRepository();
+            tesisTemaRepository = new TesisTemaRepository();
+            solicitudTemaRepository = new SolicitudTemaRepository();
         }
         
         public List<Alumno> obtenerAlumnosHabilitados()
@@ -80,12 +83,30 @@ namespace Negocio
             try
             {
                 cn = HelperDB.GetSqlConnection();
-                SerieDocumento serieDocumento = serieDocumentoRepository.obtenerUltimo("Solicitud", cn);
+                //Inicio de la transaccion
+                transaccion = cn.BeginTransaction();
+                //Obtener el correlativo del documento y modificarlos
+                SerieDocumento serieDocumento = serieDocumentoRepository.obtenerUltimo("SOLICITUD", cn,transaccion);
                 if (serieDocumento == null)
                     throw new ArgumentNullException("No se encontro la serie para la solicitud");
-                transaccion = cn.BeginTransaction();
+                String strNumero = String.Format("{0:D8}", int.Parse(serieDocumento.numero) + 1);
+                serieDocumento.numero = strNumero;
+                serieDocumentoRepository.modificar(serieDocumento, cn, transaccion);
+                //Asociar el correlativo
+                solicitud.codigo = serieDocumento.serie + strNumero;
+                //Obtener El estado GENERADO
+                SolicitudEstado estadoGenerado = estadoSolicitudRepository.obtenerPorId(1, cn,transaccion);
+                if(estadoGenerado==null)
+                    throw new ArgumentNullException("No se encontro el estado GENERADO para la solicitud");
+                solicitud.estadoSolicitud = estadoGenerado;
+                solicitud.nombreEstado = estadoGenerado.nombre;
                 solicitudRepository.registrarSolicitud(solicitud, cn, transaccion);
-                serieDocumentoRepository.modificar(serieDocumento, cn,transaccion);
+                //Registrar los temas de la solicitud
+                foreach(SolicitudTema tema in solicitud.temas)
+                {
+                    tema.solicitud = solicitud;
+                    solicitudTemaRepository.registrarSolicitudTema(tema, cn, transaccion);
+                }
                 transaccion.Commit();
             }
             catch (Exception e)
@@ -93,7 +114,41 @@ namespace Negocio
                 Console.WriteLine(e.Message);
                 transaccion.Rollback();
                 throw new Exception(e.Message);
-            } 
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+        }
+
+
+        public List<TemaTesis> obtenerTesisHabilitadas()
+        {
+
+            SqlConnection cn = null;
+            List<TemaTesis> data = new List<TemaTesis>();
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                data = tesisTemaRepository.obtenerHabilitados(cn);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+            return data;
         }
     }
 }

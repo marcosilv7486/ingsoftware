@@ -52,14 +52,16 @@
             this.label10 = new System.Windows.Forms.Label();
             this.txtNombreTesis = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.listBoxTemas = new System.Windows.Forms.CheckedListBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -264,7 +266,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 272);
+            this.label10.Location = new System.Drawing.Point(6, 26);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(94, 13);
             this.label10.TabIndex = 9;
@@ -272,33 +274,33 @@
             // 
             // txtNombreTesis
             // 
-            this.txtNombreTesis.Location = new System.Drawing.Point(118, 272);
-            this.txtNombreTesis.Multiline = true;
+            this.txtNombreTesis.Location = new System.Drawing.Point(113, 23);
+            this.txtNombreTesis.MaxLength = 200;
             this.txtNombreTesis.Name = "txtNombreTesis";
-            this.txtNombreTesis.Size = new System.Drawing.Size(267, 37);
+            this.txtNombreTesis.Size = new System.Drawing.Size(484, 20);
             this.txtNombreTesis.TabIndex = 10;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 326);
+            this.label11.Location = new System.Drawing.Point(6, 55);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(42, 13);
             this.label11.TabIndex = 11;
             this.label11.Text = "Temas:";
             // 
-            // checkedListBox1
+            // listBoxTemas
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(118, 326);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(267, 64);
-            this.checkedListBox1.TabIndex = 12;
+            this.listBoxTemas.FormattingEnabled = true;
+            this.listBoxTemas.Location = new System.Drawing.Point(113, 55);
+            this.listBoxTemas.Name = "listBoxTemas";
+            this.listBoxTemas.Size = new System.Drawing.Size(484, 79);
+            this.listBoxTemas.TabIndex = 12;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(407, 275);
+            this.label12.Location = new System.Drawing.Point(6, 150);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 13);
             this.label12.TabIndex = 13;
@@ -306,24 +308,26 @@
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(494, 275);
+            this.txtObservaciones.Location = new System.Drawing.Point(113, 150);
+            this.txtObservaciones.MaxLength = 200;
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(152, 53);
+            this.txtObservaciones.Size = new System.Drawing.Size(484, 24);
             this.txtObservaciones.TabIndex = 14;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(12, 410);
+            this.button2.Location = new System.Drawing.Point(15, 453);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 15;
             this.button2.Text = "Guardar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(116, 410);
+            this.button3.Location = new System.Drawing.Point(104, 453);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 16;
@@ -332,7 +336,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(217, 410);
+            this.button4.Location = new System.Drawing.Point(202, 453);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 17;
@@ -340,31 +344,43 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.txtObservaciones);
+            this.groupBox2.Controls.Add(this.listBoxTemas);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.txtNombreTesis);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Location = new System.Drawing.Point(15, 263);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(631, 184);
+            this.groupBox2.TabIndex = 18;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Informacion de la Solicitud";
+            // 
             // GenerarSolicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 454);
+            this.ClientSize = new System.Drawing.Size(658, 485);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.txtObservaciones);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.checkedListBox1);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.txtNombreTesis);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.dtFechaSolicitud);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox8);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Name = "GenerarSolicitud";
-            this.Text = "GenerarSolicitud";
+            this.Text = "Generar Nueva Solicitud";
             this.Load += new System.EventHandler(this.GenerarSolicitud_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -396,11 +412,12 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtNombreTesis;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.CheckedListBox checkedListBox1;
+        private System.Windows.Forms.CheckedListBox listBoxTemas;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

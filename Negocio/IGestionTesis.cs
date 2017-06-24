@@ -10,5 +10,6 @@ namespace Negocio
         List<Alumno> obtenerAlumnosHabilitados();
         Alumno buscarPorCodigo(String codigo);
         void registrarSolicitud(Solicitud solicitud);
+        List<TemaTesis> obtenerTesisHabilitadas();
     }
 }

@@ -48,6 +48,8 @@
     <Compile Include="SerieDocumento.cs" />
     <Compile Include="Solicitud.cs" />
     <Compile Include="SolicitudEstado.cs" />
+    <Compile Include="SolicitudTema.cs" />
+    <Compile Include="TemaTesis.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

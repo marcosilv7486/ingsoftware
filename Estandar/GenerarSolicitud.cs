@@ -14,13 +14,26 @@ namespace Estandar
     {
         private Alumno alumno;
         private IGestionTesis gestionTesis;
+        private Solicitud solicitud;
+        private List<TemaTesis> temasTesis;
         
         public GenerarSolicitud()
         {
             InitializeComponent();
             gestionTesis = new GestionTesis();
             alumno = new Alumno();
+            solicitud = new Solicitud();
+            cargarTesis();
             txtCodigo.KeyDown += new KeyEventHandler(txtCodigo_KeyDown);
+        }
+
+        private void cargarTesis()
+        {
+            temasTesis = gestionTesis.obtenerTesisHabilitadas();
+            foreach(TemaTesis tesis in temasTesis)
+            {
+                listBoxTemas.Items.Add(tesis);
+            }
         }
 
         void txtCodigo_KeyDown(object sender, KeyEventArgs e)
@@ -31,7 +44,7 @@ namespace Estandar
                 if (busqueda == null)
                 {
                     MessageBox.Show("No se encontro el alumno con codigo " + txtCodigo.Text);
-                    limpiarDatosAlumno();
+                    limpiarData();
                 }
                 else
                 {
@@ -41,8 +54,10 @@ namespace Estandar
             }
         }
 
-        private void limpiarDatosAlumno()
+        private void limpiarData()
         {
+            alumno = new Alumno();
+            solicitud = new Solicitud();
             txtCodigo.Text = "";
             txtApellidos.Text = "";
             txtNombres.Text = "";
@@ -50,11 +65,19 @@ namespace Estandar
             txtNumeroDocumento.Text = "";
             txtDocumento.Text = "";
             txtGradoAcademico.Text = "";
-            alumno = new Alumno();
+            txtObservaciones.Text = "";
+            txtNombreTesis.Text = "";
+            listBoxTemas.ClearSelected();
+            foreach (int i in listBoxTemas.CheckedIndices)
+            {
+                listBoxTemas.SetItemCheckState(i, CheckState.Unchecked);
+            }
+           
         }
 
         private void cargarDatosAlumnos(Alumno alumno)
         {
+            this.alumno = alumno;
             txtCodigo.Text = alumno.codigo;
             txtApellidos.Text = alumno.apellidos;
             txtNombres.Text = alumno.nombre;
@@ -62,6 +85,47 @@ namespace Estandar
             txtNumeroDocumento.Text = alumno.numeroDocumento;
             txtDocumento.Text = alumno.tipoDocumento;
             txtGradoAcademico.Text = alumno.gradoAcademico;
+        }
+
+        private Solicitud generarSolicitud()
+        {
+            Solicitud solicitud = new Solicitud();
+            if (alumno.id==0)
+            {
+                MessageBox.Show("Debe seleccionar primero un alumno ");
+                return null;
+            }
+            if (txtNombreTesis.Text == String.Empty || txtNombreTesis.Text.Equals(""))
+            {
+                MessageBox.Show("Debe seleccionar escribir el nombre de la tesis ");
+                return null;
+            }
+            if (listBoxTemas.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Debe seleccionar por lo menos un tema de la tesis");
+                return null;
+            }
+            solicitud.alumno = alumno;
+            solicitud.fechaEmision = dtFechaSolicitud.Value;
+            solicitud.observaciones = txtObservaciones.Text;
+            solicitud.nombreTesis = txtNombreTesis.Text;
+            solicitud.codigoAlumnoSol = alumno.codigo;
+            solicitud.nombreSol = alumno.nombre;
+            solicitud.apellidosSol = alumno.apellidos;
+            solicitud.programaPostGrado = alumno.programaPostGrado.nombrePrograma;
+            solicitud.numeroDocumentoSol = alumno.numeroDocumento;
+            solicitud.tipoDocumentoSol = alumno.tipoDocumento;
+            solicitud.gradoAcademicoSol = alumno.gradoAcademico;
+            foreach (object obj in listBoxTemas.CheckedItems)
+            {
+                TemaTesis tesis = (TemaTesis)obj;
+                SolicitudTema solicitudTema = new SolicitudTema();
+                solicitudTema.tema = tesis;
+                solicitudTema.solicitud = solicitud;
+                solicitud.temas.Add(solicitudTema);
+            }
+
+            return solicitud;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)
@@ -94,6 +158,26 @@ namespace Estandar
                 {
                     cargarDatosAlumnos(form.obtenerAlumnoSeleccionado());
                 }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Solicitud solicitud = generarSolicitud();
+            if (solicitud != null)
+            {
+                try
+                {
+                    gestionTesis.registrarSolicitud(solicitud);
+                    MessageBox.Show("Se registro correctamente la solicitud , el codigo es "+solicitud.codigo);
+                    limpiarData();
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show("Ocurrio Un error ");
+                    MessageBox.Show(exp.Message);
+                }
+               
             }
         }
     }

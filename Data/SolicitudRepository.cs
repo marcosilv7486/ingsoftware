@@ -16,20 +16,24 @@ namespace Data
             if (transaccion != null)
                 comando.Transaction = transaccion;
             comando.CommandType = System.Data.CommandType.StoredProcedure;
-            comando.Parameters.AddWithValue("@CODIGO", SqlDbType.VarChar).Value = solicitud.codigo;
-            comando.Parameters.AddWithValue("@FECHA_EMISION", SqlDbType.Date).Value = solicitud.fechaEmision;
-            comando.Parameters.AddWithValue("@CODIGO_ALUMNO", SqlDbType.VarChar).Value = solicitud.codigoAlumnoSol;
-            comando.Parameters.AddWithValue("@NOMBRES_SOL", SqlDbType.VarChar).Value = solicitud.nombreSol;
-            comando.Parameters.AddWithValue("@APELLIDOS_SOL", SqlDbType.VarChar).Value = solicitud.apellidosSol;
-            comando.Parameters.AddWithValue("@TIPO_DOCUMENTO_SOL", SqlDbType.VarChar).Value = solicitud.tipoDocumentoSol;
-            comando.Parameters.AddWithValue("@NUMERO_DOCUMENTO_SOL", SqlDbType.VarChar).Value = solicitud.numeroDocumentoSol;
-            comando.Parameters.AddWithValue("@GRADO_ACADEMICO_SOL", SqlDbType.VarChar).Value = solicitud.gradoAcademicoSol;
-            comando.Parameters.AddWithValue("@PROGRAMA_POSTGRADO", SqlDbType.VarChar).Value = solicitud.programaPostGrado;
-            comando.Parameters.AddWithValue("@NOMBRE_TESIS", SqlDbType.VarChar).Value = solicitud.nombreTesis;
-            comando.Parameters.AddWithValue("@OBSERVACIONES", SqlDbType.VarChar).Value = solicitud.observaciones;
-            comando.Parameters.AddWithValue("@ALUMNO_ID", SqlDbType.Int).Value = solicitud.alumno.id;
-            comando.Parameters.AddWithValue("@SOLICITUD_ESTADO_ID", SqlDbType.Int).Value = solicitud.estadoSolicitud.id;
+            comando.Parameters.AddWithValue("@CODIGO", solicitud.codigo);
+            comando.Parameters.AddWithValue("@FECHA_EMISION", solicitud.fechaEmision);
+            comando.Parameters.AddWithValue("@CODIGO_ALUMNO", solicitud.codigoAlumnoSol);
+            comando.Parameters.AddWithValue("@NOMBRES_SOL", solicitud.nombreSol);
+            comando.Parameters.AddWithValue("@APELLIDOS_SOL", solicitud.apellidosSol);
+            comando.Parameters.AddWithValue("@TIPO_DOCUMENTO_SOL", solicitud.tipoDocumentoSol);
+            comando.Parameters.AddWithValue("@NUMERO_DOCUMENTO_SOL", solicitud.numeroDocumentoSol);
+            comando.Parameters.AddWithValue("@GRADO_ACADEMICO_SOL", solicitud.gradoAcademicoSol);
+            comando.Parameters.AddWithValue("@PROGRAMA_POSTGRADO", solicitud.programaPostGrado);
+            comando.Parameters.AddWithValue("@NOMBRE_TESIS", solicitud.nombreTesis);
+            comando.Parameters.AddWithValue("@OBSERVACIONES", solicitud.observaciones);
+            comando.Parameters.AddWithValue("@ALUMNO_ID", solicitud.alumno.id);
+            comando.Parameters.AddWithValue("@SOLICITUD_ESTADO_ID", solicitud.estadoSolicitud.id);
+            comando.Parameters.AddWithValue("@NOMBRE_ESTADO", solicitud.nombreEstado);
+            comando.Parameters.Add("@ID", SqlDbType.Int);
+            comando.Parameters["@ID"].Direction = ParameterDirection.Output;
             comando.ExecuteNonQuery();
+            solicitud.id = int.Parse(comando.Parameters["@ID"].Value.ToString());
         }
     }
 }

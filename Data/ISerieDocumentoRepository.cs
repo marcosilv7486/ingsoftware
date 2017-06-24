@@ -8,7 +8,7 @@ namespace Data
 {
     public interface ISerieDocumentoRepository
     {
-        SerieDocumento obtenerUltimo(String tipo,SqlConnection conexion);
+        SerieDocumento obtenerUltimo(String tipo,SqlConnection conexion,SqlTransaction transaccion);
         void modificar(SerieDocumento serieDocumento,SqlConnection conexion,SqlTransaction transaccion);
     }
 }
