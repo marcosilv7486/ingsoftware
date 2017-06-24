@@ -49,7 +49,7 @@ namespace Negocio
             }
             return data;
         }
-
+        
 
         public Alumno buscarPorCodigo(string codigo)
         {

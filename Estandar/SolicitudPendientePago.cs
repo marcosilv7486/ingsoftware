@@ -19,6 +19,16 @@ namespace Estandar
         public SolicitudPendientePago()
         {
             InitializeComponent();
+            dtListado.CellDoubleClick += new DataGridViewCellEventHandler(dtListado_CellDoubleClick);
+        }
+
+        void dtListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+          
+            int idSolicitud = int.Parse(dtListado.Rows[e.RowIndex].Cells[0].Value.ToString());
+            Solicitud solicitud = data.Find(p => p.id.Equals(idSolicitud));
+            RegistrarPago form = new RegistrarPago(solicitud);
+            form.ShowDialog();
         }
 
         private void SolicitudPendientePago_Load(object sender, EventArgs e)
@@ -40,7 +50,9 @@ namespace Estandar
                 //this.dtListado.DataSource = data;
                 foreach (Solicitud solicitud in data)
                 {
-                    this.dtListado.Rows.Add(solicitud.codigo,
+                    this.dtListado.Rows.Add(
+                        solicitud.id.ToString(),
+                        solicitud.codigo,
                         solicitud.fechaEmision.ToShortDateString(),
                         solicitud.codigoAlumnoSol,
                         solicitud.nombreSol,
