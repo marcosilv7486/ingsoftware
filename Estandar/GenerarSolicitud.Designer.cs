@@ -363,7 +363,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(658, 485);
+            this.ClientSize = new System.Drawing.Size(659, 485);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -373,6 +373,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
+            this.MaximizeBox = false;
             this.Name = "GenerarSolicitud";
             this.Text = "Generar Nueva Solicitud";
             this.Load += new System.EventHandler(this.GenerarSolicitud_Load);

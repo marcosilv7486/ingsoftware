@@ -11,5 +11,6 @@ namespace Negocio
         Alumno buscarPorCodigo(String codigo);
         void registrarSolicitud(Solicitud solicitud);
         List<TemaTesis> obtenerTesisHabilitadas();
+        List<Solicitud> obtenerSolicitudesPendientesPago();
     }
 }

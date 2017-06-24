@@ -21,12 +21,12 @@ namespace Dominio
         public Alumno alumno { get; set; }
         public SolicitudEstado estadoSolicitud { get; set; }
         public String nombreEstado { get; set; }
-        public DateTime fechaPago { get; set; }
-        public DateTime fechaEvaluacion { get; set; }
+        public DateTime? fechaPago { get; set; }
+        public DateTime? fechaEvaluacion { get; set; }
         public String motivoEvaluacion { get; set; }
         public String motivoAnulacion { get; set; }
         public String motivoDesaprobacion { get; set; }
-        public DateTime fechaFinalizacion { get; set; }
+        public DateTime? fechaFinalizacion { get; set; }
 
         public List<SolicitudTema> temas { get; set; }
 

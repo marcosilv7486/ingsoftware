@@ -9,5 +9,6 @@ namespace Data
     public interface ISolicitudRepository
     {
         void registrarSolicitud(Solicitud solicitud,SqlConnection conexion,SqlTransaction transaccion);
+        List<Solicitud> obtenerPorEstado(int estado_id, SqlConnection conexion);
     }
 }

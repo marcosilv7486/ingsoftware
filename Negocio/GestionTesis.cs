@@ -150,5 +150,31 @@ namespace Negocio
             }
             return data;
         }
+
+
+        public List<Solicitud> obtenerSolicitudesPendientesPago()
+        {
+            SqlConnection cn = null;
+            List<Solicitud> data = new List<Solicitud>();
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                //1-GENERADO
+                data = solicitudRepository.obtenerPorEstado(1,cn);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+            return data;
+        }
     }
 }

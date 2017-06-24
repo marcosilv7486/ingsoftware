@@ -68,14 +68,19 @@ namespace Estandar
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             GenerarSolicitud form = new GenerarSolicitud();
-            form.ShowDialog();
+            form.Show();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             MantenerProfesor form = new MantenerProfesor();
-            
-            form.ShowDialog();
+            form.Show();
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e)
+        {
+            SolicitudPendientePago form = new SolicitudPendientePago();
+            form.Show();
         }
     }
 }
