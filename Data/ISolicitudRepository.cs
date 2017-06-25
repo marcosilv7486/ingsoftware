@@ -10,5 +10,7 @@ namespace Data
     {
         void registrarSolicitud(Solicitud solicitud,SqlConnection conexion,SqlTransaction transaccion);
         List<Solicitud> obtenerPorEstado(int estado_id, SqlConnection conexion);
+        void cambiarEstadoPagadoSolicitud(Solicitud solicitud, SolicitudEstado nuevoEstado, 
+            SqlConnection conexion, SqlTransaction transaccion);
     }
 }

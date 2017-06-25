@@ -64,6 +64,12 @@
     <Compile Include="GenerarSolicitud.Designer.cs">
       <DependentUpon>GenerarSolicitud.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListadoSolicitudes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListadoSolicitudes.Designer.cs">
+      <DependentUpon>ListadoSolicitudes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GenerarSolicitud.resx">
       <DependentUpon>GenerarSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListadoSolicitudes.resx">
+      <DependentUpon>ListadoSolicitudes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -12,5 +12,8 @@ namespace Negocio
         void registrarSolicitud(Solicitud solicitud);
         List<TemaTesis> obtenerTesisHabilitadas();
         List<Solicitud> obtenerSolicitudesPendientesPago();
+        List<Solicitud> obtenerSolicitudPorEstado(int idEstado);
+        void registrarPagoSolicitud(PagoSolicitud pagoSolicitud);
+        List<FormaDePago> obtenerFormasPagoHabilitadas();
     }
 }

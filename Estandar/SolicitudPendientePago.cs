@@ -28,7 +28,11 @@ namespace Estandar
             int idSolicitud = int.Parse(dtListado.Rows[e.RowIndex].Cells[0].Value.ToString());
             Solicitud solicitud = data.Find(p => p.id.Equals(idSolicitud));
             RegistrarPago form = new RegistrarPago(solicitud);
-            form.ShowDialog();
+            var result= form.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                cargarData();
+            }
         }
 
         private void SolicitudPendientePago_Load(object sender, EventArgs e)
@@ -41,6 +45,7 @@ namespace Estandar
         private void cargarData()
         {
             data = gestionTesis.obtenerSolicitudesPendientesPago();
+            dtListado.Rows.Clear();
             if (data.Count == 0)
             {
                 MessageBox.Show("No se encontraron solicitudes pendientes");
