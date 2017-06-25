@@ -47,7 +47,8 @@ namespace Estandar
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-
+            ListadoSolicitudes form = new ListadoSolicitudes();
+            form.ShowDialog();
         }
 
         private void label6_Click(object sender, EventArgs e)

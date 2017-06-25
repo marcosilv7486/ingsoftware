@@ -91,5 +91,20 @@ namespace Data
                 return data;
             }
         }
+
+
+        public void cambiarEstadoPagadoSolicitud(Solicitud solicitud, SolicitudEstado nuevoEstado, SqlConnection conexion, SqlTransaction transaccion)
+        {
+            String nombreProcedure = "CAMBIAR_ESTADO_CANCELADO_SOLICITUD";
+            SqlCommand comando = new SqlCommand(nombreProcedure, conexion);
+            if (transaccion != null)
+                comando.Transaction = transaccion;
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@SOLICITUD_ID", solicitud.id);
+            comando.Parameters.AddWithValue("@ESTADO_ID", nuevoEstado.id);
+            comando.Parameters.AddWithValue("@NOMBRE_RESTADO", nuevoEstado.nombre);
+            comando.Parameters.AddWithValue("@FECHA_PAGO", DateTime.Now);
+            comando.ExecuteNonQuery();
+        }
     }
 }

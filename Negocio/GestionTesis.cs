@@ -16,6 +16,8 @@ namespace Negocio
         private IEstadoSolicitudRepository estadoSolicitudRepository;
         private ITesisTemaRepository tesisTemaRepository;
         private ISolicitudTemaRepository solicitudTemaRepository;
+        private IPagoSolicitudRepository pagoSolicitudRepository;
+        private IFormaPagoRepository formaPagoRepository;
         public GestionTesis()
         {
             alumnoRepository = new AlumnoRepository();
@@ -24,6 +26,8 @@ namespace Negocio
             estadoSolicitudRepository = new EstadoSolicitudRepository();
             tesisTemaRepository = new TesisTemaRepository();
             solicitudTemaRepository = new SolicitudTemaRepository();
+            pagoSolicitudRepository = new PagoSolicitudRepository();
+            formaPagoRepository = new FormaPagoRepository ();
         }
         
         public List<Alumno> obtenerAlumnosHabilitados()
@@ -161,6 +165,91 @@ namespace Negocio
                 cn = HelperDB.GetSqlConnection();
                 //1-GENERADO
                 data = solicitudRepository.obtenerPorEstado(1,cn);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+            return data;
+        }
+
+
+        public void registrarPagoSolicitud(PagoSolicitud pagoSolicitud)
+        {
+            SqlConnection cn = null;
+            SqlTransaction transaccion = null;
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                //Inicio de la transaccion
+                transaccion = cn.BeginTransaction();
+                //Estado 3= Cancelado
+                SolicitudEstado estadoPagado = estadoSolicitudRepository.obtenerPorId(3,cn,transaccion);
+                if (estadoPagado == null)
+                    throw new ArgumentNullException("No se encontro el estado PAGADO para la solicitud");
+                pagoSolicitudRepository.registrarPago(pagoSolicitud, cn, transaccion);
+                //Modificar el estado de la solicitud
+                solicitudRepository.cambiarEstadoPagadoSolicitud(pagoSolicitud.solicitud, estadoPagado, cn, transaccion);
+                transaccion.Commit();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                transaccion.Rollback();
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+        }
+
+
+        public List<FormaDePago> obtenerFormasPagoHabilitadas()
+        {
+            SqlConnection cn = null;
+            List<FormaDePago> data = new List<FormaDePago>();
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                data = formaPagoRepository.obtenerHabilitados(cn);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+            return data;
+        }
+
+
+        public List<Solicitud> obtenerSolicitudPorEstado(int idEstado)
+        {
+            SqlConnection cn = null;
+            List<Solicitud> data = new List<Solicitud>();
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                data = solicitudRepository.obtenerPorEstado(idEstado, cn);
             }
             catch (Exception e)
             {
