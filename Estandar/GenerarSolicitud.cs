@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using System.IO;
 namespace Estandar
 {
     public partial class GenerarSolicitud : Form
@@ -16,6 +17,7 @@ namespace Estandar
         private IGestionTesis gestionTesis;
         private Solicitud solicitud;
         private List<TemaTesis> temasTesis;
+        private String fotoPorDefecto;
         
         public GenerarSolicitud()
         {
@@ -72,6 +74,8 @@ namespace Estandar
             {
                 listBoxTemas.SetItemCheckState(i, CheckState.Unchecked);
             }
+            pbFoto.ImageLocation = fotoPorDefecto;
+            pbFoto.Refresh();
            
         }
 
@@ -85,6 +89,14 @@ namespace Estandar
             txtNumeroDocumento.Text = alumno.numeroDocumento;
             txtDocumento.Text = alumno.tipoDocumento;
             txtGradoAcademico.Text = alumno.gradoAcademico;
+            if (!alumno.urlFoto.Equals(""))
+            {
+                pbFoto.ImageLocation = Utilitario.getInstance().directorioFotos+alumno.urlFoto;
+            }
+            else
+            {
+                pbFoto.ImageLocation = fotoPorDefecto;
+            }
         }
 
         private Solicitud generarSolicitud()
@@ -145,7 +157,7 @@ namespace Estandar
 
         private void GenerarSolicitud_Load(object sender, EventArgs e)
         {
-
+            fotoPorDefecto = pbFoto.ImageLocation;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -169,7 +181,8 @@ namespace Estandar
                 try
                 {
                     gestionTesis.registrarSolicitud(solicitud);
-                    MessageBox.Show("Se registro correctamente la solicitud , el codigo es "+solicitud.codigo);
+                    MessageBox.Show("Se registro correctamente la solicitud , el codigo es "+solicitud.codigo
+                        ,"Operacion correcta",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     limpiarData();
                 }
                 catch (Exception exp)

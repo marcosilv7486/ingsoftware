@@ -108,6 +108,7 @@
     <Compile Include="SolicitudPendientePago.Designer.cs">
       <DependentUpon>SolicitudPendientePago.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilitario.cs" />
     <EmbeddedResource Include="BuscarAlumno.resx">
       <DependentUpon>BuscarAlumno.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +214,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\id-card-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Alumnos\1.jpg" />
+    <Content Include="Resources\Alumnos\10.jpg" />
+    <Content Include="Resources\Alumnos\11.jpg" />
+    <Content Include="Resources\Alumnos\12.jpg" />
+    <Content Include="Resources\Alumnos\13.jpg" />
+    <Content Include="Resources\Alumnos\14.jpg" />
+    <Content Include="Resources\Alumnos\2.jpg" />
+    <Content Include="Resources\Alumnos\3.jpg" />
+    <Content Include="Resources\Alumnos\4.jpg" />
+    <Content Include="Resources\Alumnos\5.jpg" />
+    <Content Include="Resources\Alumnos\6.jpg" />
+    <Content Include="Resources\Alumnos\7.jpg" />
+    <Content Include="Resources\Alumnos\8.jpg" />
+    <Content Include="Resources\Alumnos\9.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

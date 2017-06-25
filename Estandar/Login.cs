@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Estandar
 {
@@ -35,6 +36,7 @@ namespace Estandar
             if (String.IsNullOrEmpty(txtUserName.Text))
             {
                 MessageBox.Show("Debe ingresar el usuario", "Campos requeridos", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                MessageBox.Show(Directory.GetCurrentDirectory());
                 txtUserName.Focus();
                 return;
             }
