@@ -5,6 +5,7 @@ using System.Text;
 using System.Data.SqlClient;
 using Dominio;
 using System.Data;
+
 namespace Data
 {
     public class AlumnoRepository : IAlumnoRepository
@@ -78,17 +79,17 @@ namespace Data
             return alumno;
         }
 
-        public ICollection<Dominio.Alumno> obtenerTodos(System.Data.SqlClient.SqlConnection conexion)
+        public DataSet obtenerTodos(System.Data.SqlClient.SqlConnection conexion)
         {
             String nombreProcedure = "OBTENER_ALUMNOS_TODOS";
             SqlCommand comando = new SqlCommand(nombreProcedure, conexion);
             comando.CommandType = System.Data.CommandType.StoredProcedure;
-            SqlDataReader lector = comando.ExecuteReader();
-            List<Alumno> data = mapearListaAlummnos(lector);
-            lector.Close();
-            lector.Dispose();
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(comando);
+            DataSet dataSet = new DataSet();
+            dataAdapter.Fill(dataSet);
+            dataAdapter.Dispose();
             comando.Dispose();
-            return data;
+            return dataSet;
         }
        
 
@@ -121,5 +122,8 @@ namespace Data
             comando.Dispose();
             return alumno;
         }
+
+
+      
     }
 }

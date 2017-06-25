@@ -53,6 +53,11 @@ namespace Estandar
                     solicitud.nombreEstado);
             }
         }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            
+        }
          
     }
 }

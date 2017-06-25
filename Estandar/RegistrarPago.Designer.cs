@@ -46,7 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txtRutaArchivo = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -221,7 +221,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox13);
+            this.groupBox2.Controls.Add(this.txtRutaArchivo);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label15);
@@ -242,19 +242,20 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información del Pago";
             // 
-            // textBox13
+            // txtRutaArchivo
             // 
-            this.textBox13.Enabled = false;
-            this.textBox13.Location = new System.Drawing.Point(284, 140);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(416, 20);
-            this.textBox13.TabIndex = 28;
+            this.txtRutaArchivo.Enabled = false;
+            this.txtRutaArchivo.Location = new System.Drawing.Point(284, 118);
+            this.txtRutaArchivo.Name = "txtRutaArchivo";
+            this.txtRutaArchivo.Size = new System.Drawing.Size(416, 20);
+            this.txtRutaArchivo.TabIndex = 28;
+            this.txtRutaArchivo.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
             // button1
             // 
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(129, 131);
+            this.button1.Location = new System.Drawing.Point(116, 113);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(128, 31);
             this.button1.TabIndex = 27;
@@ -262,11 +263,12 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(8, 140);
+            this.label16.Location = new System.Drawing.Point(6, 113);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 13);
             this.label16.TabIndex = 26;
@@ -282,7 +284,7 @@
             // 
             // txtSaldoAmortizado
             // 
-            this.txtSaldoAmortizado.Location = new System.Drawing.Point(98, 102);
+            this.txtSaldoAmortizado.Location = new System.Drawing.Point(416, 67);
             this.txtSaldoAmortizado.Name = "txtSaldoAmortizado";
             this.txtSaldoAmortizado.Size = new System.Drawing.Size(142, 20);
             this.txtSaldoAmortizado.TabIndex = 23;
@@ -290,7 +292,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(8, 105);
+            this.label14.Location = new System.Drawing.Point(281, 67);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(75, 13);
             this.label14.TabIndex = 22;
@@ -338,7 +340,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(281, 32);
+            this.label10.Location = new System.Drawing.Point(281, 35);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(34, 13);
             this.label10.TabIndex = 14;
@@ -424,7 +426,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txtRutaArchivo;
         private System.Windows.Forms.Button button2;
     }
 }

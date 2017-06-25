@@ -84,5 +84,11 @@ namespace Estandar
             SolicitudPendientePago form = new SolicitudPendientePago();
             form.Show();
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            MantenerAlumno form = new MantenerAlumno();
+            form.Show();
+        }
     }
 }

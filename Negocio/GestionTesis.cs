@@ -5,6 +5,7 @@ using System.Text;
 using Dominio;
 using Data;
 using System.Data.SqlClient;
+using System.IO;
 namespace Negocio
 {
     public class GestionTesis : IGestionTesis
@@ -203,6 +204,7 @@ namespace Negocio
                 cn = HelperDB.GetSqlConnection();
                 //Inicio de la transaccion
                 transaccion = cn.BeginTransaction();
+              
                 //Estado 3= Cancelado
                 SolicitudEstado estadoPagado = estadoSolicitudRepository.obtenerPorId(3,cn,transaccion);
                 if (estadoPagado == null)
@@ -313,6 +315,31 @@ namespace Negocio
                     cn.Dispose();
                 }
             }
+        }
+
+
+        public System.Data.DataSet obtenerTodos()
+        {
+            SqlConnection cn = null;
+            System.Data.DataSet dataSet = new System.Data.DataSet();
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                dataSet = alumnoRepository.obtenerTodos(cn);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+            return dataSet;
         }
     }
 }

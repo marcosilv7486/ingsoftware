@@ -40,6 +40,7 @@
             this.NombreTesis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PPosGrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,12 +70,12 @@
             this.NombreTesis,
             this.PPosGrado,
             this.Estado});
-            this.dtListado.Location = new System.Drawing.Point(12, 51);
+            this.dtListado.Location = new System.Drawing.Point(12, 75);
             this.dtListado.MultiSelect = false;
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
             this.dtListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtListado.Size = new System.Drawing.Size(945, 360);
+            this.dtListado.Size = new System.Drawing.Size(945, 336);
             this.dtListado.TabIndex = 1;
             // 
             // ID
@@ -138,11 +139,21 @@
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(253, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Haga doble clic para seleccionar la solicitud a pagar";
+            // 
             // SolicitudPendientePago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(968, 423);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.dtListado);
             this.Controls.Add(this.label1);
             this.Name = "SolicitudPendientePago";
@@ -168,5 +179,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreTesis;
         private System.Windows.Forms.DataGridViewTextBoxColumn PPosGrado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Dominio;
+using Data;
+using System.Data;
 namespace Negocio
 {
     public interface IGestionTesis
     {
         List<Alumno> obtenerAlumnosHabilitados();
+        DataSet obtenerTodos();
         Alumno buscarPorCodigo(String codigo);
         void registrarSolicitud(Solicitud solicitud);
         List<TemaTesis> obtenerTesisHabilitadas();

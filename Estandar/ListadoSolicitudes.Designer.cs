@@ -47,6 +47,8 @@
             this.NombreTesis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PPosGrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnVerDetalle = new System.Windows.Forms.Button();
+            this.btnAnular = new System.Windows.Forms.Button();
             this.tabEstados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
             this.SuspendLayout();
@@ -69,10 +71,10 @@
             this.tabEstados.Controls.Add(this.tab6);
             this.tabEstados.Controls.Add(this.tab4);
             this.tabEstados.Controls.Add(this.tab2);
-            this.tabEstados.Location = new System.Drawing.Point(12, 48);
+            this.tabEstados.Location = new System.Drawing.Point(12, 85);
             this.tabEstados.Name = "tabEstados";
             this.tabEstados.SelectedIndex = 0;
-            this.tabEstados.Size = new System.Drawing.Size(827, 30);
+            this.tabEstados.Size = new System.Drawing.Size(944, 30);
             this.tabEstados.TabIndex = 3;
             // 
             // tab1
@@ -80,7 +82,7 @@
             this.tab1.Location = new System.Drawing.Point(4, 22);
             this.tab1.Name = "tab1";
             this.tab1.Padding = new System.Windows.Forms.Padding(3);
-            this.tab1.Size = new System.Drawing.Size(819, 4);
+            this.tab1.Size = new System.Drawing.Size(936, 4);
             this.tab1.TabIndex = 0;
             this.tab1.Text = "Generados";
             this.tab1.UseVisualStyleBackColor = true;
@@ -150,7 +152,7 @@
             this.NombreTesis,
             this.PPosGrado,
             this.Estado});
-            this.dtListado.Location = new System.Drawing.Point(12, 84);
+            this.dtListado.Location = new System.Drawing.Point(12, 121);
             this.dtListado.MultiSelect = false;
             this.dtListado.Name = "dtListado";
             this.dtListado.ReadOnly = true;
@@ -219,11 +221,32 @@
             this.Estado.Name = "Estado";
             this.Estado.ReadOnly = true;
             // 
+            // btnVerDetalle
+            // 
+            this.btnVerDetalle.Location = new System.Drawing.Point(12, 56);
+            this.btnVerDetalle.Name = "btnVerDetalle";
+            this.btnVerDetalle.Size = new System.Drawing.Size(75, 23);
+            this.btnVerDetalle.TabIndex = 5;
+            this.btnVerDetalle.Text = "Ver Detalle";
+            this.btnVerDetalle.UseVisualStyleBackColor = true;
+            // 
+            // btnAnular
+            // 
+            this.btnAnular.Location = new System.Drawing.Point(103, 56);
+            this.btnAnular.Name = "btnAnular";
+            this.btnAnular.Size = new System.Drawing.Size(82, 23);
+            this.btnAnular.TabIndex = 6;
+            this.btnAnular.Text = "Anular";
+            this.btnAnular.UseVisualStyleBackColor = true;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
+            // 
             // ListadoSolicitudes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 440);
+            this.ClientSize = new System.Drawing.Size(968, 462);
+            this.Controls.Add(this.btnAnular);
+            this.Controls.Add(this.btnVerDetalle);
             this.Controls.Add(this.dtListado);
             this.Controls.Add(this.tabEstados);
             this.Controls.Add(this.label1);
@@ -258,5 +281,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn NombreTesis;
         private System.Windows.Forms.DataGridViewTextBoxColumn PPosGrado;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Button btnVerDetalle;
+        private System.Windows.Forms.Button btnAnular;
     }
 }

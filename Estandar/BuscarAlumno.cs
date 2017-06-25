@@ -40,22 +40,51 @@ namespace Estandar
             alumnos = gestionTesis.obtenerAlumnosHabilitados();
             foreach (Alumno alumno in alumnos)
             {
-                ListViewItem listitem = new ListViewItem(alumno.id.ToString());
-                listitem.SubItems.Add(alumno.codigo);
-                listitem.SubItems.Add(alumno.nombre);
-                listitem.SubItems.Add(alumno.apellidos);
-                listitem.SubItems.Add(alumno.tipoDocumento);
-                listitem.SubItems.Add(alumno.numeroDocumento);
-                listitem.SubItems.Add(alumno.programaPostGrado.nombrePrograma);
-                listitem.SubItems.Add(alumno.planCurricular);
-                listView1.Items.Add(listitem);
+               
+                listView1.Items.Add(generarAlumno(alumno));
                 
             }
         }
 
+        private ListViewItem generarAlumno(Alumno alumno)
+        {
+            ListViewItem listitem = new ListViewItem(alumno.id.ToString());
+            listitem.SubItems.Add(alumno.codigo);
+            listitem.SubItems.Add(alumno.nombre);
+            listitem.SubItems.Add(alumno.apellidos);
+            listitem.SubItems.Add(alumno.tipoDocumento);
+            listitem.SubItems.Add(alumno.numeroDocumento);
+            listitem.SubItems.Add(alumno.programaPostGrado.nombrePrograma);
+            listitem.SubItems.Add(alumno.planCurricular);
+            return listitem;
+        }
+
         private void BuscarAlumno_Load(object sender, EventArgs e)
         {
-            
+            txtCodigo.KeyUp += new KeyEventHandler(txtCodigo_KeyUp);
+            txtFiltroDocumento.KeyUp += new KeyEventHandler(txtFiltroDocumento_KeyUp);
+            txtNombre.KeyUp += new KeyEventHandler(txtNombre_KeyUp);
+        }
+
+        void txtNombre_KeyUp(object sender, KeyEventArgs e)
+        {
+            listView1.Items.Clear();
+            listView1.Items.AddRange(alumnos.Where(i => string.IsNullOrEmpty(txtNombre.Text) || i.nombreCompleto().ToLower().Contains(txtNombre.Text.ToLower()))
+            .Select(c => generarAlumno(c)).ToArray());
+        }
+
+        void txtFiltroDocumento_KeyUp(object sender, KeyEventArgs e)
+        {
+            listView1.Items.Clear();
+            listView1.Items.AddRange(alumnos.Where(i => string.IsNullOrEmpty(txtFiltroDocumento.Text) || i.numeroDocumento.StartsWith(txtFiltroDocumento.Text))
+            .Select(c => generarAlumno(c)).ToArray());
+        }
+
+        void txtCodigo_KeyUp(object sender, KeyEventArgs e)
+        {
+            listView1.Items.Clear(); 
+            listView1.Items.AddRange(alumnos.Where(i => string.IsNullOrEmpty(txtCodigo.Text) || i.codigo.StartsWith(txtCodigo.Text))
+            .Select(c => generarAlumno(c)).ToArray());
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)

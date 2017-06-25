@@ -66,12 +66,31 @@ namespace Estandar
             pago.monto = Decimal.Parse(txtSaldoAmortizado.Text);
             pago.serie = txtSerie.Text;
             pago.numero = txtNumero.Text;
+            pago.fotoAdjunta = txtRutaArchivo.Text;
             FormaDePago formaSeleccionada = listaFormaPago
                 .Find(p => p.id.Equals(int.Parse(cboFormaPago.SelectedValue.ToString())));
             pago.formaDePago = formaSeleccionada;
             gestionTesis.registrarPagoSolicitud(pago);
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Seleccione un archivo";
+                dlg.Filter = "Archivo de Texto (*.txt)|*.pdf;*.txt;*.docx;*.doc";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    txtRutaArchivo.Text=dlg.FileName;
+                }
+            }
         }
     }
 }

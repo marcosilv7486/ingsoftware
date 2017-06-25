@@ -20,6 +20,10 @@ namespace Dominio
         public ProgramaPostGrado programaPostGrado;
         public String urlFoto {get;set;}
 
+        public String nombreCompleto() { 
+            return nombre + " "+apellidos;
+        }
+
         public Alumno()
         {
             programaPostGrado = new ProgramaPostGrado();
