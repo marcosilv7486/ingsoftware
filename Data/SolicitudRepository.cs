@@ -122,5 +122,49 @@ namespace Data
             comando.Parameters.AddWithValue("@MOTIVO_EVALUACION", nuevoEstado.nombre);
             comando.ExecuteNonQuery();
         }
+
+
+        public bool obtenerSolicitudesSinPagar(int idAlumno, SqlConnection cn, SqlTransaction transaccion)
+        {
+            String sql = "select count(*) from solicitud where alumno_id = @ID and eliminado=0 and SOLICITUD_ESTADO_ID=1";
+            SqlCommand comando = new SqlCommand(sql,cn, transaccion);
+            comando.Parameters.AddWithValue("@ID", idAlumno);
+            SqlDataReader lector = comando.ExecuteReader();
+            var resultado = 0;
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    resultado = int.Parse(lector[0].ToString());
+                }
+
+            }
+            lector.Close();
+            lector.Dispose();
+            comando.Dispose();
+            return resultado > 0;
+              
+        }
+
+        public bool obtenerSolicitudesEnProceso(int idAlumno, SqlConnection cn, SqlTransaction transaccion)
+        {
+            String sql = "select count(*) from solicitud where alumno_id = @ID and eliminado=0 and SOLICITUD_ESTADO_ID in (3,5)";
+            SqlCommand comando = new SqlCommand(sql, cn, transaccion);
+            comando.Parameters.AddWithValue("@ID", idAlumno);
+            SqlDataReader lector = comando.ExecuteReader();
+            var resultado = 0;
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    resultado = int.Parse(lector[0].ToString());
+                }
+
+            }
+            lector.Close();
+            lector.Dispose();
+            comando.Dispose();
+            return resultado > 0;
+        }
     }
 }

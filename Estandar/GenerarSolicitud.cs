@@ -187,7 +187,7 @@ namespace Estandar
                 }
                 catch (Exception exp)
                 {
-                    MessageBox.Show("Ocurrio Un error ");
+                    MessageBox.Show("Ocurrio un error");
                     MessageBox.Show(exp.Message);
                 }
                

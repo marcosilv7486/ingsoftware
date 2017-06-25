@@ -89,6 +89,18 @@ namespace Negocio
                 cn = HelperDB.GetSqlConnection();
                 //Inicio de la transaccion
                 transaccion = cn.BeginTransaction();
+                //Verificar si el alumno ya tiene una deuda con la universidad
+                bool tieneDeuda = solicitudRepository.obtenerSolicitudesSinPagar(solicitud.alumno.id, cn, transaccion);
+                if (tieneDeuda)
+                {
+                    throw new Exception("El alumno tiene una deuda con la universidad");
+                }
+                //Verificar si tiene una solicitud en proceso
+                bool solicitudEnProceso = solicitudRepository.obtenerSolicitudesEnProceso(solicitud.alumno.id, cn, transaccion);
+                if (solicitudEnProceso)
+                {
+                    throw new Exception("El alumno tiene en proceso una solicitud");
+                }
                 //Obtener el correlativo del documento y modificarlos
                 SerieDocumento serieDocumento = serieDocumentoRepository.obtenerUltimo("SOLICITUD", cn,transaccion);
                 if (serieDocumento == null)

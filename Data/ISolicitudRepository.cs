@@ -14,5 +14,9 @@ namespace Data
             SqlConnection conexion, SqlTransaction transaccion);
         void registrarEvaluacionSolicitud(Solicitud solicitud, SolicitudEstado nuevoEstado, SqlConnection conexion,
             SqlTransaction trasaccion);
+
+        bool obtenerSolicitudesSinPagar(int idAlumno, SqlConnection cn, SqlTransaction transaccion);
+
+        bool obtenerSolicitudesEnProceso(int idAlumno, SqlConnection cn, SqlTransaction transaccion);
     }
 }
