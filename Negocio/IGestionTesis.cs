@@ -15,5 +15,6 @@ namespace Negocio
         List<Solicitud> obtenerSolicitudPorEstado(int idEstado);
         void registrarPagoSolicitud(PagoSolicitud pagoSolicitud);
         List<FormaDePago> obtenerFormasPagoHabilitadas();
+        void registrarEvaluacionSolicitud(Solicitud solicitud);
     }
 }

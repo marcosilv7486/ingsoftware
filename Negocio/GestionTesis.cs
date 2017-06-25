@@ -250,6 +250,10 @@ namespace Negocio
             {
                 cn = HelperDB.GetSqlConnection();
                 data = solicitudRepository.obtenerPorEstado(idEstado, cn);
+                foreach (Solicitud solicitud in data)
+                {
+                    solicitud.temas = solicitudTemaRepository.obtenerTemasPorSolicitud(solicitud,cn);
+                }
             }
             catch (Exception e)
             {
@@ -264,6 +268,39 @@ namespace Negocio
                 }
             }
             return data;
+        }
+
+
+        public void registrarEvaluacionSolicitud(Solicitud solicitud)
+        {
+            SqlConnection cn = null;
+            SqlTransaction transaccion = null;
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                //Inicio de la transaccion
+                transaccion = cn.BeginTransaction();
+                //Estado 5= Aprobado , 4 Desaprobado
+                SolicitudEstado nuevoEstado = estadoSolicitudRepository.obtenerPorId(solicitud.aprobado ? 5 : 4, cn, transaccion);
+                if (nuevoEstado == null)
+                    throw new ArgumentNullException("No se encontro el estado APROBADO/DESAPROBADO para la solicitud");
+                solicitudRepository.registrarEvaluacionSolicitud(solicitud,nuevoEstado,cn, transaccion);
+                transaccion.Commit();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                transaccion.Rollback();
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
         }
     }
 }

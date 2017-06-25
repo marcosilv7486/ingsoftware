@@ -21,5 +21,29 @@ namespace Data
             comando.Parameters.AddWithValue("@TEMA_ID", obj.tema.id);
             comando.ExecuteNonQuery();
         }
+
+
+        public List<SolicitudTema> obtenerTemasPorSolicitud(Solicitud obj, SqlConnection conexion)
+        {
+            String nombreProcedure = "OBTENER_TEMAS_POR_SOLICITUD";
+            SqlCommand comando = new SqlCommand(nombreProcedure, conexion);
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@SOLICITUD_ID", obj.id);
+            SqlDataReader lector = comando.ExecuteReader();
+            List<SolicitudTema> data = new List<SolicitudTema>();
+            if (lector.HasRows)
+            {
+                while (lector.Read())
+                {
+                    SolicitudTema tesis = new SolicitudTema();
+                    tesis.tema.nombre = lector["NOMBRE"].ToString();
+                    data.Add(tesis);
+                }
+            }
+            lector.Close();
+            lector.Dispose();
+            comando.Dispose();
+            return data;
+        }
     }
 }

@@ -106,5 +106,21 @@ namespace Data
             comando.Parameters.AddWithValue("@FECHA_PAGO", DateTime.Now);
             comando.ExecuteNonQuery();
         }
+
+
+        public void registrarEvaluacionSolicitud(Solicitud solicitud, SolicitudEstado nuevoEstado, SqlConnection conexion, SqlTransaction trasaccion)
+        {
+            String nombreProcedure = "REGISTRAR_EVALUACION_SOLICITUD";
+            SqlCommand comando = new SqlCommand(nombreProcedure, conexion);
+            if (trasaccion != null)
+                comando.Transaction = trasaccion;
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@SOLICITUD_ID", solicitud.id);
+            comando.Parameters.AddWithValue("@ESTADO_ID", nuevoEstado.id);
+            comando.Parameters.AddWithValue("@NOMBRE_RESTADO", nuevoEstado.nombre);
+            comando.Parameters.AddWithValue("@FECHA_EVALUACION", DateTime.Now);
+            comando.Parameters.AddWithValue("@MOTIVO_EVALUACION", nuevoEstado.nombre);
+            comando.ExecuteNonQuery();
+        }
     }
 }

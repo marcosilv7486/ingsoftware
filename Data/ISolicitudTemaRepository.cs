@@ -10,5 +10,6 @@ namespace Data
     public interface ISolicitudTemaRepository
     {
         void registrarSolicitudTema(SolicitudTema obj, SqlConnection conexion, SqlTransaction transaccion);
+        List<SolicitudTema> obtenerTemasPorSolicitud(Solicitud obj, SqlConnection conexion); 
     }
 }

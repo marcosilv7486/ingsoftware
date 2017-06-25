@@ -58,7 +58,8 @@ namespace Estandar
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-
+            EvaluarSolicitud form = new EvaluarSolicitud();
+            form.ShowDialog();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)

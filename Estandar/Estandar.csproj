@@ -52,6 +52,18 @@
     <Compile Include="BuscarAlumno.Designer.cs">
       <DependentUpon>BuscarAlumno.cs</DependentUpon>
     </Compile>
+    <Compile Include="BuscarSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarSolicitud.Designer.cs">
+      <DependentUpon>BuscarSolicitud.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EvaluarSolicitud.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EvaluarSolicitud.Designer.cs">
+      <DependentUpon>EvaluarSolicitud.cs</DependentUpon>
+    </Compile>
     <Compile Include="General.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +110,12 @@
     </Compile>
     <EmbeddedResource Include="BuscarAlumno.resx">
       <DependentUpon>BuscarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarSolicitud.resx">
+      <DependentUpon>BuscarSolicitud.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EvaluarSolicitud.resx">
+      <DependentUpon>EvaluarSolicitud.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="General.resx">
       <DependentUpon>General.cs</DependentUpon>

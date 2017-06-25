@@ -27,6 +27,7 @@ namespace Dominio
         public String motivoAnulacion { get; set; }
         public String motivoDesaprobacion { get; set; }
         public DateTime? fechaFinalizacion { get; set; }
+        public bool aprobado { get; set; }
 
         public List<SolicitudTema> temas { get; set; }
 

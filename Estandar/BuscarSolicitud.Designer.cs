@@ -1,0 +1,172 @@
+﻿namespace Estandar
+{
+    partial class BuscarSolicitud
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.dtListado = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Codigo = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.FechaEmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CodigoA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Apellidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroDocumento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreTesis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PPosGrado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dtListado
+            // 
+            this.dtListado.AllowUserToAddRows = false;
+            this.dtListado.AllowUserToDeleteRows = false;
+            this.dtListado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtListado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.Codigo,
+            this.FechaEmision,
+            this.CodigoA,
+            this.Nombre,
+            this.Apellidos,
+            this.NumeroDocumento,
+            this.NombreTesis,
+            this.PPosGrado,
+            this.Estado});
+            this.dtListado.Location = new System.Drawing.Point(12, 51);
+            this.dtListado.MultiSelect = false;
+            this.dtListado.Name = "dtListado";
+            this.dtListado.ReadOnly = true;
+            this.dtListado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtListado.Size = new System.Drawing.Size(945, 272);
+            this.dtListado.TabIndex = 5;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.ReadOnly = true;
+            // 
+            // FechaEmision
+            // 
+            this.FechaEmision.HeaderText = "F.Emision";
+            this.FechaEmision.Name = "FechaEmision";
+            this.FechaEmision.ReadOnly = true;
+            // 
+            // CodigoA
+            // 
+            this.CodigoA.HeaderText = "Codigo A.";
+            this.CodigoA.Name = "CodigoA";
+            this.CodigoA.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Apellidos
+            // 
+            this.Apellidos.HeaderText = "Apellidos";
+            this.Apellidos.Name = "Apellidos";
+            this.Apellidos.ReadOnly = true;
+            // 
+            // NumeroDocumento
+            // 
+            this.NumeroDocumento.HeaderText = "N.Documento";
+            this.NumeroDocumento.Name = "NumeroDocumento";
+            this.NumeroDocumento.ReadOnly = true;
+            // 
+            // NombreTesis
+            // 
+            this.NombreTesis.HeaderText = "Nombre de Tesis";
+            this.NombreTesis.Name = "NombreTesis";
+            this.NombreTesis.ReadOnly = true;
+            // 
+            // PPosGrado
+            // 
+            this.PPosGrado.HeaderText = "P.PostGrado";
+            this.PPosGrado.Name = "PPosGrado";
+            this.PPosGrado.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(289, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(408, 25);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Seleccione una solicitud para evaluar";
+            // 
+            // BuscarSolicitud
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(963, 335);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtListado);
+            this.Name = "BuscarSolicitud";
+            this.Text = "Buscar Solicitud";
+            this.Load += new System.EventHandler(this.BuscarSolicitud_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dtListado)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.DataGridView dtListado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewLinkColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaEmision;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Apellidos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroDocumento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreTesis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PPosGrado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.Label label1;
+    }
+}
