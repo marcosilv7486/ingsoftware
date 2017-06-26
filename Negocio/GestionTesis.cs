@@ -19,6 +19,7 @@ namespace Negocio
         private ISolicitudTemaRepository solicitudTemaRepository;
         private IPagoSolicitudRepository pagoSolicitudRepository;
         private IFormaPagoRepository formaPagoRepository;
+        private IProfesorRepository profesorRepository;
         public GestionTesis()
         {
             alumnoRepository = new AlumnoRepository();
@@ -28,17 +29,18 @@ namespace Negocio
             tesisTemaRepository = new TesisTemaRepository();
             solicitudTemaRepository = new SolicitudTemaRepository();
             pagoSolicitudRepository = new PagoSolicitudRepository();
-            formaPagoRepository = new FormaPagoRepository ();
+            formaPagoRepository = new FormaPagoRepository();
+            profesorRepository = new ProfesorRepository();
         }
-        
+
         public List<Alumno> obtenerAlumnosHabilitados()
         {
-            SqlConnection cn=null;
+            SqlConnection cn = null;
             List<Alumno> data = new List<Alumno>();
             try
             {
                 cn = HelperDB.GetSqlConnection();
-                data = alumnoRepository.obtenerHabilitados(cn).ToList<Alumno>();;
+                data = alumnoRepository.obtenerHabilitados(cn).ToList<Alumno>(); ;
             }
             catch (Exception e)
             {
@@ -46,7 +48,7 @@ namespace Negocio
             }
             finally
             {
-                if (cn != null) 
+                if (cn != null)
                 {
                     cn.Close();
                     cn.Dispose();
@@ -54,7 +56,7 @@ namespace Negocio
             }
             return data;
         }
-        
+
 
         public Alumno buscarPorCodigo(string codigo)
         {
@@ -63,7 +65,7 @@ namespace Negocio
             try
             {
                 cn = HelperDB.GetSqlConnection();
-                alumno = alumnoRepository.buscarPorCodigo(codigo,cn) ;
+                alumno = alumnoRepository.buscarPorCodigo(codigo, cn);
             }
             catch (Exception e)
             {
@@ -103,23 +105,23 @@ namespace Negocio
                     throw new Exception("El alumno tiene en proceso una solicitud");
                 }
                 //Obtener el correlativo del documento y modificarlos
-                SerieDocumento serieDocumento = serieDocumentoRepository.obtenerUltimo("SOLICITUD", cn,transaccion);
+                SerieDocumento serieDocumento = serieDocumentoRepository.obtenerUltimo("SOLICITUD", cn, transaccion);
                 if (serieDocumento == null)
                     throw new ArgumentNullException("No se encontro la serie para la solicitud");
                 String strNumero = String.Format("{0:D8}", int.Parse(serieDocumento.numero) + 1);
                 serieDocumento.numero = strNumero;
                 serieDocumentoRepository.modificar(serieDocumento, cn, transaccion);
                 //Asociar el correlativo
-                solicitud.codigo = serieDocumento.serie+"-" + strNumero;
+                solicitud.codigo = serieDocumento.serie + "-" + strNumero;
                 //Obtener El estado GENERADO
-                SolicitudEstado estadoGenerado = estadoSolicitudRepository.obtenerPorId(1, cn,transaccion);
-                if(estadoGenerado==null)
+                SolicitudEstado estadoGenerado = estadoSolicitudRepository.obtenerPorId(1, cn, transaccion);
+                if (estadoGenerado == null)
                     throw new ArgumentNullException("No se encontro el estado GENERADO para la solicitud");
                 solicitud.estadoSolicitud = estadoGenerado;
                 solicitud.nombreEstado = estadoGenerado.nombre;
                 solicitudRepository.registrarSolicitud(solicitud, cn, transaccion);
                 //Registrar los temas de la solicitud
-                foreach(SolicitudTema tema in solicitud.temas)
+                foreach (SolicitudTema tema in solicitud.temas)
                 {
                     tema.solicitud = solicitud;
                     solicitudTemaRepository.registrarSolicitudTema(tema, cn, transaccion);
@@ -177,7 +179,7 @@ namespace Negocio
             {
                 cn = HelperDB.GetSqlConnection();
                 //1-GENERADO
-                data = solicitudRepository.obtenerPorEstado(1,cn);
+                data = solicitudRepository.obtenerPorEstado(1, cn);
             }
             catch (Exception e)
             {
@@ -204,9 +206,8 @@ namespace Negocio
                 cn = HelperDB.GetSqlConnection();
                 //Inicio de la transaccion
                 transaccion = cn.BeginTransaction();
-              
                 //Estado 3= Cancelado
-                SolicitudEstado estadoPagado = estadoSolicitudRepository.obtenerPorId(3,cn,transaccion);
+                SolicitudEstado estadoPagado = estadoSolicitudRepository.obtenerPorId(3, cn, transaccion);
                 if (estadoPagado == null)
                     throw new ArgumentNullException("No se encontro el estado PAGADO para la solicitud");
                 pagoSolicitudRepository.registrarPago(pagoSolicitud, cn, transaccion);
@@ -266,7 +267,7 @@ namespace Negocio
                 data = solicitudRepository.obtenerPorEstado(idEstado, cn);
                 foreach (Solicitud solicitud in data)
                 {
-                    solicitud.temas = solicitudTemaRepository.obtenerTemasPorSolicitud(solicitud,cn);
+                    solicitud.temas = solicitudTemaRepository.obtenerTemasPorSolicitud(solicitud, cn);
                 }
             }
             catch (Exception e)
@@ -298,7 +299,7 @@ namespace Negocio
                 SolicitudEstado nuevoEstado = estadoSolicitudRepository.obtenerPorId(solicitud.aprobado ? 5 : 4, cn, transaccion);
                 if (nuevoEstado == null)
                     throw new ArgumentNullException("No se encontro el estado APROBADO/DESAPROBADO para la solicitud");
-                solicitudRepository.registrarEvaluacionSolicitud(solicitud,nuevoEstado,cn, transaccion);
+                solicitudRepository.registrarEvaluacionSolicitud(solicitud, nuevoEstado, cn, transaccion);
                 transaccion.Commit();
             }
             catch (Exception e)
@@ -341,5 +342,39 @@ namespace Negocio
             }
             return dataSet;
         }
+
+
+        public List<Profesor> obtenerProfesoresHabilitados()
+        {
+            SqlConnection cn = null;
+            List<Profesor> data = new List<Profesor>();
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                data = profesorRepository.obtenerHabilitados(cn);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+            return data;
+        }
     }
+
+       
 }
+
+
+
+
+
+
+

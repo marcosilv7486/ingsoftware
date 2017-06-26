@@ -56,9 +56,39 @@ namespace Estandar
 
         private void button3_Click(object sender, EventArgs e)
         {
-            solicitud.motivoDesaprobacion = txtMotivoEvaluacion.Text;
-            solicitud.aprobado = radioAprobado.Checked;
-            gestionTesis.registrarEvaluacionSolicitud(solicitud);
+            if(String.IsNullOrEmpty(txtCodigoSolicitud.Text))
+            {
+                MessageBox.Show("Debe seleccionar una solicitud a evaluar");
+                return;
+            }
+            if (!radioAprobado.Checked && !radioButton2.Checked)
+            {
+                MessageBox.Show("Debe indicar el estado de la evaluacion");
+                return;
+            }
+            if(String.IsNullOrEmpty(txtMotivoEvaluacion.Text))
+            {
+                MessageBox.Show("Debe ingresar el motivo por el cual aprueba/desaprueba la solicitud");
+                return;
+            }
+            try
+            {
+                solicitud.motivoEvaluacion = txtMotivoEvaluacion.Text;
+                solicitud.aprobado = radioAprobado.Checked;
+                gestionTesis.registrarEvaluacionSolicitud(solicitud);
+                MessageBox.Show("Se evaluo correctamente la solicitud , el codigo es "+solicitud.codigo
+                        ,"Operacion correcta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+            }
+            
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

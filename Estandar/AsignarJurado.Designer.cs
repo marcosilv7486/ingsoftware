@@ -1,6 +1,6 @@
 ﻿namespace Estandar
 {
-    partial class EvaluarSolicitud
+    partial class AsignarJurado
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EvaluarSolicitud));
+            this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtMotivoAprobacion = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtfechaAprobacion = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.listBoxTemas = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.txtObservacionesSolicitud = new System.Windows.Forms.TextBox();
             this.txtNombreTesis = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -46,24 +53,48 @@
             this.txtCodigoSolicitud = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioAprobado = new System.Windows.Forms.RadioButton();
-            this.txtMotivoEvaluacion = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(234, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(299, 25);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Asignar Jurado y Miembros";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::Estandar.Properties.Resources._1498299142_system_search;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(12, 46);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(167, 31);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Buscar Solicitud Aprobada";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtMotivoAprobacion);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtfechaAprobacion);
+            this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.pbFoto);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.listBoxTemas);
@@ -82,12 +113,57 @@
             this.groupBox1.Controls.Add(this.txtCodigoSolicitud);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 71);
+            this.groupBox1.Location = new System.Drawing.Point(12, 83);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(706, 264);
-            this.groupBox1.TabIndex = 3;
+            this.groupBox1.Size = new System.Drawing.Size(706, 325);
+            this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la solicitud";
+            // 
+            // txtMotivoAprobacion
+            // 
+            this.txtMotivoAprobacion.Enabled = false;
+            this.txtMotivoAprobacion.Location = new System.Drawing.Point(163, 266);
+            this.txtMotivoAprobacion.Multiline = true;
+            this.txtMotivoAprobacion.Name = "txtMotivoAprobacion";
+            this.txtMotivoAprobacion.Size = new System.Drawing.Size(528, 42);
+            this.txtMotivoAprobacion.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(8, 274);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(114, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Motivo de Aprobacion:";
+            // 
+            // txtfechaAprobacion
+            // 
+            this.txtfechaAprobacion.Enabled = false;
+            this.txtfechaAprobacion.Location = new System.Drawing.Point(163, 240);
+            this.txtfechaAprobacion.Name = "txtfechaAprobacion";
+            this.txtfechaAprobacion.Size = new System.Drawing.Size(145, 20);
+            this.txtfechaAprobacion.TabIndex = 19;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(8, 243);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(112, 13);
+            this.label10.TabIndex = 18;
+            this.label10.Text = "Fecha de Aprobacion:";
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Image = global::Estandar.Properties.Resources.id_card_3;
+            this.pbFoto.Location = new System.Drawing.Point(578, 29);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(113, 131);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 17;
+            this.pbFoto.TabStop = false;
             // 
             // label9
             // 
@@ -105,6 +181,18 @@
             this.listBoxTemas.Name = "listBoxTemas";
             this.listBoxTemas.Size = new System.Drawing.Size(395, 56);
             this.listBoxTemas.TabIndex = 15;
+            // 
+            // button2
+            // 
+            this.button2.Image = global::Estandar.Properties.Resources.file1;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(578, 178);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 31);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Descargar Tesis";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // txtObservacionesSolicitud
             // 
@@ -225,148 +313,107 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Código Solicitud:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(276, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Evaluar Solicitud";
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radioButton2);
-            this.groupBox2.Controls.Add(this.radioAprobado);
-            this.groupBox2.Controls.Add(this.txtMotivoEvaluacion);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Location = new System.Drawing.Point(12, 341);
+            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.label13);
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Location = new System.Drawing.Point(12, 416);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(706, 164);
-            this.groupBox2.TabIndex = 6;
+            this.groupBox2.Size = new System.Drawing.Size(706, 215);
+            this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Resultado de la Evaluacion";
+            this.groupBox2.Text = "Miembros del Jurado";
             // 
-            // radioButton2
+            // comboBox1
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(138, 138);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(89, 17);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Desaprobado";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4"});
+            this.comboBox1.Location = new System.Drawing.Point(452, 91);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 24;
             // 
-            // radioAprobado
+            // label14
             // 
-            this.radioAprobado.AutoSize = true;
-            this.radioAprobado.Location = new System.Drawing.Point(11, 138);
-            this.radioAprobado.Name = "radioAprobado";
-            this.radioAprobado.Size = new System.Drawing.Size(71, 17);
-            this.radioAprobado.TabIndex = 9;
-            this.radioAprobado.TabStop = true;
-            this.radioAprobado.Text = "Aprobado";
-            this.radioAprobado.UseVisualStyleBackColor = true;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(358, 96);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 13);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "Duracion (horas):";
             // 
-            // txtMotivoEvaluacion
+            // dateTimePicker1
             // 
-            this.txtMotivoEvaluacion.Location = new System.Drawing.Point(11, 60);
-            this.txtMotivoEvaluacion.Multiline = true;
-            this.txtMotivoEvaluacion.Name = "txtMotivoEvaluacion";
-            this.txtMotivoEvaluacion.Size = new System.Drawing.Size(547, 72);
-            this.txtMotivoEvaluacion.TabIndex = 8;
+            this.dateTimePicker1.Location = new System.Drawing.Point(108, 92);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 22;
             // 
-            // label10
+            // label13
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 34);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 13);
-            this.label10.TabIndex = 7;
-            this.label10.Text = "Motivo por el cual aprueba o desaprueba";
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(15, 96);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(83, 13);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Fecha de Inicio:";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Enabled = false;
+            this.textBox3.Location = new System.Drawing.Point(68, 60);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(623, 20);
+            this.textBox3.TabIndex = 20;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 63);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(37, 13);
+            this.label12.TabIndex = 19;
+            this.label12.Text = "Lugar:";
             // 
             // button3
             // 
-            this.button3.Image = global::Estandar.Properties.Resources.save;
+            this.button3.Image = global::Estandar.Properties.Resources._1498299142_system_search;
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(12, 511);
+            this.button3.Location = new System.Drawing.Point(11, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 31);
+            this.button3.Size = new System.Drawing.Size(176, 31);
             this.button3.TabIndex = 7;
-            this.button3.Text = "Guardar";
+            this.button3.Text = "Agregar Miembros de Jurado";
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button1
-            // 
-            this.button1.Image = global::Estandar.Properties.Resources._1498299142_system_search;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(12, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 31);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Buscar Solicitud";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Image = global::Estandar.Properties.Resources.file1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(11, 230);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 31);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Descargar Tesis";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(107, 511);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(67, 31);
-            this.button4.TabIndex = 18;
-            this.button4.Text = "Cerrar";
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // pbFoto
-            // 
-            this.pbFoto.Image = global::Estandar.Properties.Resources.id_card_3;
-            this.pbFoto.Location = new System.Drawing.Point(578, 29);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(113, 131);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 17;
-            this.pbFoto.TabStop = false;
-            // 
-            // EvaluarSolicitud
+            // AsignarJurado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(738, 544);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(726, 643);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
-            this.Name = "EvaluarSolicitud";
-            this.Text = "Evaluar Solicitud";
-            this.Load += new System.EventHandler(this.EvaluarSolicitud_Load);
+            this.Name = "AsignarJurado";
+            this.Text = "Asignar Jurado";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -374,7 +421,17 @@
 
         #endregion
 
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtMotivoAprobacion;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtfechaAprobacion;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ListBox listBoxTemas;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtObservacionesSolicitud;
         private System.Windows.Forms.TextBox txtNombreTesis;
         private System.Windows.Forms.Label label7;
@@ -389,18 +446,13 @@
         private System.Windows.Forms.TextBox txtCodigoSolicitud;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ListBox listBoxTemas;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtMotivoEvaluacion;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioAprobado;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

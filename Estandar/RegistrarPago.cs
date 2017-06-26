@@ -60,19 +60,60 @@ namespace Estandar
 
         private void button2_Click(object sender, EventArgs e)
         {
-            PagoSolicitud pago = new PagoSolicitud();
-            pago.solicitud = solicitud;
-            pago.fechaPago = dtFechaPago.Value;
-            pago.monto = Decimal.Parse(txtSaldoAmortizado.Text);
-            pago.serie = txtSerie.Text;
-            pago.numero = txtNumero.Text;
-            pago.fotoAdjunta = txtRutaArchivo.Text;
-            FormaDePago formaSeleccionada = listaFormaPago
-                .Find(p => p.id.Equals(int.Parse(cboFormaPago.SelectedValue.ToString())));
-            pago.formaDePago = formaSeleccionada;
-            gestionTesis.registrarPagoSolicitud(pago);
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            
+            if(String.IsNullOrEmpty(txtSerie.Text)) 
+            {
+                MessageBox.Show("Debe ingresar la serie del documento");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtNumero.Text))
+            {
+                MessageBox.Show("Debe ingresar el numero del documento");
+                return;
+            }
+            if (String.IsNullOrEmpty(txtSaldoAmortizado.Text))
+            {
+                MessageBox.Show("Debe ingresar el saldo a pagar");
+                return;
+            }
+            try
+            {
+                var saldo = decimal.Parse(txtSaldoAmortizado.Text);
+                if (saldo != 15)
+                {
+                    MessageBox.Show("El saldo a pagar debe de ser 15.0");
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("El saldo debe de ser un numero");
+                return;
+            }
+           
+            try
+            {
+                PagoSolicitud pago = new PagoSolicitud();
+                pago.solicitud = solicitud;
+                pago.fechaPago = dtFechaPago.Value;
+                pago.monto = Decimal.Parse(txtSaldoAmortizado.Text);
+                pago.serie = txtSerie.Text;
+                pago.numero = txtNumero.Text;
+                pago.fotoAdjunta = txtRutaArchivo.Text;
+                FormaDePago formaSeleccionada = listaFormaPago
+                    .Find(p => p.id.Equals(int.Parse(cboFormaPago.SelectedValue.ToString())));
+                pago.formaDePago = formaSeleccionada;
+                gestionTesis.registrarPagoSolicitud(pago);
+                MessageBox.Show("Se registro correctamente el pago de la solicitud " + solicitud.codigo
+                        , "Operacion correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message, "ocurrio un error");
+            }
+            
         }
 
         private void textBox13_TextChanged(object sender, EventArgs e)
@@ -91,6 +132,16 @@ namespace Estandar
                     txtRutaArchivo.Text=dlg.FileName;
                 }
             }
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

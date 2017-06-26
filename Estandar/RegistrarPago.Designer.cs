@@ -47,7 +47,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtRutaArchivo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtSaldoAmortizado = new System.Windows.Forms.TextBox();
@@ -60,24 +59,29 @@
             this.label10 = new System.Windows.Forms.Label();
             this.cboFormaPago = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(272, 9);
+            this.label1.Location = new System.Drawing.Point(231, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 25);
+            this.label1.Size = new System.Drawing.Size(300, 25);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Registrar Pago";
+            this.label1.Text = "Registrar Pago de Solicitud";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pbFoto);
             this.groupBox1.Controls.Add(this.txtObservacionesSolicitud);
             this.groupBox1.Controls.Add(this.txtNombreTesis);
             this.groupBox1.Controls.Add(this.label7);
@@ -94,10 +98,11 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(13, 46);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(706, 185);
+            this.groupBox1.Size = new System.Drawing.Size(784, 185);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la solicitud";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // txtObservacionesSolicitud
             // 
@@ -237,7 +242,7 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Location = new System.Drawing.Point(13, 238);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(706, 175);
+            this.groupBox2.Size = new System.Drawing.Size(784, 176);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información del Pago";
@@ -245,30 +250,16 @@
             // txtRutaArchivo
             // 
             this.txtRutaArchivo.Enabled = false;
-            this.txtRutaArchivo.Location = new System.Drawing.Point(284, 118);
+            this.txtRutaArchivo.Location = new System.Drawing.Point(264, 118);
             this.txtRutaArchivo.Name = "txtRutaArchivo";
             this.txtRutaArchivo.Size = new System.Drawing.Size(416, 20);
             this.txtRutaArchivo.TabIndex = 28;
             this.txtRutaArchivo.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(116, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 31);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Buscar archivo...";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 113);
+            this.label16.Location = new System.Drawing.Point(6, 121);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(104, 13);
             this.label16.TabIndex = 26;
@@ -294,9 +285,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(281, 67);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(75, 13);
+            this.label14.Size = new System.Drawing.Size(78, 13);
             this.label14.TabIndex = 22;
-            this.label14.Text = "Saldo A Pagar";
+            this.label14.Text = "Saldo A Pagar:";
             // 
             // dtFechaPago
             // 
@@ -348,6 +339,7 @@
             // 
             // cboFormaPago
             // 
+            this.cboFormaPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboFormaPago.FormattingEnabled = true;
             this.cboFormaPago.Location = new System.Drawing.Point(97, 32);
             this.cboFormaPago.Name = "cboFormaPago";
@@ -363,21 +355,62 @@
             this.label9.TabIndex = 12;
             this.label9.Text = "Forma de Pago:";
             // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(94, 420);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(67, 31);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Cerrar";
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // button2
             // 
+            this.button2.Image = global::Estandar.Properties.Resources._1498297338_Open;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.Location = new System.Drawing.Point(13, 420);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 31);
             this.button2.TabIndex = 4;
             this.button2.Text = "Guardar";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(116, 113);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 31);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Buscar archivo...";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Image = global::Estandar.Properties.Resources.id_card_3;
+            this.pbFoto.Location = new System.Drawing.Point(607, 22);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(150, 157);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 15;
+            this.pbFoto.TabStop = false;
             // 
             // RegistrarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 451);
+            this.ClientSize = new System.Drawing.Size(809, 458);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -389,6 +422,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -428,5 +462,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtRutaArchivo;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox pbFoto;
     }
 }

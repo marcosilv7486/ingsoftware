@@ -82,6 +82,14 @@ namespace Data
                         solicitud.fechaFinalizacion = DateTime.Parse(lector["FECHA_FINALIZACION"].ToString());
                     }
                     solicitud.programaPostGrado = lector["PROGRAMA_POSTGRADO"].ToString();
+                    if (!lector.IsDBNull(13))
+                    {
+                        solicitud.motivoEvaluacion = lector["MOTIVO_EVALUACION"].ToString();
+                    }
+                    if (!lector.IsDBNull(14))
+                    {
+                        solicitud.observaciones = lector["OBSERVACIONES"].ToString();
+                    }
                     data.Add(solicitud);
                 }
                 return data;

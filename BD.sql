@@ -101,7 +101,7 @@ NOMBRE_ESTADO VARCHAR(100) NOT NULL,
 FECHA_PAGO DATETIME NULL,
 FECHA_EVALUACION DATETIME NULL,
 MOTIVO_ANULACION VARCHAR(200) NULL,
-MOVIVO_DESAPROBACION VARCHAR(200) NULL,
+MOTIVO_EVALUACION VARCHAR(200) NULL,
 FECHA_FINALIZACION DATETIME NULL,
 FECHA_REGISTRO DATETIME NOT NULL DEFAULT GETDATE(),
 ELIMINADO BIT DEFAULT 0
@@ -130,8 +130,8 @@ ID INT IDENTITY(1,1) PRIMARY KEY,
 CODIGO VARCHAR(100) NOT NULL UNIQUE,
 NOMBRES VARCHAR(100) NOT NULL,
 APELLIDOS VARCHAR(200) NOT NULL,
-MAESTRIA VARCHAR(200) NOT NULL,
-DOCTORADO VARCHAR(200) NOT NULL,
+MAESTRIA VARCHAR(200)  NULL,
+DOCTORADO VARCHAR(200)  NULL,
 OBSERVACIONES VARCHAR(200) NULL,
 TELEFONO VARCHAR(100) NULL,
 CORREO VARCHAR(200) NOT NULL ,
@@ -343,7 +343,9 @@ S.NOMBRE_ESTADO,
 S.FECHA_PAGO,
 S.FECHA_EVALUACION,
 S.FECHA_FINALIZACION,
-S.PROGRAMA_POSTGRADO
+S.PROGRAMA_POSTGRADO,
+S.MOTIVO_EVALUACION,
+S.OBSERVACIONES
 FROM SOLICITUD S WHERE S.SOLICITUD_ESTADO_ID = @ESTADO_ID
 AND S.ELIMINADO = 0
 END
@@ -464,7 +466,7 @@ UPDATE SOLICITUD
 SET SOLICITUD_ESTADO_ID = @ESTADO_ID,
 NOMBRE_ESTADO = @NOMBRE_RESTADO ,
 FECHA_EVALUACION = @FECHA_EVALUACION,
-MOVIVO_DESAPROBACION = @MOTIVO_EVALUACION
+MOTIVO_EVALUACION = @MOTIVO_EVALUACION
 WHERE ID = @SOLICITUD_ID
 END
 GO
@@ -650,6 +652,115 @@ VALUES ('EFECTIVO');
 INSERT INTO FORMA_PAGO
 (NOMBRE)
 VALUES ('DEPOSITO A CUENTA CORRIENTE');
+
+
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1300','Adolfo Oswaldo','Acevedo Borrego','Administración','Ingeniería Industrial','Diseño y mejoramiento de servicios logísticos','3858098','adolfo.acevedo@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1301','Ezzard Omar','Alvarez Díaz','Ingeniería de Sistemas','','Gestión empresarial.Sistemas e Informática','3876182','ezzard.alvarez@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1302','Walter','Andía Valencia','Gestión Económica Empresarial','','Proyectos de Inversión.Gestión de procesos industriales','7173274','walter.andia@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1303','Walter','Barrutia Feijoo','Ingeniería de Procesos','Ingeniería y Administración de Operaciones','Innovación y administración de la tecnología. Sistemas de manufactura. Modelo de Gestión de Empresas','8908098','walter.barrutia@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1304','Francisca','Bouby Tolentino','Economía: Política Económica','Economía','Innovación y administración de la tecnología. Gestión de Empresas','8908098','francisca.bouby@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1305','Orestes','Cachay Boza','Ingeniería Industrial: Producción','Ingeniería Industrial','Producción y Operaciones: Planeación y control de la producción, estudios y análisis de logística. Diseño y mejoramiento de servicios logísticos.','2205277','orestes.cachay@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1306','Willy','Calsina Miramira','Gestión de Alta dirección','','Gestión de Alta dirección','7980133','willy.calsina@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1307','Juan Manuel','Cevallos Ampuero','Ingeniería Industrial','Ingeniería','Gestión Empresarial: Calidad, planeación y control de la producción. Estrategias empresariales y procesos de negocios.','3025896','juan.cevallos@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1308','Alfonso Ramón','Chung Pinzás','Ingeniería Industrial: Producción Industrial','Ingeniería Industrial','Gestión Empresarial: Calidad, organización, costos, finanzas, medio ambiente. Prospectiva','3957745','alfonso.chung@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1309','Rosa Sumactika','Delgadillo Avila','Sistemas y Computación','Ingeniería de Producción','Gestión y producción empresarial: Optimización de la producción y gestión empresarial','7212732','rosa.delgadillo@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1310','Carlos Alfonso','Egusquiza Pereda','Economía Agrícola','Ciencias Económicas y Comerciales','Ciencias Económicas, Economía Agrícola','3835979','carlos.egusquiza@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1311','Jorge José','Esponda Veliz','Ingeniería Industrial: Producción','','Administración y planificación de Operaciones.Gerencia de Operaciones','5804902','jorge.esponda@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1312','Osiris','Feliciano Muñoz','Ciencias: Proyectos de Inversión','','Proyectos de Inversión','8684157','osiris.feliciano@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1313','Teonila Doria','García Zapata','Administración y Gestión Pública','Ingeniería Industrial','Producción y Operaciones: Planeación y control de la producción. Gestión Empresarial: Calidad, organización. Estrategias empresariales y modelos de negocios','4419209','teonila.garcia@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1314','Hilmar Antonio','Hinojoza Lazo','Informática','','Producción y Operaciones: Automatización, tecnologías limpias. Gestión Empresarial: Seguridad, medio ambiente. Estrategias empresariales y modelos de negocios','4781945','hilmar.hinojoza@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1315','Jorge Luís','Inche Mitma','Ingeniería Química','Ciencias Administrativas','Sistemas de manufactura. Innovación y administración de la tecnología. Modelos de Gestión Empresarial. Prospectiva','3032874','jorge.inche@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1316','Jorge Leonardo','Jave Nakayo','Ciencias con mención en Desarrollo Agrario Sostenible','Medio Ambiente y Desarrollo Sostenible','Medio ambiente y desarrollo sostenible.Gestión pública','7719130','jorge.jave@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1317','Ervwin','Kraenau Espinal','Estadística.Matemática','Ingeniería Industrial','Construcción de Índices, Indicadores, Instrumentos de Medición etc. Inteligencia Artificial, Automatización, Robótica, etc. en la industria.Planeamiento estratégico','6312141','ervwin.kraenau@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1318','David','Mauricio Sanchez','Matemática aplicada','Computación','Matemática aplicada','6601300','david.mauricio@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1319','Daniel Humberto','Mavila Hinojosa','Construcción','','Gestión Empresarial: Organización, finanzas','6883554','daniel.mavila@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1320','Rosmeri Agustina','Mayta Huatuco','Ciencias con mención en Ingeniería de Sistemas','','Gestión empresarial. Sistemas e Informática','5219996','rosmeri.mayta@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1321','Fernando','Noriega Bardalez','Ingeniería de Producción','','Gestión Empresarial: Finanzas.','5135210','fernando.noriega@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1322','Margarita','Pajares Flores','','','Metodología de investigación','5069068','margarita.pajares@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1323','Carlos','Quispe Atuncar','Ingeniería Industrial con mención en Gestión de Operaciones y Productividad','','Administración de Operaciones.Organización y administración de Industrial','4487056','carlos.atuncar@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1324','Durga Edelmira','Ramirez Miranda','Análisis y Gestión de la Ciencia y la Tecnología','Ciencias Politicas y Sociología','Innovación y administración de la tecnología','3381341','durga.ramrez@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1325','Julio','Reyna Ramos','Ingeniería Industrial: Gestión de Operaciones y Productividad','','Gestión de Operaciones','3393116','julio.reyna@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1326','Juan Manuel','Rivera Poma','Ingeniería Industrial',NULL,'Gestión de empresas','7448808','juan.rivera@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1327','Edgar Cruz','Ruiz Lizama','Informática','','Modelos y algoritmos de optimización de la producción, sistemas de producción','5682927','edgar.ruiz@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1328','Julio Alejandro','Salas Bacalla','Ingeniería Industrial mención en gestión de Operaciones y Productividad','','Producción, distribución de planta.Ergonomía, productividad','7180634','julio.salas@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1329','Julio Cesar','Sandoval Inchaustegui','Administración','','Desarrollo organizacional Planemiento estratégico, balanced scorecard.Gestión Estratégica.Comercio Internacional','6153703','julio.sandoval@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1330','Eulogio','Santos de la Cruz','Ciencia de Materiales','Ingeniería Ambiental','Sistema de Manufactura.Sistema Ambiental','2073760','eulogio.santos@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1331','Nestor','Santos Jiménez','','','Proyectos Industriales - Finanzas','3664315','nestor.santos@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1332','Oscar Rafael','Tinoco Gomez','Marketing Turístico y Hotelero','Medio Ambiente y Desarrollo Sostenible','Gestión y Diseño de Experimentos Gestión de operaciones','7288207','oscar.rafael@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1333','Jorge Luis','Vergiu Canto','Gestión y Desarrollo: Gestión y Dirección de Empresas','','Logística y gestión de producción','5823979','jorge.vergiu@industrial.unmsm.pe',NULL);
+INSERT INTO PROFESOR
+(CODIGO,NOMBRES,APELLIDOS,MAESTRIA,DOCTORADO,OBSERVACIONES,TELEFONO,CORREO,URL_FOTO)
+VALUES ('0A1334','German','Vergaray Ulfee','Administración de la Educación Universitaria','Ciencias Biológicas','','5425489','german.vergaray@industrial.unmsm.pe',NULL);
+
+
 
 select *from SOLICITUD;
 select *from PAGO_SOLICITUD;

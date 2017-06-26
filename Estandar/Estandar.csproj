@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsignarJurado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AsignarJurado.Designer.cs">
+      <DependentUpon>AsignarJurado.cs</DependentUpon>
+    </Compile>
     <Compile Include="BuscarAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="BuscarAlumno.Designer.cs">
       <DependentUpon>BuscarAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BuscarProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BuscarProfesor.Designer.cs">
+      <DependentUpon>BuscarProfesor.cs</DependentUpon>
     </Compile>
     <Compile Include="BuscarSolicitud.cs">
       <SubType>Form</SubType>
@@ -116,8 +128,14 @@
       <DependentUpon>SolicitudPendientePago.cs</DependentUpon>
     </Compile>
     <Compile Include="Utilitario.cs" />
+    <EmbeddedResource Include="AsignarJurado.resx">
+      <DependentUpon>AsignarJurado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BuscarAlumno.resx">
       <DependentUpon>BuscarAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BuscarProfesor.resx">
+      <DependentUpon>BuscarProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BuscarSolicitud.resx">
       <DependentUpon>BuscarSolicitud.cs</DependentUpon>
@@ -229,6 +247,10 @@
     <None Include="Resources\id-card-3.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\save.png" />
+    <None Include="Resources\file1.png" />
+    <None Include="Resources\1498299142_system-search.png" />
+    <None Include="Resources\1498297338_Open.png" />
     <Content Include="Resources\Alumnos\1.jpg" />
     <Content Include="Resources\Alumnos\10.jpg" />
     <Content Include="Resources\Alumnos\11.jpg" />
@@ -243,6 +265,9 @@
     <Content Include="Resources\Alumnos\7.jpg" />
     <Content Include="Resources\Alumnos\8.jpg" />
     <Content Include="Resources\Alumnos\9.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documentos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

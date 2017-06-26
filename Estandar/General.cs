@@ -90,5 +90,11 @@ namespace Estandar
             MantenerAlumno form = new MantenerAlumno();
             form.Show();
         }
+
+        private void pictureBox9_Click(object sender, EventArgs e)
+        {
+            AsignarJurado form = new AsignarJurado();
+            form.Show();
+        }
     }
 }

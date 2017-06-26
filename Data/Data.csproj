@@ -48,11 +48,13 @@
     <Compile Include="IEstadoSolicitudRepository.cs" />
     <Compile Include="IFormaPagoRepository.cs" />
     <Compile Include="IPagoSolicitudRepository.cs" />
+    <Compile Include="IProfesorRepository.cs" />
     <Compile Include="ISerieDocumentoRepository.cs" />
     <Compile Include="ISolicitudRepository.cs" />
     <Compile Include="ISolicitudTemaRepository.cs" />
     <Compile Include="ITesisTemaRepository.cs" />
     <Compile Include="PagoSolicitudRepository.cs" />
+    <Compile Include="ProfesorRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SerieDocumentoRepository.cs" />
     <Compile Include="SolicitudRepository.cs" />
