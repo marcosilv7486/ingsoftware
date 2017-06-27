@@ -30,8 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EvaluarSolicitud));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.listBoxTemas = new System.Windows.Forms.ListBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.txtObservacionesSolicitud = new System.Windows.Forms.TextBox();
             this.txtNombreTesis = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -54,12 +56,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -89,6 +90,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la solicitud";
             // 
+            // pbFoto
+            // 
+            this.pbFoto.Image = global::Estandar.Properties.Resources.id_card_3;
+            this.pbFoto.Location = new System.Drawing.Point(578, 29);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(113, 131);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 17;
+            this.pbFoto.TabStop = false;
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -105,6 +116,18 @@
             this.listBoxTemas.Name = "listBoxTemas";
             this.listBoxTemas.Size = new System.Drawing.Size(395, 56);
             this.listBoxTemas.TabIndex = 15;
+            // 
+            // button2
+            // 
+            this.button2.Image = global::Estandar.Properties.Resources.file1;
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.Location = new System.Drawing.Point(11, 230);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(120, 31);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Descargar Tesis";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // txtObservacionesSolicitud
             // 
@@ -229,7 +252,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(276, 9);
+            this.label1.Location = new System.Drawing.Point(248, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(190, 25);
             this.label1.TabIndex = 4;
@@ -283,9 +306,9 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(8, 34);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(201, 13);
+            this.label10.Size = new System.Drawing.Size(253, 13);
             this.label10.TabIndex = 7;
-            this.label10.Text = "Motivo por el cual aprueba o desaprueba";
+            this.label10.Text = "Motivo por el cual aprueba o desaprueba la solicitud";
             // 
             // button3
             // 
@@ -313,23 +336,11 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
-            // 
-            this.button2.Image = global::Estandar.Properties.Resources.file1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(11, 230);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 31);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Descargar Tesis";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button4
             // 
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(107, 511);
+            this.button4.Location = new System.Drawing.Point(185, 511);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(67, 31);
             this.button4.TabIndex = 18;
@@ -338,21 +349,25 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // pbFoto
+            // button5
             // 
-            this.pbFoto.Image = global::Estandar.Properties.Resources.id_card_3;
-            this.pbFoto.Location = new System.Drawing.Point(578, 29);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(113, 131);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 17;
-            this.pbFoto.TabStop = false;
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(107, 511);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(68, 31);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Limpiar";
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // EvaluarSolicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 544);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.groupBox2);
@@ -364,9 +379,9 @@
             this.Load += new System.EventHandler(this.EvaluarSolicitud_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -402,5 +417,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox pbFoto;
+        private System.Windows.Forms.Button button5;
     }
 }

@@ -46,6 +46,10 @@ namespace Estandar
             {
                 listBoxTemas.Items.Add(tema.tema.nombre);
             }
+            if (!solicitud.alumno.urlFoto.Equals(""))
+            {
+                pbFoto.ImageLocation = Utilitario.getInstance().directorioFotos + solicitud.alumno.urlFoto;
+            }
            
         }
 
@@ -78,6 +82,7 @@ namespace Estandar
                 gestionTesis.registrarEvaluacionSolicitud(solicitud);
                 MessageBox.Show("Se evaluo correctamente la solicitud , el codigo es "+solicitud.codigo
                         ,"Operacion correcta",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                limpiar();
             }
             catch (Exception exp)
             {
@@ -89,6 +94,28 @@ namespace Estandar
         private void button4_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+
+        private void limpiar()
+        {
+            txtCodigoAlumno.Text = "";
+            txtCodigoSolicitud.Text = "";
+            txtFechaEmision.Text = "";
+            txtNombreCompleto.Text = "";
+            txtNombreTesis.Text = "";
+            txtObservacionesSolicitud.Text = "";
+            txtDocumentoAlumno.Text = "";
+            listBoxTemas.Items.Clear();
+            pbFoto.ImageLocation = "";
+            txtMotivoEvaluacion.Text = "";
+            radioAprobado.Checked = false;
+            radioButton2.Checked = false;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            limpiar();
         }
     }
 }
