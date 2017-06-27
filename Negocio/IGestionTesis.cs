@@ -20,5 +20,6 @@ namespace Negocio
         List<FormaDePago> obtenerFormasPagoHabilitadas();
         void registrarEvaluacionSolicitud(Solicitud solicitud);
         List<Profesor> obtenerProfesoresHabilitados();
+        void registrarMiembrosTesis(List<HorarioSustentacion> miembrosConHorario);
     }
 }

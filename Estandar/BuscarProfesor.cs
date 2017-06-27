@@ -25,8 +25,8 @@ namespace Estandar
         private void BuscarProfesor_Load(object sender, EventArgs e)
         {
             cargarData();
-            txtCodigo.KeyUp += new KeyEventHandler(txtCodigo_KeyUp);
-            txtNombre.KeyUp += new KeyEventHandler(txtNombre_KeyUp);
+            txtObs.KeyUp += new KeyEventHandler(txtCodigo_KeyUp);
+            txtDoctorado.KeyUp += new KeyEventHandler(txtNombre_KeyUp);
             txtMaestria.KeyUp += new KeyEventHandler(txtMaestria_KeyUp);
             listView1.DoubleClick += new EventHandler(listView1_DoubleClick);
         }
@@ -49,14 +49,14 @@ namespace Estandar
         void txtNombre_KeyUp(object sender, KeyEventArgs e)
         {
             listView1.Items.Clear();
-            listView1.Items.AddRange(lista.Where(i => string.IsNullOrEmpty(txtNombre.Text) || i.nombreCompleto().ToLower().Contains(txtNombre.Text.ToLower()))
+            listView1.Items.AddRange(lista.Where(i => string.IsNullOrEmpty(txtDoctorado.Text) || i.doctorado.ToLower().Contains(txtDoctorado.Text.ToLower()))
             .Select(c => generarProfesor(c)).ToArray());
         }
 
         void txtCodigo_KeyUp(object sender, KeyEventArgs e)
         {
             listView1.Items.Clear();
-            listView1.Items.AddRange(lista.Where(i => string.IsNullOrEmpty(txtCodigo.Text) || i.codigo.ToLower().StartsWith(txtCodigo.Text.ToLower()))
+            listView1.Items.AddRange(lista.Where(i => string.IsNullOrEmpty(txtObs.Text) || i.observaciones.ToLower().Contains(txtObs.Text.ToLower()))
             .Select(c => generarProfesor(c)).ToArray());
         }
 

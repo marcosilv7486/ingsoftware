@@ -44,9 +44,11 @@
     <Compile Include="EstadoSolicitudRepository.cs" />
     <Compile Include="FormaPagoRepository.cs" />
     <Compile Include="HelperDB.cs" />
+    <Compile Include="HorariSustentacionRepository.cs" />
     <Compile Include="IAlumnoRepository.cs" />
     <Compile Include="IEstadoSolicitudRepository.cs" />
     <Compile Include="IFormaPagoRepository.cs" />
+    <Compile Include="IHorariSustentacionRepository.cs" />
     <Compile Include="IPagoSolicitudRepository.cs" />
     <Compile Include="IProfesorRepository.cs" />
     <Compile Include="ISerieDocumentoRepository.cs" />

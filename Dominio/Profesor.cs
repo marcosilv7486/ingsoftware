@@ -20,5 +20,12 @@ namespace Dominio
         {
             return nombres + " " + apellidos;
         }
+
+        public Profesor()
+        {
+            observaciones = "";
+            doctorado = "";
+            maestria = "";
+        }
     }   
 }

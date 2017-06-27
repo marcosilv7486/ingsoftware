@@ -131,7 +131,7 @@ namespace Data
             comando.Parameters.AddWithValue("@ESTADO_ID", nuevoEstado.id);
             comando.Parameters.AddWithValue("@NOMBRE_RESTADO", nuevoEstado.nombre);
             comando.Parameters.AddWithValue("@FECHA_EVALUACION", DateTime.Now);
-            comando.Parameters.AddWithValue("@MOTIVO_EVALUACION", nuevoEstado.nombre);
+            comando.Parameters.AddWithValue("@MOTIVO_EVALUACION", solicitud.motivoEvaluacion);
             comando.ExecuteNonQuery();
         }
 
@@ -177,6 +177,21 @@ namespace Data
             lector.Dispose();
             comando.Dispose();
             return resultado > 0;
+        }
+
+
+        public void registrarEstadoFinalizado(Solicitud solicitud, SolicitudEstado nuevoEstado, SqlConnection cn, SqlTransaction transaccion)
+        {
+            String nombreProcedure = "REGISTRAR_FINALIZACION_SOLICITUD";
+            SqlCommand comando = new SqlCommand(nombreProcedure, cn);
+            if (transaccion != null)
+                comando.Transaction = transaccion;
+            comando.CommandType = System.Data.CommandType.StoredProcedure;
+            comando.Parameters.AddWithValue("@SOLICITUD_ID", solicitud.id);
+            comando.Parameters.AddWithValue("@ESTADO_ID", nuevoEstado.id);
+            comando.Parameters.AddWithValue("@NOMBRE_RESTADO", nuevoEstado.nombre);
+            comando.Parameters.AddWithValue("@FECHA_FINALIZACION", DateTime.Now);
+            comando.ExecuteNonQuery();
         }
     }
 }

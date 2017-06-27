@@ -39,9 +39,9 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txtObs = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtDoctorado = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtMaestria = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -129,39 +129,39 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 87);
+            this.label3.Location = new System.Drawing.Point(615, 91);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Código de profesor";
+            this.label3.Text = "Obs";
             // 
-            // txtCodigo
+            // txtObs
             // 
-            this.txtCodigo.Location = new System.Drawing.Point(119, 84);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(155, 20);
-            this.txtCodigo.TabIndex = 9;
+            this.txtObs.Location = new System.Drawing.Point(647, 88);
+            this.txtObs.Name = "txtObs";
+            this.txtObs.Size = new System.Drawing.Size(266, 20);
+            this.txtObs.TabIndex = 9;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(301, 87);
+            this.label4.Location = new System.Drawing.Point(319, 91);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 12;
-            this.label4.Text = "Nombres Y Apellidos";
+            this.label4.Text = "Doctorado";
             // 
-            // txtNombre
+            // txtDoctorado
             // 
-            this.txtNombre.Location = new System.Drawing.Point(411, 84);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(213, 20);
-            this.txtNombre.TabIndex = 11;
+            this.txtDoctorado.Location = new System.Drawing.Point(382, 88);
+            this.txtDoctorado.Name = "txtDoctorado";
+            this.txtDoctorado.Size = new System.Drawing.Size(213, 20);
+            this.txtDoctorado.TabIndex = 11;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(649, 87);
+            this.label5.Location = new System.Drawing.Point(17, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 13;
@@ -169,7 +169,7 @@
             // 
             // txtMaestria
             // 
-            this.txtMaestria.Location = new System.Drawing.Point(702, 84);
+            this.txtMaestria.Location = new System.Drawing.Point(70, 88);
             this.txtMaestria.Name = "txtMaestria";
             this.txtMaestria.Size = new System.Drawing.Size(213, 20);
             this.txtMaestria.TabIndex = 14;
@@ -182,9 +182,9 @@
             this.Controls.Add(this.txtMaestria);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.txtDoctorado);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.txtObs);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
@@ -209,9 +209,9 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtDoctorado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtMaestria;
     }

@@ -57,7 +57,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.cboHoras = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.txtHoraInicio = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.txtLugar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -71,7 +71,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.txtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -327,12 +327,12 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.txtFechaInicio);
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.dataJurado);
             this.groupBox2.Controls.Add(this.cboHoras);
             this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
+            this.groupBox2.Controls.Add(this.txtHoraInicio);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.txtLugar);
             this.groupBox2.Controls.Add(this.label12);
@@ -368,13 +368,13 @@
             this.label14.TabIndex = 23;
             this.label14.Text = "Duracion (horas):";
             // 
-            // dateTimePicker1
+            // txtHoraInicio
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(312, 92);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(87, 20);
-            this.dateTimePicker1.TabIndex = 22;
+            this.txtHoraInicio.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.txtHoraInicio.Location = new System.Drawing.Point(312, 92);
+            this.txtHoraInicio.Name = "txtHoraInicio";
+            this.txtHoraInicio.Size = new System.Drawing.Size(87, 20);
+            this.txtHoraInicio.TabIndex = 22;
             // 
             // label13
             // 
@@ -509,13 +509,13 @@
             this.label15.Text = "Hora de Inicio:";
             this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
-            // dateTimePicker2
+            // txtFechaInicio
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(104, 92);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(87, 20);
-            this.dateTimePicker2.TabIndex = 27;
+            this.txtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaInicio.Location = new System.Drawing.Point(104, 92);
+            this.txtFechaInicio.Name = "txtFechaInicio";
+            this.txtFechaInicio.Size = new System.Drawing.Size(87, 20);
+            this.txtFechaInicio.TabIndex = 27;
             // 
             // AsignarJurado
             // 
@@ -575,7 +575,7 @@
         private System.Windows.Forms.TextBox txtLugar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker txtHoraInicio;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.ComboBox cboHoras;
         private System.Windows.Forms.DataGridView dataJurado;
@@ -586,7 +586,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker txtFechaInicio;
         private System.Windows.Forms.Label label15;
     }
 }

@@ -367,6 +367,46 @@ namespace Negocio
             }
             return data;
         }
+
+
+        public void registrarMiembrosTesis(List<HorarioSustentacion> miembrosConHorario)
+        {
+            
+
+           
+            SqlConnection cn = null;
+            SqlTransaction transaccion = null;
+            try
+            {
+                cn = HelperDB.GetSqlConnection();
+                //Inicio de la transaccion
+                transaccion = cn.BeginTransaction();
+                Solicitud solicitud = miembrosConHorario[0].solicitud;
+                //Registrar el horario y los miembros
+
+                //Actualizar en estado FINALIZADO la solicitud
+                //Estado 6= Finalizada 
+                SolicitudEstado nuevoEstado = estadoSolicitudRepository.obtenerPorId(6, cn, transaccion);
+                if (nuevoEstado == null)
+                    throw new ArgumentNullException("No se encontro el estado FINALIZADO para la solicitud");
+                solicitudRepository.registrarEstadoFinalizado(solicitud, nuevoEstado, cn, transaccion);
+                transaccion.Commit();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                transaccion.Rollback();
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (cn != null)
+                {
+                    cn.Close();
+                    cn.Dispose();
+                }
+            }
+        }
     }
 
        

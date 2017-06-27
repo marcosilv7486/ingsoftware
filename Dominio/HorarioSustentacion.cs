@@ -13,7 +13,7 @@ namespace Dominio
         public String lugar { get; set; }
         public DateTime fecha { get; set; }
         public DateTime hora { get; set; }
-
+        public DateTime fechaFin { get; set; }
         public HorarioSustentacion()
         {
             solicitud = new Solicitud();

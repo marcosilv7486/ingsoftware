@@ -14,10 +14,11 @@ namespace Estandar
     {
         private Solicitud solicitud;
         private List<HorarioSustentacion> horarios;
-        
+        private IGestionTesis gestionTesis;
         public AsignarJurado()
         {
             InitializeComponent();
+            gestionTesis = new GestionTesis();
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
@@ -168,6 +169,13 @@ namespace Estandar
                 MessageBox.Show("Debe ingresar el numero de horas de la exposicion de tesis");
                 return;
             }
+            foreach (HorarioSustentacion horario in horarios)
+            {
+                horario.fecha = txtFechaInicio.Value;
+                horario.hora = txtHoraInicio.Value;
+                horario.fechaFin = horario.fecha.AddHours(horario.hora.Hour).AddMinutes(horario.hora.Minute).AddHours(int.Parse(cboHoras.SelectedValue.ToString()));
+            }
+            gestionTesis.registrarMiembrosTesis(horarios);
             MessageBox.Show("Se registro correctamente la asignacion del jurado , Puede consultarlo en la opcion reportes. " + solicitud.codigo
                        , "Operacion correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
