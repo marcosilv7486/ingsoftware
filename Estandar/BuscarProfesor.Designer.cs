@@ -37,18 +37,24 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtMaestria = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(169, 28);
+            this.label1.Location = new System.Drawing.Point(263, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(480, 25);
+            this.label1.Size = new System.Drawing.Size(420, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Haga doble clic para seleccionar un alumno.";
+            this.label1.Text = "Agregar docente al miembro del jurado";
             // 
             // listView1
             // 
@@ -59,20 +65,19 @@
             this.columnHeader3,
             this.columnHeader4,
             this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
+            this.columnHeader6});
             this.listView1.FullRowSelect = true;
-            this.listView1.Location = new System.Drawing.Point(12, 84);
+            this.listView1.Location = new System.Drawing.Point(15, 120);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1003, 200);
+            this.listView1.Size = new System.Drawing.Size(900, 209);
             this.listView1.TabIndex = 2;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader8
             // 
-            this.columnHeader8.DisplayIndex = 7;
+            this.columnHeader8.DisplayIndex = 6;
             this.columnHeader8.Text = "id";
             this.columnHeader8.Width = 0;
             // 
@@ -97,36 +102,94 @@
             // columnHeader4
             // 
             this.columnHeader4.DisplayIndex = 3;
-            this.columnHeader4.Text = "Documento";
-            this.columnHeader4.Width = 80;
+            this.columnHeader4.Text = "Maestria";
+            this.columnHeader4.Width = 150;
             // 
             // columnHeader5
             // 
             this.columnHeader5.DisplayIndex = 4;
-            this.columnHeader5.Text = "Número";
-            this.columnHeader5.Width = 80;
+            this.columnHeader5.Text = "Doctorado";
+            this.columnHeader5.Width = 150;
             // 
             // columnHeader6
             // 
             this.columnHeader6.DisplayIndex = 5;
-            this.columnHeader6.Text = "Programa";
-            this.columnHeader6.Width = 150;
+            this.columnHeader6.Text = "Observaciones";
+            this.columnHeader6.Width = 300;
             // 
-            // columnHeader7
+            // label2
             // 
-            this.columnHeader7.DisplayIndex = 6;
-            this.columnHeader7.Text = "Plan Curricular";
-            this.columnHeader7.Width = 100;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(200, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Haga doble clic para agregar un profesor";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 87);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(96, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Código de profesor";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(119, 84);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(155, 20);
+            this.txtCodigo.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(301, 87);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Nombres Y Apellidos";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(411, 84);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(213, 20);
+            this.txtNombre.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(649, 87);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Maestria";
+            // 
+            // txtMaestria
+            // 
+            this.txtMaestria.Location = new System.Drawing.Point(702, 84);
+            this.txtMaestria.Name = "txtMaestria";
+            this.txtMaestria.Size = new System.Drawing.Size(213, 20);
+            this.txtMaestria.TabIndex = 14;
             // 
             // BuscarProfesor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(842, 403);
+            this.ClientSize = new System.Drawing.Size(925, 341);
+            this.Controls.Add(this.txtMaestria);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtNombre);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtCodigo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listView1);
             this.Name = "BuscarProfesor";
-            this.Text = "BuscarProfesor";
+            this.Text = "Buscar profesor";
             this.Load += new System.EventHandler(this.BuscarProfesor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -144,6 +207,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtMaestria;
     }
 }

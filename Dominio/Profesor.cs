@@ -16,6 +16,9 @@ namespace Dominio
         public String telefono { get; set; }
         public String correo { get; set; }
         public String urlFoto { get; set; }
-       
-    }
+        public String nombreCompleto() 
+        {
+            return nombres + " " + apellidos;
+        }
+    }   
 }
