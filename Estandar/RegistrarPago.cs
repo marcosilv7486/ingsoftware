@@ -83,9 +83,9 @@ namespace Estandar
             try
             {
                 var saldo = decimal.Parse(txtSaldoAmortizado.Text);
-                if (saldo != 15)
+                if (saldo.CompareTo(new Decimal(15))!=0)
                 {
-                    MessageBox.Show("El saldo a pagar debe de ser 15.0");
+                    MessageBox.Show("El saldo a pagar debe de ser 15");
                     return;
                 }
             }
