@@ -845,4 +845,5 @@ VALUES ('0A1334','German','Vergaray Ulfee','Administración de la Educación Unive
 select *from SOLICITUD;
 select *from PAGO_SOLICITUD;
 
-exec OBTENER_TEMAS_POR_SOLICITUD 2
+exec OBTENER_TEMAS_POR_SOLICITUD 2;
+exec LISTADO_HORARIO_TESIS;

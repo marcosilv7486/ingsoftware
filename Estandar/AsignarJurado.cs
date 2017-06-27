@@ -171,7 +171,7 @@ namespace Estandar
             }
             foreach (HorarioSustentacion horario in horarios)
             {
-                horario.fecha = txtFechaInicio.Value;
+                horario.fecha = txtFechaInicio.Value.Date;
                 horario.hora = txtHoraInicio.Value;
                 horario.fechaFin = horario.fecha.AddHours(horario.hora.Hour).AddMinutes(horario.hora.Minute).AddHours(int.Parse(cboHoras.Text.ToString()));
                 horario.lugar = txtLugar.Text;
