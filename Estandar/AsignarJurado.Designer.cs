@@ -409,6 +409,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AsignarJurado";
             this.Text = "Asignar Jurado";
+            this.Load += new System.EventHandler(this.AsignarJurado_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();

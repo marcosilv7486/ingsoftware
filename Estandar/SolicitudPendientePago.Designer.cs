@@ -42,8 +42,8 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -155,17 +155,15 @@
             this.columnHeader7.Text = "Tesis";
             this.columnHeader7.Width = 160;
             // 
-            // columnHeader8
-            // 
-            this.columnHeader8.DisplayIndex = 7;
-            this.columnHeader8.Text = "Estado";
-            this.columnHeader8.Width = 150;
-            // 
             // columnHeader9
             // 
-            this.columnHeader9.DisplayIndex = 8;
-            this.columnHeader9.Text = "P.PostGrado";
+            this.columnHeader9.Text = "PostGrado";
             this.columnHeader9.Width = 150;
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Estado";
+            this.columnHeader8.Width = 150;
             // 
             // SolicitudPendientePago
             // 

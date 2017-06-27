@@ -74,8 +74,8 @@ namespace Estandar
             listitem.SubItems.Add(solicitud.nombreSol + " " + solicitud.apellidosSol);
             listitem.SubItems.Add(solicitud.numeroDocumentoSol);
             listitem.SubItems.Add(solicitud.nombreTesis);
-            listitem.SubItems.Add(solicitud.nombreEstado);
             listitem.SubItems.Add(solicitud.programaPostGrado);
+            listitem.SubItems.Add(solicitud.nombreEstado);
             return listitem;
         }
 

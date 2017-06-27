@@ -51,6 +51,10 @@ namespace Estandar
             {
                 listBoxTemas.Items.Add(tema.tema.nombre);
             }
+            if (!solicitud.alumno.urlFoto.Equals(""))
+            {
+                pbFoto.ImageLocation = Utilitario.getInstance().directorioFotos + solicitud.alumno.urlFoto;
+            }
 
         }
 
@@ -58,6 +62,11 @@ namespace Estandar
         {
             BuscarProfesor form = new BuscarProfesor();
             form.ShowDialog();
+        }
+
+        private void AsignarJurado_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
