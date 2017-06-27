@@ -19,55 +19,66 @@ namespace Estandar
         public SolicitudPendientePago()
         {
             InitializeComponent();
-            dtListado.CellDoubleClick += new DataGridViewCellEventHandler(dtListado_CellDoubleClick);
+            listView1.DoubleClick += new EventHandler(listView1_DoubleClick);
         }
 
-        void dtListado_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        void listView1_DoubleClick(object sender, EventArgs e)
         {
-          
-            int idSolicitud = int.Parse(dtListado.Rows[e.RowIndex].Cells[0].Value.ToString());
+            int idSolicitud = int.Parse(listView1.SelectedItems[0].SubItems[0].Text);
             Solicitud solicitud = data.Find(p => p.id.Equals(idSolicitud));
             RegistrarPago form = new RegistrarPago(solicitud);
-            var result= form.ShowDialog();
+            var result = form.ShowDialog();
             if (result == System.Windows.Forms.DialogResult.OK)
             {
                 cargarData();
             }
         }
 
+       
         private void SolicitudPendientePago_Load(object sender, EventArgs e)
         {
             data = new List<Solicitud>();
             gestionTesis = new GestionTesis();
             cargarData();
+            txtCodigo.KeyPress += new KeyPressEventHandler(txtCodigo_KeyPress);
+            txtNombre.KeyPress += new KeyPressEventHandler(txtNombre_KeyPress);
+        }
+
+        void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            listView1.Items.Clear();
+            listView1.Items.AddRange(data.Where(i => string.IsNullOrEmpty(txtNombre.Text) || i.nombreCompleto().ToLower().Contains(txtNombre.Text.ToLower()))
+            .Select(c => generarSolicitud(c)).ToArray());
+        }
+
+        void txtCodigo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            listView1.Items.Clear();
+            listView1.Items.AddRange(data.Where(i => string.IsNullOrEmpty(txtCodigo.Text) || i.codigoAlumnoSol.ToLower().StartsWith(txtCodigo.Text.ToLower()))
+            .Select(c => generarSolicitud(c)).ToArray());
         }
 
         private void cargarData()
         {
             data = gestionTesis.obtenerSolicitudesPendientesPago();
-            dtListado.Rows.Clear();
-            if (data.Count == 0)
+            foreach (Solicitud solicitud in data)
             {
-                MessageBox.Show("No se encontraron solicitudes pendientes");
+                listView1.Items.Add(generarSolicitud(solicitud));
             }
-            else 
-            {
-                //this.dtListado.DataSource = data;
-                foreach (Solicitud solicitud in data)
-                {
-                    this.dtListado.Rows.Add(
-                        solicitud.id.ToString(),
-                        solicitud.codigo,
-                        solicitud.fechaEmision.ToShortDateString(),
-                        solicitud.codigoAlumnoSol,
-                        solicitud.nombreSol,
-                        solicitud.apellidosSol,
-                        solicitud.numeroDocumentoSol,
-                        solicitud.nombreTesis,
-                        solicitud.programaPostGrado,
-                        solicitud.nombreEstado);
-                }
-            }
+        }
+
+        private ListViewItem generarSolicitud(Solicitud solicitud)
+        {
+            ListViewItem listitem = new ListViewItem(solicitud.id.ToString());
+            listitem.SubItems.Add(solicitud.codigo);
+            listitem.SubItems.Add(solicitud.fechaEmision.ToShortDateString());
+            listitem.SubItems.Add(solicitud.codigoAlumnoSol);
+            listitem.SubItems.Add(solicitud.nombreSol + " "+ solicitud.apellidosSol);
+            listitem.SubItems.Add(solicitud.numeroDocumentoSol);
+            listitem.SubItems.Add(solicitud.nombreTesis);
+            listitem.SubItems.Add(solicitud.programaPostGrado);
+            listitem.SubItems.Add(solicitud.estadoSolicitud.nombre);
+            return listitem;
         }
     }
 }

@@ -31,6 +31,11 @@ namespace Dominio
 
         public List<SolicitudTema> temas { get; set; }
 
+        public String nombreCompleto()
+        {
+            return nombreSol + " " + apellidosSol;
+        }
+
         public Solicitud()
         {
             alumno =  new Alumno();

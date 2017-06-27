@@ -28,6 +28,15 @@ namespace Estandar
             txtCodigo.KeyUp += new KeyEventHandler(txtCodigo_KeyUp);
             txtNombre.KeyUp += new KeyEventHandler(txtNombre_KeyUp);
             txtMaestria.KeyUp += new KeyEventHandler(txtMaestria_KeyUp);
+            listView1.DoubleClick += new EventHandler(listView1_DoubleClick);
+        }
+
+        void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            int idSeleccionado = int.Parse(listView1.SelectedItems[0].SubItems[0].Text);
+            profesor = lista.Find(a => a.id.Equals(idSeleccionado));
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
 
         void txtMaestria_KeyUp(object sender, KeyEventArgs e)
@@ -56,9 +65,7 @@ namespace Estandar
             lista = tesis.obtenerProfesoresHabilitados();
             foreach (Profesor profesor in lista)
             {
-
                 listView1.Items.Add(generarProfesor(profesor));
-
             }
         }
 
