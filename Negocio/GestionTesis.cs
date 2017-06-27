@@ -20,6 +20,8 @@ namespace Negocio
         private IPagoSolicitudRepository pagoSolicitudRepository;
         private IFormaPagoRepository formaPagoRepository;
         private IProfesorRepository profesorRepository;
+        private IHorariSustentacionRepository horarioRepository;
+
         public GestionTesis()
         {
             alumnoRepository = new AlumnoRepository();
@@ -31,6 +33,7 @@ namespace Negocio
             pagoSolicitudRepository = new PagoSolicitudRepository();
             formaPagoRepository = new FormaPagoRepository();
             profesorRepository = new ProfesorRepository();
+            horarioRepository = new HorariSustentacionRepository();
         }
 
         public List<Alumno> obtenerAlumnosHabilitados()
@@ -383,7 +386,10 @@ namespace Negocio
                 transaccion = cn.BeginTransaction();
                 Solicitud solicitud = miembrosConHorario[0].solicitud;
                 //Registrar el horario y los miembros
-
+                foreach (HorarioSustentacion miembroHorario in miembrosConHorario)
+                {
+                    horarioRepository.registrarHorario(miembroHorario, cn, transaccion);
+                }
                 //Actualizar en estado FINALIZADO la solicitud
                 //Estado 6= Finalizada 
                 SolicitudEstado nuevoEstado = estadoSolicitudRepository.obtenerPorId(6, cn, transaccion);

@@ -10,7 +10,7 @@ namespace Data
     {
         public void registrarHorario(HorarioSustentacion horario, SqlConnection cn, SqlTransaction transaccion)
         {
-            String nombreProcedure = "HORARIO_JURADO_SUSTENTACION";
+            String nombreProcedure = "REGISTRAR_JURADO_SUSTENTACION";
             SqlCommand comando = new SqlCommand(nombreProcedure, cn);
             if (transaccion != null)
                 comando.Transaction = transaccion;
@@ -21,6 +21,8 @@ namespace Data
             comando.Parameters.AddWithValue("@FECHA", horario.fecha);
             comando.Parameters.AddWithValue("@HORA", horario.hora);
             comando.Parameters.AddWithValue("@FECHA_FIN", horario.fechaFin);
+            comando.Parameters.AddWithValue("@JEFE", horario.esPresidente);
+            comando.Parameters.AddWithValue("@DURACION", horario.duracion);
             comando.ExecuteNonQuery();
         }
     }

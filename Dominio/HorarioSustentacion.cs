@@ -14,6 +14,7 @@ namespace Dominio
         public DateTime fecha { get; set; }
         public DateTime hora { get; set; }
         public DateTime fechaFin { get; set; }
+        public int duracion { get; set; }
         public HorarioSustentacion()
         {
             solicitud = new Solicitud();

@@ -173,11 +173,22 @@ namespace Estandar
             {
                 horario.fecha = txtFechaInicio.Value;
                 horario.hora = txtHoraInicio.Value;
-                horario.fechaFin = horario.fecha.AddHours(horario.hora.Hour).AddMinutes(horario.hora.Minute).AddHours(int.Parse(cboHoras.SelectedValue.ToString()));
+                horario.fechaFin = horario.fecha.AddHours(horario.hora.Hour).AddMinutes(horario.hora.Minute).AddHours(int.Parse(cboHoras.Text.ToString()));
+                horario.lugar = txtLugar.Text;
+                horario.duracion = int.Parse(cboHoras.Text.ToString());
             }
-            gestionTesis.registrarMiembrosTesis(horarios);
-            MessageBox.Show("Se registro correctamente la asignacion del jurado , Puede consultarlo en la opcion reportes. " + solicitud.codigo
-                       , "Operacion correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            try
+            {
+                gestionTesis.registrarMiembrosTesis(horarios);
+                MessageBox.Show("Se registro correctamente la asignacion del jurado , Puede consultarlo en la opcion reportes. " + solicitud.codigo
+                           , "Operacion correcta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                limpiar();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
             
         }
 
