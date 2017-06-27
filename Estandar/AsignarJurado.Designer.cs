@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AsignarJurado));
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,23 +55,34 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboHoras = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtLugar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.dataJurado = new System.Windows.Forms.DataGridView();
+            this.Remover = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.CodigoProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompletoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PresidenteJurado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataJurado)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(234, 9);
+            this.label1.Location = new System.Drawing.Point(196, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(299, 25);
             this.label1.TabIndex = 3;
@@ -80,7 +92,7 @@
             // 
             this.button1.Image = global::Estandar.Properties.Resources._1498299142_system_search;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(12, 46);
+            this.button1.Location = new System.Drawing.Point(12, 33);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(167, 31);
             this.button1.TabIndex = 6;
@@ -113,9 +125,9 @@
             this.groupBox1.Controls.Add(this.txtCodigoSolicitud);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 83);
+            this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(706, 325);
+            this.groupBox1.Size = new System.Drawing.Size(706, 315);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la solicitud";
@@ -315,37 +327,42 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox1);
+            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.dataJurado);
+            this.groupBox2.Controls.Add(this.cboHoras);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.dateTimePicker1);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.txtLugar);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 416);
+            this.groupBox2.Location = new System.Drawing.Point(12, 385);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(706, 215);
+            this.groupBox2.Size = new System.Drawing.Size(706, 261);
             this.groupBox2.TabIndex = 8;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Miembros del Jurado";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // comboBox1
+            // cboHoras
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cboHoras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboHoras.FormattingEnabled = true;
+            this.cboHoras.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
             "4"});
-            this.comboBox1.Location = new System.Drawing.Point(452, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 24;
+            this.cboHoras.Location = new System.Drawing.Point(543, 93);
+            this.cboHoras.Name = "cboHoras";
+            this.cboHoras.Size = new System.Drawing.Size(121, 21);
+            this.cboHoras.TabIndex = 24;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(358, 96);
+            this.label14.Location = new System.Drawing.Point(431, 96);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(88, 13);
             this.label14.TabIndex = 23;
@@ -353,28 +370,28 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(108, 92);
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePicker1.Location = new System.Drawing.Point(312, 92);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(87, 20);
             this.dateTimePicker1.TabIndex = 22;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(15, 96);
+            this.label13.Location = new System.Drawing.Point(15, 94);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 21;
             this.label13.Text = "Fecha de Inicio:";
             // 
-            // textBox3
+            // txtLugar
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(68, 60);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(623, 20);
-            this.textBox3.TabIndex = 20;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txtLugar.Location = new System.Drawing.Point(68, 60);
+            this.txtLugar.Name = "txtLugar";
+            this.txtLugar.Size = new System.Drawing.Size(623, 20);
+            this.txtLugar.TabIndex = 20;
+            this.txtLugar.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // label12
             // 
@@ -398,23 +415,129 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // dataJurado
+            // 
+            this.dataJurado.AllowUserToAddRows = false;
+            this.dataJurado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataJurado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Remover,
+            this.CodigoProfesor,
+            this.NombreCompletoDocente,
+            this.PresidenteJurado});
+            this.dataJurado.Location = new System.Drawing.Point(3, 118);
+            this.dataJurado.Name = "dataJurado";
+            this.dataJurado.ReadOnly = true;
+            this.dataJurado.Size = new System.Drawing.Size(688, 137);
+            this.dataJurado.TabIndex = 25;
+            this.dataJurado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataJurado_CellContentClick);
+            // 
+            // Remover
+            // 
+            this.Remover.HeaderText = "Remover";
+            this.Remover.Name = "Remover";
+            this.Remover.ReadOnly = true;
+            this.Remover.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Remover.Text = "";
+            this.Remover.Width = 75;
+            // 
+            // CodigoProfesor
+            // 
+            this.CodigoProfesor.HeaderText = "Cod Docente";
+            this.CodigoProfesor.Name = "CodigoProfesor";
+            this.CodigoProfesor.ReadOnly = true;
+            // 
+            // NombreCompletoDocente
+            // 
+            this.NombreCompletoDocente.HeaderText = "Nombre Completo Profesor";
+            this.NombreCompletoDocente.Name = "NombreCompletoDocente";
+            this.NombreCompletoDocente.ReadOnly = true;
+            this.NombreCompletoDocente.Width = 300;
+            // 
+            // PresidenteJurado
+            // 
+            this.PresidenteJurado.HeaderText = "Presidente de Jurado ?";
+            this.PresidenteJurado.Name = "PresidenteJurado";
+            this.PresidenteJurado.ReadOnly = true;
+            this.PresidenteJurado.Width = 170;
+            // 
+            // button4
+            // 
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.Location = new System.Drawing.Point(176, 652);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(67, 31);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "Cerrar";
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(102, 652);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(68, 31);
+            this.button5.TabIndex = 19;
+            this.button5.Text = "Limpiar";
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(12, 652);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(82, 31);
+            this.button6.TabIndex = 18;
+            this.button6.Text = "Guardar";
+            this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(218, 94);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 13);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Hora de Inicio:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker2.Location = new System.Drawing.Point(104, 92);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(87, 20);
+            this.dateTimePicker2.TabIndex = 27;
+            // 
             // AsignarJurado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 643);
+            this.ClientSize = new System.Drawing.Size(726, 686);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "AsignarJurado";
-            this.Text = "Asignar Jurado";
+            this.Text = "Asignar Jurado de Tesis";
             this.Load += new System.EventHandler(this.AsignarJurado_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataJurado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -449,11 +572,21 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtLugar;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboHoras;
+        private System.Windows.Forms.DataGridView dataJurado;
+        private System.Windows.Forms.DataGridViewLinkColumn Remover;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodigoProfesor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreCompletoDocente;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn PresidenteJurado;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label15;
     }
 }

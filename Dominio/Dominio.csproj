@@ -43,6 +43,7 @@
     <Compile Include="Alumno.cs" />
     <Compile Include="BasicDomain.cs" />
     <Compile Include="FormaDePago.cs" />
+    <Compile Include="HorarioSustentacion.cs" />
     <Compile Include="PagoSolicitud.cs" />
     <Compile Include="Profesor.cs" />
     <Compile Include="ProgramaPostGrado.cs" />
