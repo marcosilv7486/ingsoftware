@@ -36,6 +36,10 @@ namespace Estandar
             txtNombreTesis.Text = solicitud.nombreTesis;
             txtObservacionesSolicitud.Text = solicitud.observaciones;
             txtDocumentoAlumno.Text = solicitud.numeroDocumentoSol;
+            if (!solicitud.alumno.urlFoto.Equals(""))
+            {
+                pbFoto.ImageLocation = Utilitario.getInstance().directorioFotos + solicitud.alumno.urlFoto;
+            }
         }
 
         private void label1_Click(object sender, EventArgs e)

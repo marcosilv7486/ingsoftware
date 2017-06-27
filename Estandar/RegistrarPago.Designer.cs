@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RegistrarPago));
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.txtObservacionesSolicitud = new System.Windows.Forms.TextBox();
             this.txtNombreTesis = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -47,6 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtRutaArchivo = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.txtSaldoAmortizado = new System.Windows.Forms.TextBox();
@@ -61,11 +63,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pbFoto = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -103,6 +103,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de la solicitud";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // pbFoto
+            // 
+            this.pbFoto.Image = global::Estandar.Properties.Resources.id_card_3;
+            this.pbFoto.Location = new System.Drawing.Point(607, 22);
+            this.pbFoto.Name = "pbFoto";
+            this.pbFoto.Size = new System.Drawing.Size(150, 157);
+            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbFoto.TabIndex = 15;
+            this.pbFoto.TabStop = false;
             // 
             // txtObservacionesSolicitud
             // 
@@ -256,6 +266,20 @@
             this.txtRutaArchivo.TabIndex = 28;
             this.txtRutaArchivo.TextChanged += new System.EventHandler(this.textBox13_TextChanged);
             // 
+            // button1
+            // 
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(116, 113);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 31);
+            this.button1.TabIndex = 27;
+            this.button1.Text = "Buscar archivo...";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // label16
             // 
             this.label16.AutoSize = true;
@@ -275,7 +299,7 @@
             // 
             // txtSaldoAmortizado
             // 
-            this.txtSaldoAmortizado.Location = new System.Drawing.Point(416, 67);
+            this.txtSaldoAmortizado.Location = new System.Drawing.Point(376, 67);
             this.txtSaldoAmortizado.Name = "txtSaldoAmortizado";
             this.txtSaldoAmortizado.Size = new System.Drawing.Size(142, 20);
             this.txtSaldoAmortizado.TabIndex = 23;
@@ -307,19 +331,19 @@
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(463, 32);
+            this.txtNumero.Location = new System.Drawing.Point(530, 32);
             this.txtNumero.Name = "txtNumero";
-            this.txtNumero.Size = new System.Drawing.Size(95, 20);
+            this.txtNumero.Size = new System.Drawing.Size(110, 20);
             this.txtNumero.TabIndex = 17;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(410, 32);
+            this.label11.Location = new System.Drawing.Point(410, 35);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(47, 13);
+            this.label11.Size = new System.Drawing.Size(114, 13);
             this.label11.TabIndex = 16;
-            this.label11.Text = "Número:";
+            this.label11.Text = "Número de Operacion:";
             // 
             // txtSerie
             // 
@@ -381,30 +405,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(116, 113);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(128, 31);
-            this.button1.TabIndex = 27;
-            this.button1.Text = "Buscar archivo...";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // pbFoto
-            // 
-            this.pbFoto.Image = global::Estandar.Properties.Resources.id_card_3;
-            this.pbFoto.Location = new System.Drawing.Point(607, 22);
-            this.pbFoto.Name = "pbFoto";
-            this.pbFoto.Size = new System.Drawing.Size(150, 157);
-            this.pbFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbFoto.TabIndex = 15;
-            this.pbFoto.TabStop = false;
-            // 
             // RegistrarPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -420,9 +420,9 @@
             this.Load += new System.EventHandler(this.RegistrarPago_Load_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

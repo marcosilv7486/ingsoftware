@@ -90,6 +90,10 @@ namespace Data
                     {
                         solicitud.observaciones = lector["OBSERVACIONES"].ToString();
                     }
+                    if (!lector.IsDBNull(15))
+                    {
+                        solicitud.alumno.urlFoto = lector["URL_FOTO"].ToString();
+                    }
                     data.Add(solicitud);
                 }
                 return data;
