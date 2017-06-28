@@ -50,11 +50,12 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(278, 9);
+            this.label1.Location = new System.Drawing.Point(283, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(296, 25);
+            this.label1.Size = new System.Drawing.Size(219, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Mantenimiento de Alumnos";
+            this.label1.Text = "Listado de Alumnos";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label4
             // 
@@ -187,7 +188,7 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "MantenerAlumno";
-            this.Text = "MantenerAlumno";
+            this.Text = "Listado de alumnos";
             this.Load += new System.EventHandler(this.MantenerAlumno_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

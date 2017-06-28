@@ -49,11 +49,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(314, 9);
+            this.label1.Location = new System.Drawing.Point(351, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(320, 25);
+            this.label1.Size = new System.Drawing.Size(241, 25);
             this.label1.TabIndex = 3;
-            this.label1.Text = "Mantenimiento de Profesores";
+            this.label1.Text = "Listado de profesores";
             // 
             // txtMaestria
             // 
@@ -178,7 +178,7 @@
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Name = "MantenerProfesor";
-            this.Text = "MantenerProfesor";
+            this.Text = "Listado de profesores";
             this.Load += new System.EventHandler(this.MantenerProfesor_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

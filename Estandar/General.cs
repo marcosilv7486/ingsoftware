@@ -102,5 +102,10 @@ namespace Estandar
             SolicitudesFinalizadas form = new SolicitudesFinalizadas();
             form.Show();
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Muy pronto !!!");
+        }
     }
 }

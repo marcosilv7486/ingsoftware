@@ -14,6 +14,8 @@ namespace Estandar
 
     {
         public bool credencialesCorrectos { get; set; }
+        private String usuario = "admin";
+        private String clave = "123456";
         
         public Login()
         {
@@ -31,12 +33,11 @@ namespace Estandar
             Close();
         }
 
-        private void btnIngresar_Click(object sender, EventArgs e)
+        private void validarLogin()
         {
             if (String.IsNullOrEmpty(txtUserName.Text))
             {
-                MessageBox.Show("Debe ingresar el usuario", "Campos requeridos", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                MessageBox.Show(Directory.GetCurrentDirectory());
+                MessageBox.Show("Debe ingresar el usuario", "Campos requeridos", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtUserName.Focus();
                 return;
             }
@@ -46,11 +47,43 @@ namespace Estandar
                 txtUserName.Focus();
                 return;
             }
-            credencialesCorrectos = true;
-            Close();
+            if (txtPwd.Text.Equals(clave) && txtUserName.Text.Equals(usuario))
+            {
+                credencialesCorrectos = true;
+                Close();
+            }
+            else
+            {
+                MessageBox.Show("Credenciales incorrectos", "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            validarLogin();
+            
         }
 
         private void Login_Load(object sender, EventArgs e)
+        {
+            txtPwd.KeyPress += new KeyPressEventHandler(txtPwd_KeyPress);
+            txtPwd.KeyDown += new KeyEventHandler(txtPwd_KeyDown);
+        }
+
+        void txtPwd_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                validarLogin();
+            }
+        }
+
+        void txtPwd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void txtPwd_TextChanged(object sender, EventArgs e)
         {
 
         }
