@@ -39,7 +39,6 @@
             this.pbFoto = new System.Windows.Forms.PictureBox();
             this.label9 = new System.Windows.Forms.Label();
             this.listBoxTemas = new System.Windows.Forms.ListBox();
-            this.button2 = new System.Windows.Forms.Button();
             this.txtObservacionesSolicitud = new System.Windows.Forms.TextBox();
             this.txtNombreTesis = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -55,6 +54,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtFechaInicio = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.dataJurado = new System.Windows.Forms.DataGridView();
+            this.Remover = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.CodigoProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreCompletoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PresidenteJurado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cboHoras = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.txtHoraInicio = new System.Windows.Forms.DateTimePicker();
@@ -62,16 +68,9 @@
             this.txtLugar = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
-            this.dataJurado = new System.Windows.Forms.DataGridView();
-            this.Remover = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.CodigoProfesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NombreCompletoDocente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PresidenteJurado = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.label15 = new System.Windows.Forms.Label();
-            this.txtFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -110,7 +109,6 @@
             this.groupBox1.Controls.Add(this.pbFoto);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.listBoxTemas);
-            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.txtObservacionesSolicitud);
             this.groupBox1.Controls.Add(this.txtNombreTesis);
             this.groupBox1.Controls.Add(this.label7);
@@ -193,18 +191,6 @@
             this.listBoxTemas.Name = "listBoxTemas";
             this.listBoxTemas.Size = new System.Drawing.Size(395, 56);
             this.listBoxTemas.TabIndex = 15;
-            // 
-            // button2
-            // 
-            this.button2.Image = global::Estandar.Properties.Resources.file1;
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(578, 178);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 31);
-            this.button2.TabIndex = 14;
-            this.button2.Text = "Descargar Tesis";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // txtObservacionesSolicitud
             // 
@@ -345,6 +331,69 @@
             this.groupBox2.Text = "Miembros del Jurado";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // txtFechaInicio
+            // 
+            this.txtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.txtFechaInicio.Location = new System.Drawing.Point(104, 92);
+            this.txtFechaInicio.Name = "txtFechaInicio";
+            this.txtFechaInicio.Size = new System.Drawing.Size(87, 20);
+            this.txtFechaInicio.TabIndex = 27;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(218, 94);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(76, 13);
+            this.label15.TabIndex = 26;
+            this.label15.Text = "Hora de Inicio:";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // dataJurado
+            // 
+            this.dataJurado.AllowUserToAddRows = false;
+            this.dataJurado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataJurado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Remover,
+            this.CodigoProfesor,
+            this.NombreCompletoDocente,
+            this.PresidenteJurado});
+            this.dataJurado.Location = new System.Drawing.Point(3, 118);
+            this.dataJurado.Name = "dataJurado";
+            this.dataJurado.ReadOnly = true;
+            this.dataJurado.Size = new System.Drawing.Size(688, 137);
+            this.dataJurado.TabIndex = 25;
+            this.dataJurado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataJurado_CellContentClick);
+            // 
+            // Remover
+            // 
+            this.Remover.HeaderText = "Remover";
+            this.Remover.Name = "Remover";
+            this.Remover.ReadOnly = true;
+            this.Remover.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Remover.Text = "";
+            this.Remover.Width = 75;
+            // 
+            // CodigoProfesor
+            // 
+            this.CodigoProfesor.HeaderText = "Cod Docente";
+            this.CodigoProfesor.Name = "CodigoProfesor";
+            this.CodigoProfesor.ReadOnly = true;
+            // 
+            // NombreCompletoDocente
+            // 
+            this.NombreCompletoDocente.HeaderText = "Nombre Completo Profesor";
+            this.NombreCompletoDocente.Name = "NombreCompletoDocente";
+            this.NombreCompletoDocente.ReadOnly = true;
+            this.NombreCompletoDocente.Width = 300;
+            // 
+            // PresidenteJurado
+            // 
+            this.PresidenteJurado.HeaderText = "Presidente de Jurado ?";
+            this.PresidenteJurado.Name = "PresidenteJurado";
+            this.PresidenteJurado.ReadOnly = true;
+            this.PresidenteJurado.Width = 170;
+            // 
             // cboHoras
             // 
             this.cboHoras.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -415,51 +464,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // dataJurado
-            // 
-            this.dataJurado.AllowUserToAddRows = false;
-            this.dataJurado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataJurado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Remover,
-            this.CodigoProfesor,
-            this.NombreCompletoDocente,
-            this.PresidenteJurado});
-            this.dataJurado.Location = new System.Drawing.Point(3, 118);
-            this.dataJurado.Name = "dataJurado";
-            this.dataJurado.ReadOnly = true;
-            this.dataJurado.Size = new System.Drawing.Size(688, 137);
-            this.dataJurado.TabIndex = 25;
-            this.dataJurado.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataJurado_CellContentClick);
-            // 
-            // Remover
-            // 
-            this.Remover.HeaderText = "Remover";
-            this.Remover.Name = "Remover";
-            this.Remover.ReadOnly = true;
-            this.Remover.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Remover.Text = "";
-            this.Remover.Width = 75;
-            // 
-            // CodigoProfesor
-            // 
-            this.CodigoProfesor.HeaderText = "Cod Docente";
-            this.CodigoProfesor.Name = "CodigoProfesor";
-            this.CodigoProfesor.ReadOnly = true;
-            // 
-            // NombreCompletoDocente
-            // 
-            this.NombreCompletoDocente.HeaderText = "Nombre Completo Profesor";
-            this.NombreCompletoDocente.Name = "NombreCompletoDocente";
-            this.NombreCompletoDocente.ReadOnly = true;
-            this.NombreCompletoDocente.Width = 300;
-            // 
-            // PresidenteJurado
-            // 
-            this.PresidenteJurado.HeaderText = "Presidente de Jurado ?";
-            this.PresidenteJurado.Name = "PresidenteJurado";
-            this.PresidenteJurado.ReadOnly = true;
-            this.PresidenteJurado.Width = 170;
-            // 
             // button4
             // 
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
@@ -499,24 +503,6 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(218, 94);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(76, 13);
-            this.label15.TabIndex = 26;
-            this.label15.Text = "Hora de Inicio:";
-            this.label15.Click += new System.EventHandler(this.label15_Click);
-            // 
-            // txtFechaInicio
-            // 
-            this.txtFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.txtFechaInicio.Location = new System.Drawing.Point(104, 92);
-            this.txtFechaInicio.Name = "txtFechaInicio";
-            this.txtFechaInicio.Size = new System.Drawing.Size(87, 20);
-            this.txtFechaInicio.TabIndex = 27;
-            // 
             // AsignarJurado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -555,7 +541,6 @@
         private System.Windows.Forms.PictureBox pbFoto;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ListBox listBoxTemas;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtObservacionesSolicitud;
         private System.Windows.Forms.TextBox txtNombreTesis;
         private System.Windows.Forms.Label label7;
