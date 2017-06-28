@@ -2,6 +2,9 @@
     
     
     public partial class BD_TESISDataSet {
+        partial class SOLICITUDDataTable
+        {
+        }
     }
 }
 

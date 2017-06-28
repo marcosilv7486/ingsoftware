@@ -323,6 +323,14 @@ namespace Estandar {
             
             private global::System.Data.DataColumn columnELIMINADO;
             
+            private global::System.Data.DataColumn columnFECHA_INICIO;
+            
+            private global::System.Data.DataColumn columnFECHA_FIN;
+            
+            private global::System.Data.DataColumn columnDURACION;
+            
+            private global::System.Data.DataColumn columnLUGAR;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public SOLICITUDDataTable() {
@@ -534,6 +542,38 @@ namespace Estandar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FECHA_INICIOColumn {
+                get {
+                    return this.columnFECHA_INICIO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn FECHA_FINColumn {
+                get {
+                    return this.columnFECHA_FIN;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn DURACIONColumn {
+                get {
+                    return this.columnDURACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LUGARColumn {
+                get {
+                    return this.columnLUGAR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -590,7 +630,11 @@ namespace Estandar {
                         string MOTIVO_EVALUACION, 
                         System.DateTime FECHA_FINALIZACION, 
                         System.DateTime FECHA_REGISTRO, 
-                        bool ELIMINADO) {
+                        bool ELIMINADO, 
+                        System.DateTime FECHA_INICIO, 
+                        System.DateTime FECHA_FIN, 
+                        int DURACION, 
+                        string LUGAR) {
                 SOLICITUDRow rowSOLICITUDRow = ((SOLICITUDRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -614,7 +658,11 @@ namespace Estandar {
                         MOTIVO_EVALUACION,
                         FECHA_FINALIZACION,
                         FECHA_REGISTRO,
-                        ELIMINADO};
+                        ELIMINADO,
+                        FECHA_INICIO,
+                        FECHA_FIN,
+                        DURACION,
+                        LUGAR};
                 rowSOLICITUDRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSOLICITUDRow);
                 return rowSOLICITUDRow;
@@ -666,6 +714,10 @@ namespace Estandar {
                 this.columnFECHA_FINALIZACION = base.Columns["FECHA_FINALIZACION"];
                 this.columnFECHA_REGISTRO = base.Columns["FECHA_REGISTRO"];
                 this.columnELIMINADO = base.Columns["ELIMINADO"];
+                this.columnFECHA_INICIO = base.Columns["FECHA_INICIO"];
+                this.columnFECHA_FIN = base.Columns["FECHA_FIN"];
+                this.columnDURACION = base.Columns["DURACION"];
+                this.columnLUGAR = base.Columns["LUGAR"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -715,6 +767,14 @@ namespace Estandar {
                 base.Columns.Add(this.columnFECHA_REGISTRO);
                 this.columnELIMINADO = new global::System.Data.DataColumn("ELIMINADO", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnELIMINADO);
+                this.columnFECHA_INICIO = new global::System.Data.DataColumn("FECHA_INICIO", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHA_INICIO);
+                this.columnFECHA_FIN = new global::System.Data.DataColumn("FECHA_FIN", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHA_FIN);
+                this.columnDURACION = new global::System.Data.DataColumn("DURACION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDURACION);
+                this.columnLUGAR = new global::System.Data.DataColumn("LUGAR", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLUGAR);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AutoIncrement = true;
@@ -750,6 +810,7 @@ namespace Estandar {
                 this.columnMOTIVO_ANULACION.MaxLength = 200;
                 this.columnMOTIVO_EVALUACION.MaxLength = 200;
                 this.columnFECHA_REGISTRO.AllowDBNull = false;
+                this.columnLUGAR.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1169,6 +1230,70 @@ namespace Estandar {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FECHA_INICIO {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSOLICITUD.FECHA_INICIOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FECHA_INICIO\' in table \'SOLICITUD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSOLICITUD.FECHA_INICIOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime FECHA_FIN {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSOLICITUD.FECHA_FINColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'FECHA_FIN\' in table \'SOLICITUD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSOLICITUD.FECHA_FINColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int DURACION {
+                get {
+                    try {
+                        return ((int)(this[this.tableSOLICITUD.DURACIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DURACION\' in table \'SOLICITUD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSOLICITUD.DURACIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string LUGAR {
+                get {
+                    try {
+                        return ((string)(this[this.tableSOLICITUD.LUGARColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'LUGAR\' in table \'SOLICITUD\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSOLICITUD.LUGARColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsOBSERVACIONESNull() {
                 return this.IsNull(this.tableSOLICITUD.OBSERVACIONESColumn);
             }
@@ -1249,6 +1374,54 @@ namespace Estandar {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetELIMINADONull() {
                 this[this.tableSOLICITUD.ELIMINADOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFECHA_INICIONull() {
+                return this.IsNull(this.tableSOLICITUD.FECHA_INICIOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFECHA_INICIONull() {
+                this[this.tableSOLICITUD.FECHA_INICIOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsFECHA_FINNull() {
+                return this.IsNull(this.tableSOLICITUD.FECHA_FINColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFECHA_FINNull() {
+                this[this.tableSOLICITUD.FECHA_FINColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsDURACIONNull() {
+                return this.IsNull(this.tableSOLICITUD.DURACIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetDURACIONNull() {
+                this[this.tableSOLICITUD.DURACIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLUGARNull() {
+                return this.IsNull(this.tableSOLICITUD.LUGARColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLUGARNull() {
+                this[this.tableSOLICITUD.LUGARColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1433,6 +1606,10 @@ namespace Estandar.BD_TESISDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("FECHA_FINALIZACION", "FECHA_FINALIZACION");
             tableMapping.ColumnMappings.Add("FECHA_REGISTRO", "FECHA_REGISTRO");
             tableMapping.ColumnMappings.Add("ELIMINADO", "ELIMINADO");
+            tableMapping.ColumnMappings.Add("FECHA_INICIO", "FECHA_INICIO");
+            tableMapping.ColumnMappings.Add("FECHA_FIN", "FECHA_FIN");
+            tableMapping.ColumnMappings.Add("DURACION", "DURACION");
+            tableMapping.ColumnMappings.Add("LUGAR", "LUGAR");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -1455,7 +1632,12 @@ namespace Estandar.BD_TESISDataSetTableAdapters {
                 "CION)) AND ((@IsNull_FECHA_FINALIZACION = 1 AND [FECHA_FINALIZACION] IS NULL) OR" +
                 " ([FECHA_FINALIZACION] = @Original_FECHA_FINALIZACION)) AND ([FECHA_REGISTRO] = " +
                 "@Original_FECHA_REGISTRO) AND ((@IsNull_ELIMINADO = 1 AND [ELIMINADO] IS NULL) O" +
-                "R ([ELIMINADO] = @Original_ELIMINADO)))";
+                "R ([ELIMINADO] = @Original_ELIMINADO)) AND ((@IsNull_FECHA_INICIO = 1 AND [FECHA" +
+                "_INICIO] IS NULL) OR ([FECHA_INICIO] = @Original_FECHA_INICIO)) AND ((@IsNull_FE" +
+                "CHA_FIN = 1 AND [FECHA_FIN] IS NULL) OR ([FECHA_FIN] = @Original_FECHA_FIN)) AND" +
+                " ((@IsNull_DURACION = 1 AND [DURACION] IS NULL) OR ([DURACION] = @Original_DURAC" +
+                "ION)) AND ((@IsNull_LUGAR = 1 AND [LUGAR] IS NULL) OR ([LUGAR] = @Original_LUGAR" +
+                ")))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODIGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1486,10 +1668,18 @@ namespace Estandar.BD_TESISDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_REGISTRO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_REGISTRO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ELIMINADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ELIMINADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ELIMINADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ELIMINADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHA_INICIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHA_FIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_FIN", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DURACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DURACION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DURACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DURACION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LUGAR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LUGAR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LUGAR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LUGAR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [SOLICITUD] ([CODIGO], [FECHA_EMISION], [CODIGO_ALUMNO_SOL], [NOMBRES_SOL], [APELLIDOS_SOL], [TIPO_DOCUMENTO_SOL], [NUMERO_DOCUMENTO_SOL], [GRADO_ACADEMICO_SOL], [PROGRAMA_POSTGRADO], [NOMBRE_TESIS], [OBSERVACIONES], [ALUMNO_ID], [SOLICITUD_ESTADO_ID], [NOMBRE_ESTADO], [FECHA_PAGO], [FECHA_EVALUACION], [MOTIVO_ANULACION], [MOTIVO_EVALUACION], [FECHA_FINALIZACION], [FECHA_REGISTRO], [ELIMINADO]) VALUES (@CODIGO, @FECHA_EMISION, @CODIGO_ALUMNO_SOL, @NOMBRES_SOL, @APELLIDOS_SOL, @TIPO_DOCUMENTO_SOL, @NUMERO_DOCUMENTO_SOL, @GRADO_ACADEMICO_SOL, @PROGRAMA_POSTGRADO, @NOMBRE_TESIS, @OBSERVACIONES, @ALUMNO_ID, @SOLICITUD_ESTADO_ID, @NOMBRE_ESTADO, @FECHA_PAGO, @FECHA_EVALUACION, @MOTIVO_ANULACION, @MOTIVO_EVALUACION, @FECHA_FINALIZACION, @FECHA_REGISTRO, @ELIMINADO);
-SELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL, TIPO_DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, GRADO_ACADEMICO_SOL, PROGRAMA_POSTGRADO, NOMBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBRE_ESTADO, FECHA_PAGO, FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION, FECHA_REGISTRO, ELIMINADO FROM SOLICITUD WHERE (ID = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [SOLICITUD] ([CODIGO], [FECHA_EMISION], [CODIGO_ALUMNO_SOL], [NOMBRES_SOL], [APELLIDOS_SOL], [TIPO_DOCUMENTO_SOL], [NUMERO_DOCUMENTO_SOL], [GRADO_ACADEMICO_SOL], [PROGRAMA_POSTGRADO], [NOMBRE_TESIS], [OBSERVACIONES], [ALUMNO_ID], [SOLICITUD_ESTADO_ID], [NOMBRE_ESTADO], [FECHA_PAGO], [FECHA_EVALUACION], [MOTIVO_ANULACION], [MOTIVO_EVALUACION], [FECHA_FINALIZACION], [FECHA_REGISTRO], [ELIMINADO], [FECHA_INICIO], [FECHA_FIN], [DURACION], [LUGAR]) VALUES (@CODIGO, @FECHA_EMISION, @CODIGO_ALUMNO_SOL, @NOMBRES_SOL, @APELLIDOS_SOL, @TIPO_DOCUMENTO_SOL, @NUMERO_DOCUMENTO_SOL, @GRADO_ACADEMICO_SOL, @PROGRAMA_POSTGRADO, @NOMBRE_TESIS, @OBSERVACIONES, @ALUMNO_ID, @SOLICITUD_ESTADO_ID, @NOMBRE_ESTADO, @FECHA_PAGO, @FECHA_EVALUACION, @MOTIVO_ANULACION, @MOTIVO_EVALUACION, @FECHA_FINALIZACION, @FECHA_REGISTRO, @ELIMINADO, @FECHA_INICIO, @FECHA_FIN, @DURACION, @LUGAR);
+SELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL, TIPO_DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, GRADO_ACADEMICO_SOL, PROGRAMA_POSTGRADO, NOMBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBRE_ESTADO, FECHA_PAGO, FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION, FECHA_REGISTRO, ELIMINADO, FECHA_INICIO, FECHA_FIN, DURACION, LUGAR FROM SOLICITUD WHERE (ID = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODIGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_EMISION", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_EMISION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1512,6 +1702,10 @@ SELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL,
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_FINALIZACION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FINALIZACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_REGISTRO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_REGISTRO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ELIMINADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ELIMINADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_FIN", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DURACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DURACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LUGAR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LUGAR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "UPDATE [SOLICITUD] SET [CODIGO] = @CODIGO, [FECHA_EMISION] = @FECHA_EMISION, [COD" +
@@ -1523,31 +1717,38 @@ SELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL,
                 "@SOLICITUD_ESTADO_ID, [NOMBRE_ESTADO] = @NOMBRE_ESTADO, [FECHA_PAGO] = @FECHA_PA" +
                 "GO, [FECHA_EVALUACION] = @FECHA_EVALUACION, [MOTIVO_ANULACION] = @MOTIVO_ANULACI" +
                 "ON, [MOTIVO_EVALUACION] = @MOTIVO_EVALUACION, [FECHA_FINALIZACION] = @FECHA_FINA" +
-                "LIZACION, [FECHA_REGISTRO] = @FECHA_REGISTRO, [ELIMINADO] = @ELIMINADO WHERE (([" +
-                "ID] = @Original_ID) AND ([CODIGO] = @Original_CODIGO) AND ([FECHA_EMISION] = @Or" +
-                "iginal_FECHA_EMISION) AND ([CODIGO_ALUMNO_SOL] = @Original_CODIGO_ALUMNO_SOL) AN" +
-                "D ([NOMBRES_SOL] = @Original_NOMBRES_SOL) AND ([APELLIDOS_SOL] = @Original_APELL" +
-                "IDOS_SOL) AND ([TIPO_DOCUMENTO_SOL] = @Original_TIPO_DOCUMENTO_SOL) AND ([NUMERO" +
-                "_DOCUMENTO_SOL] = @Original_NUMERO_DOCUMENTO_SOL) AND ([GRADO_ACADEMICO_SOL] = @" +
-                "Original_GRADO_ACADEMICO_SOL) AND ([PROGRAMA_POSTGRADO] = @Original_PROGRAMA_POS" +
-                "TGRADO) AND ([NOMBRE_TESIS] = @Original_NOMBRE_TESIS) AND ((@IsNull_OBSERVACIONE" +
-                "S = 1 AND [OBSERVACIONES] IS NULL) OR ([OBSERVACIONES] = @Original_OBSERVACIONES" +
-                ")) AND ([ALUMNO_ID] = @Original_ALUMNO_ID) AND ([SOLICITUD_ESTADO_ID] = @Origina" +
-                "l_SOLICITUD_ESTADO_ID) AND ([NOMBRE_ESTADO] = @Original_NOMBRE_ESTADO) AND ((@Is" +
-                "Null_FECHA_PAGO = 1 AND [FECHA_PAGO] IS NULL) OR ([FECHA_PAGO] = @Original_FECHA" +
-                "_PAGO)) AND ((@IsNull_FECHA_EVALUACION = 1 AND [FECHA_EVALUACION] IS NULL) OR ([" +
-                "FECHA_EVALUACION] = @Original_FECHA_EVALUACION)) AND ((@IsNull_MOTIVO_ANULACION " +
-                "= 1 AND [MOTIVO_ANULACION] IS NULL) OR ([MOTIVO_ANULACION] = @Original_MOTIVO_AN" +
-                "ULACION)) AND ((@IsNull_MOTIVO_EVALUACION = 1 AND [MOTIVO_EVALUACION] IS NULL) O" +
-                "R ([MOTIVO_EVALUACION] = @Original_MOTIVO_EVALUACION)) AND ((@IsNull_FECHA_FINAL" +
-                "IZACION = 1 AND [FECHA_FINALIZACION] IS NULL) OR ([FECHA_FINALIZACION] = @Origin" +
-                "al_FECHA_FINALIZACION)) AND ([FECHA_REGISTRO] = @Original_FECHA_REGISTRO) AND ((" +
-                "@IsNull_ELIMINADO = 1 AND [ELIMINADO] IS NULL) OR ([ELIMINADO] = @Original_ELIMI" +
-                "NADO)));\r\nSELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APEL" +
-                "LIDOS_SOL, TIPO_DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, GRADO_ACADEMICO_SOL, PROGRA" +
-                "MA_POSTGRADO, NOMBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBR" +
-                "E_ESTADO, FECHA_PAGO, FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FEC" +
-                "HA_FINALIZACION, FECHA_REGISTRO, ELIMINADO FROM SOLICITUD WHERE (ID = @ID)";
+                "LIZACION, [FECHA_REGISTRO] = @FECHA_REGISTRO, [ELIMINADO] = @ELIMINADO, [FECHA_I" +
+                "NICIO] = @FECHA_INICIO, [FECHA_FIN] = @FECHA_FIN, [DURACION] = @DURACION, [LUGAR" +
+                "] = @LUGAR WHERE (([ID] = @Original_ID) AND ([CODIGO] = @Original_CODIGO) AND ([" +
+                "FECHA_EMISION] = @Original_FECHA_EMISION) AND ([CODIGO_ALUMNO_SOL] = @Original_C" +
+                "ODIGO_ALUMNO_SOL) AND ([NOMBRES_SOL] = @Original_NOMBRES_SOL) AND ([APELLIDOS_SO" +
+                "L] = @Original_APELLIDOS_SOL) AND ([TIPO_DOCUMENTO_SOL] = @Original_TIPO_DOCUMEN" +
+                "TO_SOL) AND ([NUMERO_DOCUMENTO_SOL] = @Original_NUMERO_DOCUMENTO_SOL) AND ([GRAD" +
+                "O_ACADEMICO_SOL] = @Original_GRADO_ACADEMICO_SOL) AND ([PROGRAMA_POSTGRADO] = @O" +
+                "riginal_PROGRAMA_POSTGRADO) AND ([NOMBRE_TESIS] = @Original_NOMBRE_TESIS) AND ((" +
+                "@IsNull_OBSERVACIONES = 1 AND [OBSERVACIONES] IS NULL) OR ([OBSERVACIONES] = @Or" +
+                "iginal_OBSERVACIONES)) AND ([ALUMNO_ID] = @Original_ALUMNO_ID) AND ([SOLICITUD_E" +
+                "STADO_ID] = @Original_SOLICITUD_ESTADO_ID) AND ([NOMBRE_ESTADO] = @Original_NOMB" +
+                "RE_ESTADO) AND ((@IsNull_FECHA_PAGO = 1 AND [FECHA_PAGO] IS NULL) OR ([FECHA_PAG" +
+                "O] = @Original_FECHA_PAGO)) AND ((@IsNull_FECHA_EVALUACION = 1 AND [FECHA_EVALUA" +
+                "CION] IS NULL) OR ([FECHA_EVALUACION] = @Original_FECHA_EVALUACION)) AND ((@IsNu" +
+                "ll_MOTIVO_ANULACION = 1 AND [MOTIVO_ANULACION] IS NULL) OR ([MOTIVO_ANULACION] =" +
+                " @Original_MOTIVO_ANULACION)) AND ((@IsNull_MOTIVO_EVALUACION = 1 AND [MOTIVO_EV" +
+                "ALUACION] IS NULL) OR ([MOTIVO_EVALUACION] = @Original_MOTIVO_EVALUACION)) AND (" +
+                "(@IsNull_FECHA_FINALIZACION = 1 AND [FECHA_FINALIZACION] IS NULL) OR ([FECHA_FIN" +
+                "ALIZACION] = @Original_FECHA_FINALIZACION)) AND ([FECHA_REGISTRO] = @Original_FE" +
+                "CHA_REGISTRO) AND ((@IsNull_ELIMINADO = 1 AND [ELIMINADO] IS NULL) OR ([ELIMINAD" +
+                "O] = @Original_ELIMINADO)) AND ((@IsNull_FECHA_INICIO = 1 AND [FECHA_INICIO] IS " +
+                "NULL) OR ([FECHA_INICIO] = @Original_FECHA_INICIO)) AND ((@IsNull_FECHA_FIN = 1 " +
+                "AND [FECHA_FIN] IS NULL) OR ([FECHA_FIN] = @Original_FECHA_FIN)) AND ((@IsNull_D" +
+                "URACION = 1 AND [DURACION] IS NULL) OR ([DURACION] = @Original_DURACION)) AND ((" +
+                "@IsNull_LUGAR = 1 AND [LUGAR] IS NULL) OR ([LUGAR] = @Original_LUGAR)));\r\nSELECT" +
+                " ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL, TIPO_" +
+                "DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, GRADO_ACADEMICO_SOL, PROGRAMA_POSTGRADO, NO" +
+                "MBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBRE_ESTADO, FECHA_" +
+                "PAGO, FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION," +
+                " FECHA_REGISTRO, ELIMINADO, FECHA_INICIO, FECHA_FIN, DURACION, LUGAR FROM SOLICI" +
+                "TUD WHERE (ID = @ID)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CODIGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_EMISION", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_EMISION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1570,6 +1771,10 @@ SELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_FINALIZACION", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FINALIZACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_REGISTRO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_REGISTRO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ELIMINADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ELIMINADO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FECHA_FIN", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DURACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DURACION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LUGAR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LUGAR", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CODIGO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CODIGO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_EMISION", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_EMISION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1599,6 +1804,14 @@ SELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL,
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_REGISTRO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_REGISTRO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_ELIMINADO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ELIMINADO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_ELIMINADO", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ELIMINADO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHA_INICIO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_INICIO", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_INICIO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_FECHA_FIN", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_FECHA_FIN", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "FECHA_FIN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_DURACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DURACION", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_DURACION", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DURACION", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_LUGAR", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LUGAR", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_LUGAR", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "LUGAR", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1617,17 +1830,16 @@ SELECT ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL,
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = @"SELECT        ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL, TIPO_DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, 
                          GRADO_ACADEMICO_SOL, PROGRAMA_POSTGRADO, NOMBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBRE_ESTADO, FECHA_PAGO, 
-                         FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION, FECHA_REGISTRO, ELIMINADO
+                         FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION, FECHA_REGISTRO, ELIMINADO,FECHA_INICIO,
+FECHA_FIN,
+DURACION,
+LUGAR
 FROM            SOLICITUD
 ";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        ID, CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL, TIPO_DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, 
-                         GRADO_ACADEMICO_SOL, PROGRAMA_POSTGRADO, NOMBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBRE_ESTADO, FECHA_PAGO, 
-                         FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION, FECHA_REGISTRO, ELIMINADO
-FROM            SOLICITUD
-where (ID= @Id)";
+            this._commandCollection[1].CommandText = @"SELECT ALUMNO_ID, APELLIDOS_SOL, CODIGO, CODIGO_ALUMNO_SOL, DURACION, ELIMINADO, FECHA_EMISION, FECHA_EVALUACION, FECHA_FIN, FECHA_FINALIZACION, FECHA_INICIO, FECHA_PAGO, FECHA_REGISTRO, GRADO_ACADEMICO_SOL, ID, LUGAR, MOTIVO_ANULACION, MOTIVO_EVALUACION, NOMBRES_SOL, NOMBRE_ESTADO, NOMBRE_TESIS, NUMERO_DOCUMENTO_SOL, OBSERVACIONES, PROGRAMA_POSTGRADO, SOLICITUD_ESTADO_ID, TIPO_DOCUMENTO_SOL FROM SOLICITUD WHERE (ID = @Id)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -1737,7 +1949,11 @@ where (ID= @Id)";
                     string Original_MOTIVO_EVALUACION, 
                     global::System.Nullable<global::System.DateTime> Original_FECHA_FINALIZACION, 
                     System.DateTime Original_FECHA_REGISTRO, 
-                    global::System.Nullable<bool> Original_ELIMINADO) {
+                    global::System.Nullable<bool> Original_ELIMINADO, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHA_INICIO, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHA_FIN, 
+                    global::System.Nullable<int> Original_DURACION, 
+                    string Original_LUGAR) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_ID));
             if ((Original_CODIGO == null)) {
                 throw new global::System.ArgumentNullException("Original_CODIGO");
@@ -1859,6 +2075,38 @@ where (ID= @Id)";
                 this.Adapter.DeleteCommand.Parameters[27].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[28].Value = global::System.DBNull.Value;
             }
+            if ((Original_FECHA_INICIO.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[30].Value = ((System.DateTime)(Original_FECHA_INICIO.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[29].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[30].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHA_FIN.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[32].Value = ((System.DateTime)(Original_FECHA_FIN.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[31].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[32].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DURACION.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[34].Value = ((int)(Original_DURACION.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[33].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[34].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LUGAR == null)) {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[36].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[35].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[36].Value = ((string)(Original_LUGAR));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1900,7 +2148,11 @@ where (ID= @Id)";
                     string MOTIVO_EVALUACION, 
                     global::System.Nullable<global::System.DateTime> FECHA_FINALIZACION, 
                     System.DateTime FECHA_REGISTRO, 
-                    global::System.Nullable<bool> ELIMINADO) {
+                    global::System.Nullable<bool> ELIMINADO, 
+                    global::System.Nullable<global::System.DateTime> FECHA_INICIO, 
+                    global::System.Nullable<global::System.DateTime> FECHA_FIN, 
+                    global::System.Nullable<int> DURACION, 
+                    string LUGAR) {
             if ((CODIGO == null)) {
                 throw new global::System.ArgumentNullException("CODIGO");
             }
@@ -2007,6 +2259,30 @@ where (ID= @Id)";
             else {
                 this.Adapter.InsertCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
+            if ((FECHA_INICIO.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[21].Value = ((System.DateTime)(FECHA_INICIO.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((FECHA_FIN.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[22].Value = ((System.DateTime)(FECHA_FIN.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((DURACION.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[23].Value = ((int)(DURACION.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((LUGAR == null)) {
+                this.Adapter.InsertCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[24].Value = ((string)(LUGAR));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2049,6 +2325,10 @@ where (ID= @Id)";
                     global::System.Nullable<global::System.DateTime> FECHA_FINALIZACION, 
                     System.DateTime FECHA_REGISTRO, 
                     global::System.Nullable<bool> ELIMINADO, 
+                    global::System.Nullable<global::System.DateTime> FECHA_INICIO, 
+                    global::System.Nullable<global::System.DateTime> FECHA_FIN, 
+                    global::System.Nullable<int> DURACION, 
+                    string LUGAR, 
                     int Original_ID, 
                     string Original_CODIGO, 
                     System.DateTime Original_FECHA_EMISION, 
@@ -2071,6 +2351,10 @@ where (ID= @Id)";
                     global::System.Nullable<global::System.DateTime> Original_FECHA_FINALIZACION, 
                     System.DateTime Original_FECHA_REGISTRO, 
                     global::System.Nullable<bool> Original_ELIMINADO, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHA_INICIO, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHA_FIN, 
+                    global::System.Nullable<int> Original_DURACION, 
+                    string Original_LUGAR, 
                     int ID) {
             if ((CODIGO == null)) {
                 throw new global::System.ArgumentNullException("CODIGO");
@@ -2178,128 +2462,184 @@ where (ID= @Id)";
             else {
                 this.Adapter.UpdateCommand.Parameters[20].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[21].Value = ((int)(Original_ID));
+            if ((FECHA_INICIO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[21].Value = ((System.DateTime)(FECHA_INICIO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[21].Value = global::System.DBNull.Value;
+            }
+            if ((FECHA_FIN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[22].Value = ((System.DateTime)(FECHA_FIN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[22].Value = global::System.DBNull.Value;
+            }
+            if ((DURACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[23].Value = ((int)(DURACION.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[23].Value = global::System.DBNull.Value;
+            }
+            if ((LUGAR == null)) {
+                this.Adapter.UpdateCommand.Parameters[24].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(LUGAR));
+            }
+            this.Adapter.UpdateCommand.Parameters[25].Value = ((int)(Original_ID));
             if ((Original_CODIGO == null)) {
                 throw new global::System.ArgumentNullException("Original_CODIGO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[22].Value = ((string)(Original_CODIGO));
+                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_CODIGO));
             }
-            this.Adapter.UpdateCommand.Parameters[23].Value = ((System.DateTime)(Original_FECHA_EMISION));
+            this.Adapter.UpdateCommand.Parameters[27].Value = ((System.DateTime)(Original_FECHA_EMISION));
             if ((Original_CODIGO_ALUMNO_SOL == null)) {
                 throw new global::System.ArgumentNullException("Original_CODIGO_ALUMNO_SOL");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[24].Value = ((string)(Original_CODIGO_ALUMNO_SOL));
+                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_CODIGO_ALUMNO_SOL));
             }
             if ((Original_NOMBRES_SOL == null)) {
                 throw new global::System.ArgumentNullException("Original_NOMBRES_SOL");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[25].Value = ((string)(Original_NOMBRES_SOL));
+                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_NOMBRES_SOL));
             }
             if ((Original_APELLIDOS_SOL == null)) {
                 throw new global::System.ArgumentNullException("Original_APELLIDOS_SOL");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[26].Value = ((string)(Original_APELLIDOS_SOL));
+                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_APELLIDOS_SOL));
             }
             if ((Original_TIPO_DOCUMENTO_SOL == null)) {
                 throw new global::System.ArgumentNullException("Original_TIPO_DOCUMENTO_SOL");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[27].Value = ((string)(Original_TIPO_DOCUMENTO_SOL));
+                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_TIPO_DOCUMENTO_SOL));
             }
             if ((Original_NUMERO_DOCUMENTO_SOL == null)) {
                 throw new global::System.ArgumentNullException("Original_NUMERO_DOCUMENTO_SOL");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[28].Value = ((string)(Original_NUMERO_DOCUMENTO_SOL));
+                this.Adapter.UpdateCommand.Parameters[32].Value = ((string)(Original_NUMERO_DOCUMENTO_SOL));
             }
             if ((Original_GRADO_ACADEMICO_SOL == null)) {
                 throw new global::System.ArgumentNullException("Original_GRADO_ACADEMICO_SOL");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[29].Value = ((string)(Original_GRADO_ACADEMICO_SOL));
+                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_GRADO_ACADEMICO_SOL));
             }
             if ((Original_PROGRAMA_POSTGRADO == null)) {
                 throw new global::System.ArgumentNullException("Original_PROGRAMA_POSTGRADO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[30].Value = ((string)(Original_PROGRAMA_POSTGRADO));
+                this.Adapter.UpdateCommand.Parameters[34].Value = ((string)(Original_PROGRAMA_POSTGRADO));
             }
             if ((Original_NOMBRE_TESIS == null)) {
                 throw new global::System.ArgumentNullException("Original_NOMBRE_TESIS");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[31].Value = ((string)(Original_NOMBRE_TESIS));
+                this.Adapter.UpdateCommand.Parameters[35].Value = ((string)(Original_NOMBRE_TESIS));
             }
             if ((Original_OBSERVACIONES == null)) {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[33].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[37].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[32].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[33].Value = ((string)(Original_OBSERVACIONES));
+                this.Adapter.UpdateCommand.Parameters[36].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[37].Value = ((string)(Original_OBSERVACIONES));
             }
-            this.Adapter.UpdateCommand.Parameters[34].Value = ((int)(Original_ALUMNO_ID));
-            this.Adapter.UpdateCommand.Parameters[35].Value = ((int)(Original_SOLICITUD_ESTADO_ID));
+            this.Adapter.UpdateCommand.Parameters[38].Value = ((int)(Original_ALUMNO_ID));
+            this.Adapter.UpdateCommand.Parameters[39].Value = ((int)(Original_SOLICITUD_ESTADO_ID));
             if ((Original_NOMBRE_ESTADO == null)) {
                 throw new global::System.ArgumentNullException("Original_NOMBRE_ESTADO");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[36].Value = ((string)(Original_NOMBRE_ESTADO));
+                this.Adapter.UpdateCommand.Parameters[40].Value = ((string)(Original_NOMBRE_ESTADO));
             }
             if ((Original_FECHA_PAGO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[38].Value = ((System.DateTime)(Original_FECHA_PAGO.Value));
+                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[42].Value = ((System.DateTime)(Original_FECHA_PAGO.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[37].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[38].Value = global::System.DBNull.Value;
-            }
-            if ((Original_FECHA_EVALUACION.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[40].Value = ((System.DateTime)(Original_FECHA_EVALUACION.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[39].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[40].Value = global::System.DBNull.Value;
-            }
-            if ((Original_MOTIVO_ANULACION == null)) {
                 this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[42].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[41].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[42].Value = ((string)(Original_MOTIVO_ANULACION));
+            if ((Original_FECHA_EVALUACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[44].Value = ((System.DateTime)(Original_FECHA_EVALUACION.Value));
             }
-            if ((Original_MOTIVO_EVALUACION == null)) {
+            else {
                 this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[44].Value = global::System.DBNull.Value;
             }
-            else {
-                this.Adapter.UpdateCommand.Parameters[43].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[44].Value = ((string)(Original_MOTIVO_EVALUACION));
-            }
-            if ((Original_FECHA_FINALIZACION.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[46].Value = ((System.DateTime)(Original_FECHA_FINALIZACION.Value));
-            }
-            else {
+            if ((Original_MOTIVO_ANULACION == null)) {
                 this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[46].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[47].Value = ((System.DateTime)(Original_FECHA_REGISTRO));
-            if ((Original_ELIMINADO.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[49].Value = ((bool)(Original_ELIMINADO.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[45].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[46].Value = ((string)(Original_MOTIVO_ANULACION));
+            }
+            if ((Original_MOTIVO_EVALUACION == null)) {
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[48].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[48].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[49].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[47].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[48].Value = ((string)(Original_MOTIVO_EVALUACION));
             }
-            this.Adapter.UpdateCommand.Parameters[50].Value = ((int)(ID));
+            if ((Original_FECHA_FINALIZACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[50].Value = ((System.DateTime)(Original_FECHA_FINALIZACION.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[49].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[50].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[51].Value = ((System.DateTime)(Original_FECHA_REGISTRO));
+            if ((Original_ELIMINADO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[53].Value = ((bool)(Original_ELIMINADO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[52].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[53].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHA_INICIO.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[55].Value = ((System.DateTime)(Original_FECHA_INICIO.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[54].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[55].Value = global::System.DBNull.Value;
+            }
+            if ((Original_FECHA_FIN.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[57].Value = ((System.DateTime)(Original_FECHA_FIN.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[56].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[57].Value = global::System.DBNull.Value;
+            }
+            if ((Original_DURACION.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[59].Value = ((int)(Original_DURACION.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[58].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[59].Value = global::System.DBNull.Value;
+            }
+            if ((Original_LUGAR == null)) {
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[61].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[60].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[61].Value = ((string)(Original_LUGAR));
+            }
+            this.Adapter.UpdateCommand.Parameters[62].Value = ((int)(ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -2342,6 +2682,10 @@ where (ID= @Id)";
                     global::System.Nullable<global::System.DateTime> FECHA_FINALIZACION, 
                     System.DateTime FECHA_REGISTRO, 
                     global::System.Nullable<bool> ELIMINADO, 
+                    global::System.Nullable<global::System.DateTime> FECHA_INICIO, 
+                    global::System.Nullable<global::System.DateTime> FECHA_FIN, 
+                    global::System.Nullable<int> DURACION, 
+                    string LUGAR, 
                     int Original_ID, 
                     string Original_CODIGO, 
                     System.DateTime Original_FECHA_EMISION, 
@@ -2363,8 +2707,12 @@ where (ID= @Id)";
                     string Original_MOTIVO_EVALUACION, 
                     global::System.Nullable<global::System.DateTime> Original_FECHA_FINALIZACION, 
                     System.DateTime Original_FECHA_REGISTRO, 
-                    global::System.Nullable<bool> Original_ELIMINADO) {
-            return this.Update(CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL, TIPO_DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, GRADO_ACADEMICO_SOL, PROGRAMA_POSTGRADO, NOMBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBRE_ESTADO, FECHA_PAGO, FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION, FECHA_REGISTRO, ELIMINADO, Original_ID, Original_CODIGO, Original_FECHA_EMISION, Original_CODIGO_ALUMNO_SOL, Original_NOMBRES_SOL, Original_APELLIDOS_SOL, Original_TIPO_DOCUMENTO_SOL, Original_NUMERO_DOCUMENTO_SOL, Original_GRADO_ACADEMICO_SOL, Original_PROGRAMA_POSTGRADO, Original_NOMBRE_TESIS, Original_OBSERVACIONES, Original_ALUMNO_ID, Original_SOLICITUD_ESTADO_ID, Original_NOMBRE_ESTADO, Original_FECHA_PAGO, Original_FECHA_EVALUACION, Original_MOTIVO_ANULACION, Original_MOTIVO_EVALUACION, Original_FECHA_FINALIZACION, Original_FECHA_REGISTRO, Original_ELIMINADO, Original_ID);
+                    global::System.Nullable<bool> Original_ELIMINADO, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHA_INICIO, 
+                    global::System.Nullable<global::System.DateTime> Original_FECHA_FIN, 
+                    global::System.Nullable<int> Original_DURACION, 
+                    string Original_LUGAR) {
+            return this.Update(CODIGO, FECHA_EMISION, CODIGO_ALUMNO_SOL, NOMBRES_SOL, APELLIDOS_SOL, TIPO_DOCUMENTO_SOL, NUMERO_DOCUMENTO_SOL, GRADO_ACADEMICO_SOL, PROGRAMA_POSTGRADO, NOMBRE_TESIS, OBSERVACIONES, ALUMNO_ID, SOLICITUD_ESTADO_ID, NOMBRE_ESTADO, FECHA_PAGO, FECHA_EVALUACION, MOTIVO_ANULACION, MOTIVO_EVALUACION, FECHA_FINALIZACION, FECHA_REGISTRO, ELIMINADO, FECHA_INICIO, FECHA_FIN, DURACION, LUGAR, Original_ID, Original_CODIGO, Original_FECHA_EMISION, Original_CODIGO_ALUMNO_SOL, Original_NOMBRES_SOL, Original_APELLIDOS_SOL, Original_TIPO_DOCUMENTO_SOL, Original_NUMERO_DOCUMENTO_SOL, Original_GRADO_ACADEMICO_SOL, Original_PROGRAMA_POSTGRADO, Original_NOMBRE_TESIS, Original_OBSERVACIONES, Original_ALUMNO_ID, Original_SOLICITUD_ESTADO_ID, Original_NOMBRE_ESTADO, Original_FECHA_PAGO, Original_FECHA_EVALUACION, Original_MOTIVO_ANULACION, Original_MOTIVO_EVALUACION, Original_FECHA_FINALIZACION, Original_FECHA_REGISTRO, Original_ELIMINADO, Original_FECHA_INICIO, Original_FECHA_FIN, Original_DURACION, Original_LUGAR, Original_ID);
         }
     }
     
