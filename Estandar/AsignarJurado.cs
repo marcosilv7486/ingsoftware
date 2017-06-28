@@ -177,7 +177,7 @@ namespace Estandar
                 horario.lugar = txtLugar.Text;
                 horario.duracion = int.Parse(cboHoras.Text.ToString());
                 solicitud.fechaFin = horario.fechaFin;
-                solicitud.fechaInicio = horario.fecha.AddHours(horario.hora.Hour).AddMinutes(horario.hora.Minute);
+                solicitud.fechaInicio = horario.fecha;
                 solicitud.lugar = txtLugar.Text;
                 solicitud.duracion = horario.duracion;
             }
