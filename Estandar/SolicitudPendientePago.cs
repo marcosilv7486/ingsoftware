@@ -60,6 +60,7 @@ namespace Estandar
 
         private void cargarData()
         {
+            listView1.Items.Clear();
             data = gestionTesis.obtenerSolicitudesPendientesPago();
             foreach (Solicitud solicitud in data)
             {
