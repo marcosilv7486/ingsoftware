@@ -176,6 +176,10 @@ namespace Estandar
                 horario.fechaFin = horario.fecha.AddHours(horario.hora.Hour).AddMinutes(horario.hora.Minute).AddHours(int.Parse(cboHoras.Text.ToString()));
                 horario.lugar = txtLugar.Text;
                 horario.duracion = int.Parse(cboHoras.Text.ToString());
+                solicitud.fechaFin = horario.fechaFin;
+                solicitud.fechaInicio = horario.fecha.AddHours(horario.hora.Hour).AddMinutes(horario.hora.Minute);
+                solicitud.lugar = txtLugar.Text;
+                solicitud.duracion = horario.duracion;
             }
             try
             {

@@ -96,5 +96,11 @@ namespace Estandar
             AsignarJurado form = new AsignarJurado();
             form.Show();
         }
+
+        private void pictureBox11_Click(object sender, EventArgs e)
+        {
+            Reportes form = new Reportes();
+            form.Show();
+        }
     }
 }

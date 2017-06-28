@@ -94,6 +94,22 @@ namespace Data
                     {
                         solicitud.alumno.urlFoto = lector["URL_FOTO"].ToString();
                     }
+                    if (!lector.IsDBNull(16))
+                    {
+                        solicitud.fechaInicio = DateTime.Parse(lector["FECHA_INICIO"].ToString());
+                    }
+                    if (!lector.IsDBNull(17))
+                    {
+                        solicitud.fechaFin = DateTime.Parse(lector["FECHA_INICIO"].ToString());
+                    }
+                    if (!lector.IsDBNull(18))
+                    {
+                        solicitud.duracion = int.Parse(lector["DURACION"].ToString());
+                    }
+                    if (!lector.IsDBNull(19))
+                    {
+                        solicitud.lugar = lector["LUGAR"].ToString();
+                    }
                     data.Add(solicitud);
                 }
                 return data;
@@ -191,6 +207,10 @@ namespace Data
             comando.Parameters.AddWithValue("@ESTADO_ID", nuevoEstado.id);
             comando.Parameters.AddWithValue("@NOMBRE_RESTADO", nuevoEstado.nombre);
             comando.Parameters.AddWithValue("@FECHA_FINALIZACION", DateTime.Now);
+            comando.Parameters.AddWithValue("@FECHA_INICIO",solicitud.fechaInicio);
+            comando.Parameters.AddWithValue("@FECHA_FIN", solicitud.fechaFin);
+            comando.Parameters.AddWithValue("@DURACION", solicitud.duracion);
+            comando.Parameters.AddWithValue("@LUGAR", solicitud.lugar);
             comando.ExecuteNonQuery();
         }
     }
