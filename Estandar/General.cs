@@ -99,7 +99,7 @@ namespace Estandar
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-            Reportes form = new Reportes();
+            SolicitudesFinalizadas form = new SolicitudesFinalizadas();
             form.Show();
         }
     }

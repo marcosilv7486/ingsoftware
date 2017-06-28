@@ -144,6 +144,12 @@
     <Compile Include="Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="SolicitudesFinalizadas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SolicitudesFinalizadas.Designer.cs">
+      <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
+    </Compile>
     <Compile Include="SolicitudPendientePago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolicitudesFinalizadas.resx">
+      <DependentUpon>SolicitudesFinalizadas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SolicitudPendientePago.resx">
       <DependentUpon>SolicitudPendientePago.cs</DependentUpon>
