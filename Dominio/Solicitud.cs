@@ -31,6 +31,9 @@ namespace Dominio
         public DateTime fechaFin { get; set; }
         public int duracion { get; set; }
         public String lugar { get; set; }
+        public String urlTesis { get; set; }
+        public String nombreArchivo { get; set; }
+        public String carpetaArchivo { get; set; }
 
         public bool aprobado { get; set; }
 

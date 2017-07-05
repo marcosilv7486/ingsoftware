@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Dominio;
 using Negocio;
+using System.IO;
 namespace Estandar
 {
     public partial class EvaluarSolicitud : Form
@@ -116,6 +117,33 @@ namespace Estandar
         private void button5_Click(object sender, EventArgs e)
         {
             limpiar();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (solicitud == null)
+            {
+                MessageBox.Show("Debe seleccionaru una solicitud primero");
+                return;
+            }
+            if(String.IsNullOrEmpty(solicitud.urlTesis))
+            {
+                MessageBox.Show("La solicitud adjuntada no tiene archivo de tesis");
+                return;
+            }
+            using (SaveFileDialog dialog = new SaveFileDialog())
+            {
+                dialog.Filter = "txt files (*.pdf)|*.txt|All files (*.*)|*.*";
+                dialog.FilterIndex = 2;
+                dialog.RestoreDirectory = true;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    string newDirectory = dialog.FileName;
+                    System.IO.File.Copy(solicitud.urlTesis, newDirectory);
+                    MessageBox.Show("Archivo generado en : " + newDirectory);
+                }
+            }
         }
     }
 }

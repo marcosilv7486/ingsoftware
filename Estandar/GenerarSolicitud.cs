@@ -18,7 +18,7 @@ namespace Estandar
         private Solicitud solicitud;
         private List<TemaTesis> temasTesis;
         private String fotoPorDefecto;
-        
+        private String nombreArchivo;
         public GenerarSolicitud()
         {
             InitializeComponent();
@@ -70,6 +70,7 @@ namespace Estandar
             txtObservaciones.Text = "";
             txtNombreTesis.Text = "";
             listBoxTemas.ClearSelected();
+            nombreArchivo = "";
             foreach (int i in listBoxTemas.CheckedIndices)
             {
                 listBoxTemas.SetItemCheckState(i, CheckState.Unchecked);
@@ -128,6 +129,8 @@ namespace Estandar
             solicitud.numeroDocumentoSol = alumno.numeroDocumento;
             solicitud.tipoDocumentoSol = alumno.tipoDocumento;
             solicitud.gradoAcademicoSol = alumno.gradoAcademico;
+            solicitud.urlTesis = txtRutaArchivo.Text;
+            solicitud.nombreArchivo = nombreArchivo;
             foreach (object obj in listBoxTemas.CheckedItems)
             {
                 TemaTesis tesis = (TemaTesis)obj;
@@ -196,6 +199,20 @@ namespace Estandar
         private void button3_Click(object sender, EventArgs e)
         {
             limpiarData();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog dlg = new OpenFileDialog())
+            {
+                dlg.Title = "Seleccione un archivo";
+                dlg.Filter = "Archivo PDF (*.pdf)|*.pdf";
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    txtRutaArchivo.Text = dlg.FileName;
+                    nombreArchivo = dlg.SafeFileName;
+                }
+            }
         }
     }
 }

@@ -122,6 +122,21 @@ namespace Negocio
                     throw new ArgumentNullException("No se encontro el estado GENERADO para la solicitud");
                 solicitud.estadoSolicitud = estadoGenerado;
                 solicitud.nombreEstado = estadoGenerado.nombre;
+                //Subir el archivo de tesis
+                if (!String.IsNullOrEmpty(solicitud.urlTesis))
+                {
+                    String destinoArchivo = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+                    destinoArchivo = Path.Combine(destinoArchivo, "Documentos");
+                    destinoArchivo = Path.Combine(destinoArchivo, "Solicitud");
+                    destinoArchivo = Path.Combine(destinoArchivo, solicitud.codigo);
+                    Directory.CreateDirectory(destinoArchivo);
+                    //Copiar archivo
+                    string sourceFile = System.IO.Path.Combine(solicitud.urlTesis);
+                    string destFile = System.IO.Path.Combine(destinoArchivo, solicitud.nombreArchivo);
+                    System.IO.File.Copy(sourceFile, destFile, true);
+                    //Actualizamos la ruta
+                    solicitud.urlTesis = destFile;
+                }
                 solicitudRepository.registrarSolicitud(solicitud, cn, transaccion);
                 //Registrar los temas de la solicitud
                 foreach (SolicitudTema tema in solicitud.temas)
@@ -129,6 +144,7 @@ namespace Negocio
                     tema.solicitud = solicitud;
                     solicitudTemaRepository.registrarSolicitudTema(tema, cn, transaccion);
                 }
+               
                 transaccion.Commit();
             }
             catch (Exception e)

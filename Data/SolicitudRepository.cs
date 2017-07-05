@@ -30,6 +30,7 @@ namespace Data
             comando.Parameters.AddWithValue("@ALUMNO_ID", solicitud.alumno.id);
             comando.Parameters.AddWithValue("@SOLICITUD_ESTADO_ID", solicitud.estadoSolicitud.id);
             comando.Parameters.AddWithValue("@NOMBRE_ESTADO", solicitud.nombreEstado);
+            comando.Parameters.AddWithValue("@URL_SOLICITUD", solicitud.urlTesis);
             comando.Parameters.Add("@ID", SqlDbType.Int);
             comando.Parameters["@ID"].Direction = ParameterDirection.Output;
             comando.ExecuteNonQuery();
@@ -109,6 +110,10 @@ namespace Data
                     if (!lector.IsDBNull(19))
                     {
                         solicitud.lugar = lector["LUGAR"].ToString();
+                    }
+                    if (!lector.IsDBNull(20))
+                    {
+                        solicitud.urlTesis = lector["URL_TESIS"].ToString();
                     }
                     data.Add(solicitud);
                 }

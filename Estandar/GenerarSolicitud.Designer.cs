@@ -60,6 +60,9 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtRutaArchivo = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFoto)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -303,7 +306,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 150);
+            this.label12.Location = new System.Drawing.Point(6, 193);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(81, 13);
             this.label12.TabIndex = 13;
@@ -311,7 +314,7 @@
             // 
             // txtObservaciones
             // 
-            this.txtObservaciones.Location = new System.Drawing.Point(113, 150);
+            this.txtObservaciones.Location = new System.Drawing.Point(113, 190);
             this.txtObservaciones.MaxLength = 200;
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
@@ -322,7 +325,7 @@
             // 
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(14, 449);
+            this.button2.Location = new System.Drawing.Point(15, 498);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 31);
             this.button2.TabIndex = 15;
@@ -335,7 +338,7 @@
             // 
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(104, 449);
+            this.button3.Location = new System.Drawing.Point(104, 498);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(68, 31);
             this.button3.TabIndex = 16;
@@ -348,7 +351,7 @@
             // 
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.Location = new System.Drawing.Point(178, 449);
+            this.button4.Location = new System.Drawing.Point(178, 498);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(67, 31);
             this.button4.TabIndex = 17;
@@ -359,6 +362,9 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.txtRutaArchivo);
+            this.groupBox2.Controls.Add(this.button5);
+            this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.txtObservaciones);
             this.groupBox2.Controls.Add(this.listBoxTemas);
@@ -367,16 +373,47 @@
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Location = new System.Drawing.Point(14, 262);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(631, 184);
+            this.groupBox2.Size = new System.Drawing.Size(631, 230);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Información de la Solicitud";
+            // 
+            // txtRutaArchivo
+            // 
+            this.txtRutaArchivo.Enabled = false;
+            this.txtRutaArchivo.Location = new System.Drawing.Point(261, 130);
+            this.txtRutaArchivo.Name = "txtRutaArchivo";
+            this.txtRutaArchivo.Size = new System.Drawing.Size(336, 20);
+            this.txtRutaArchivo.TabIndex = 31;
+            // 
+            // button5
+            // 
+            this.button5.Image = ((System.Drawing.Image)(resources.GetObject("button5.Image")));
+            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button5.Location = new System.Drawing.Point(113, 125);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(128, 31);
+            this.button5.TabIndex = 30;
+            this.button5.Text = "Buscar archivo...";
+            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(3, 133);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(104, 13);
+            this.label16.TabIndex = 29;
+            this.label16.Text = "Documento Adjunto:";
             // 
             // GenerarSolicitud
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 485);
+            this.ClientSize = new System.Drawing.Size(659, 541);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -433,5 +470,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtRutaArchivo;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label16;
     }
 }
